@@ -1,7 +1,7 @@
 <template>
   <el-upload ref="upload" class="upload-demo" v-bind="config">
     <slot>
-      <el-button plain>
+      <el-button @click="onBeforeSelect" plain>
         Выбрать обложку
       </el-button>
     </slot>
@@ -15,9 +15,9 @@ export default {
       config: {
         action: '/api/v1/files',
         headers: { 'access_token': this.$auth.getToken('local') },
-        multiple: true,
+        multiple: false,
         name: 'file',
-        showFileList: true,
+        showFileList: false,
         accept: 'image/*',
         onSuccess: this.onSuccess,
         onError: this.onError,
@@ -32,8 +32,8 @@ export default {
       this.$refs.upload.submit()
     },
     onSuccess (response, file, fileList) {
-      const category = response.mimetype.includes('image') ? 'images' : 'docs'
-      this.$emit('result', category)
+      console.log(response)
+      this.$emit('result', response.url)
     },
     onError (err, file) {
       const status = err.status
@@ -52,7 +52,7 @@ export default {
       })
     },
     onExceed () {
-      this.$alert(`Максимальное допустимое количество файлов: ${this.uploadBindings.limit}`)
+      this.$alert(`Максимальное допустимое количество файлов: ${this.config.limit}`)
     },
     onBeforeSelect () {
       this.$refs.upload.clearFiles()

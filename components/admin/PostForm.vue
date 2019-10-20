@@ -18,7 +18,8 @@
     </el-form-item>
 
     <el-form-item label="Выберите обложку">
-      <upload @result="onSubmit" />
+      <upload @result="onCover" />
+      <img class="border h-32 w-32" :src="model.cover_img_url">
     </el-form-item>
 
     <el-form-item v-if="lang === 'ru'" label="Заголовок новости" prop="title">
@@ -83,6 +84,9 @@ export default {
     }
   },
   methods: {
+    onCover (url) {
+      this.model.cover_img_url = url
+    },
     save () {
       this.$refs.editor.save()
     },

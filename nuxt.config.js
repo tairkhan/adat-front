@@ -68,7 +68,8 @@ export default {
     prefix: '/api/v1'
   },
   proxy: {
-    '/api': 'http://localhost:3300'
+    '/api': 'http://localhost:3300',
+    '/public': 'http://localhost:3300'
   },
   auth: {
     redirect: {

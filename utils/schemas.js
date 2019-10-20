@@ -6,7 +6,8 @@ export const postSchema = morphism({
   title: 'title',
   title_kg: 'title_kg',
   content: entity => entity.content || {},
-  content_kg: entity => entity.content_kg || {}
+  content_kg: entity => entity.content_kg || {},
+  status: 'status'
 })
 
 export const rubricSchema = morphism({
