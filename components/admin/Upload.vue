@@ -14,7 +14,7 @@ export default {
     return {
       config: {
         action: '/api/v1/files',
-        headers: { 'Authorization': this.$auth.getToken('local') },
+        headers: { 'access_token': this.$auth.getToken('local') },
         multiple: true,
         name: 'file',
         showFileList: true,
