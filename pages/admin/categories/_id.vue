@@ -21,12 +21,6 @@ export default {
         return { entity }
       })
       .catch(() => error({ statusCode: 404 }))
-    // try {
-    //   const entity = await store.dispatch('directories/fetchOne', { name: 'rubrics', id: params.id })
-    //   return { entity }
-    // } catch (err) {
-    //   error({ statusCode: 404 })
-    // }
   }
 }
 </script>

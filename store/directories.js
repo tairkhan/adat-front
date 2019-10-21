@@ -29,23 +29,23 @@ export const actions = {
       .then((data) => {
         commit('SET_DATA', { name, data })
       })
-      .catch((error) => {
-        throw error
+      .catch((err) => {
+        throw err
       })
   },
 
-  fetchOne (context, { name, id }) {
+  fetchOne (ctx, { name, id }) {
     if (!name || !id) {
       throw new Error('[directories/fetchOne] name and id are required')
     }
 
     return this.$axios.$get(`${name}/${id}`)
-      .catch((error) => {
-        throw error
+      .catch((err) => {
+        throw err
       })
   },
 
-  create (context, { name, payload }) {
+  create (ctx, { name, payload }) {
     if (!name) {
       throw new Error('[directories/create] name param is required')
     }
@@ -54,12 +54,12 @@ export const actions = {
     }
 
     return this.$axios.$post(name, payload)
-      .catch((error) => {
-        throw error
+      .catch((err) => {
+        throw err
       })
   },
 
-  update (context, { name, payload }) {
+  update (ctx, { name, payload }) {
     if (!name) {
       throw new Error('[directories/update] name param is required')
     }
@@ -68,12 +68,12 @@ export const actions = {
     }
 
     return this.$axios.$put(`${name}/${payload.id}`, payload)
-      .catch((error) => {
-        throw error
+      .catch((err) => {
+        throw err
       })
   },
 
-  delete (context, { name, id }) {
+  delete (ctx, { name, id }) {
     if (!name) {
       throw new Error('[directories/delete] name param is required')
     }
@@ -82,8 +82,8 @@ export const actions = {
     }
 
     return this.$axios.$delete(`${name}/${id}`)
-      .catch((error) => {
-        throw error
+      .catch((err) => {
+        throw err
       })
   }
 }

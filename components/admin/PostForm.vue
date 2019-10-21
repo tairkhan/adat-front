@@ -17,9 +17,19 @@
       </el-select>
     </el-form-item>
 
+    <el-form-item label="Выберите категорию">
+      <el-select v-model="lang">
+        <el-option
+          v-for="(item, i) in options"
+          :key="i"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+    </el-form-item>
+
     <el-form-item label="Выберите обложку">
-      <upload @result="onCover" />
-      <img class="border h-32 w-32" :src="model.cover_img_url">
+      <upload @result="cover" />
     </el-form-item>
 
     <el-form-item v-if="lang === 'ru'" label="Заголовок новости" prop="title">
@@ -31,14 +41,14 @@
     </el-form-item>
 
     <el-form-item label="Контент">
-      <editor
-        class="border rounded"
-        :autofocus="false"
-        :init-data="content"
-        @save="onSave"
-        @ready="onReady"
-        @change="onChange"
-      />
+      <client-only>
+        <editor
+          class="border overflow-y-auto"
+          style="height: 24rem;"
+          :data="data"
+          @save="onSave"
+        />
+      </client-only>
     </el-form-item>
 
     <el-form-item>
@@ -72,42 +82,30 @@ export default {
         { label: 'Ру', value: 'ru' },
         { label: 'Кг', value: 'kg' }
       ],
-      initData: {},
-      savedData: {},
+      data: {},
       model: postSchema(this.entity),
       rules: postRules
     }
   },
-  computed: {
-    content () {
-      return this.lang === 'ru' ? this.model.content : this.model.content_kg
+  watch: {
+    lang (val) {
+      const data = this.lang === 'ru' ? this.model.content : this.model.content_kg
+      this.data = JSON.parse(data)
     }
   },
   methods: {
-    onCover (url) {
-      this.model.cover_img_url = url
+    cover (url) {
+      this.model.cover = url
     },
-    save () {
-      this.$refs.editor.save()
-    },
-    load () {
-      this.initData = this.savedData
-    },
-    loadData () {
-      this.initData = JSON.parse('{"time":1558356864490,"blocks":[{"type":"paragraph","data":{"text":"First text"}},{"type":"paragraph","data":{"text":"Second text"}}],"version":"2.13"}')
-    },
-    onSave (response) {
-      console.log(JSON.stringify(response))
-      this.savedData = response
-    },
-    onReady () {
-      console.log('ready')
-    },
-    onChange () {
-      console.log('changed')
+    onSave (data) {
+      const content = JSON.stringify(data)
+      if (this.lang === 'ru') {
+        this.model.content = content
+      } else {
+        this.model.content_kg = content
+      }
     },
     onSubmit () {
-      console.log(this.model)
       this.$refs.form.validate((valid) => {
         if (!valid) {
           return false
