@@ -9,9 +9,15 @@
 
 <script>
 export default {
+  props: {
+    imageUrl: {
+      type: String,
+      required: false,
+      default: () => ''
+    }
+  },
   data () {
     return {
-      imageUrl: '',
       config: {
         action: '/api/v1/files',
         headers: { 'access_token': this.$auth.getToken('local') },
@@ -45,18 +51,26 @@ export default {
 .cover-uploader {
   @apply relative border-4 border-dashed rounded-lg inline-block overflow-hidden cursor-pointer;
 }
-.cover-uploader:hover {
-  @apply border-blue-600;
+
+.cover-uploader:hover,
+.cover-uploader-icon:hover {
+  @apply border-blue-600 text-blue-600;
 }
+.cover,
 .cover-uploader-icon {
-  @apply w-56 h-32 text-2xl text-gray-500 text-center;
-  line-height: 8rem;
+  @apply w-56 h-32;
 }
+
 .cover {
-  @apply w-56 h-32 bg-black text-center;
+  @apply bg-gray-200 text-center;
 
   img {
     @apply inline-block h-full;
   }
+}
+
+.cover-uploader-icon {
+  @apply text-6xl text-gray-500;
+  line-height: 8rem;
 }
 </style>

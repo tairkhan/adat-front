@@ -17,8 +17,12 @@ export const loginRules = {
 }
 
 export const postRules = {
+  cover_image_url: required,
   title: required,
   title_kg: required,
+  content: required,
+  content_kg: required,
+  rubrics: required,
   status: [required, statusPattern]
 }
 

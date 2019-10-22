@@ -51,15 +51,7 @@ export default {
         const action = typeof this.model.id === 'undefined' ? 'create' : 'update'
         this.$store.dispatch(`directories/${action}`, { name: 'rubrics', payload: this.model })
           .then(() => {
-            this.$notify({
-              type: 'success',
-              title: 200,
-              message: 'Данные успешно отправлены'
-            })
-
-            if (action === 'create') {
-              this.$refs.form.resetFields()
-            }
+            this.$router.push('/admin/categories')
           })
           .catch((err) => {
             const status = err.response.status
