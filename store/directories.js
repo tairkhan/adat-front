@@ -59,7 +59,7 @@ export const actions = {
       })
   },
 
-  update (ctx, { name, payload }) {
+  update (ctx, { name, id, payload }) {
     if (!name) {
       throw new Error('[directories/update] name param is required')
     }
@@ -67,7 +67,7 @@ export const actions = {
       throw new TypeError('[directories/update]: payload should be an object')
     }
 
-    return this.$axios.$put(`${name}/${payload.id}`, payload)
+    return this.$axios.$put(`${name}/${id}`, payload)
       .catch((err) => {
         throw err
       })

@@ -48,8 +48,22 @@ export default {
           return false
         }
 
-        const action = typeof this.model.id === 'undefined' ? 'create' : 'update'
-        this.$store.dispatch(`directories/${action}`, { name: 'rubrics', payload: this.model })
+        let action
+        const data = { name: 'rubrics', payload: this.model }
+        switch (typeof this.entity.id) {
+          case 'undefined':
+            action = 'create'
+            break
+          case 'number':
+            action = 'update'
+            data.id = this.entity.id
+            delete this.model.id
+            break
+          default:
+            return false
+        }
+
+        this.$store.dispatch(`directories/${action}`, data)
           .then(() => {
             this.$router.push('/admin/categories')
           })

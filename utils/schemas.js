@@ -5,10 +5,10 @@ export const postSchema = morphism({
   cover_image_url: 'cover_image_url',
   title: 'title',
   title_kg: 'title_kg',
-  content: entity => entity.content || '{}',
+  content: ({ content }) => content || '{}',
   content_kg: entity => entity.content_kg || '{}',
-  rubrics: entity => entity.rubrics || [],
-  status: entity => entity.status || 'draft'
+  rubrics: ({ rubrics }) => rubrics ? rubrics.map(item => item.id) : [],
+  status: ({ status }) => status || 'draft'
 })
 
 export const rubricSchema = morphism({

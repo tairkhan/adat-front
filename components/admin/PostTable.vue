@@ -4,6 +4,18 @@
 
     <el-table-column label="Заголовок новости на кырг." prop="title_kg" />
 
+    <el-table-column label="Рубрики">
+      <template #default="{ row }">
+        <span
+          v-for="item in row.rubrics"
+          :key="item.id"
+          class="border px-1 mr-1 text-xs rounded"
+        >
+          {{ item.title }}
+        </span>
+      </template>
+    </el-table-column>
+
     <el-table-column label="Действия">
       <template #default="{ row }">
         <el-button

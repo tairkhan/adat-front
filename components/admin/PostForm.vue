@@ -20,8 +20,8 @@
     <el-form-item label="Выберите рубрику" prop="rubrics">
       <el-select v-model="model.rubrics" multiple placeholder="Выберите рубрику">
         <el-option
-          v-for="(item, i) in results"
-          :key="i"
+          v-for="item in rubrics"
+          :key="item.id"
           :label="item.title"
           :value="item.id"
         />
@@ -44,7 +44,7 @@
       <client-only>
         <editor
           class="border overflow-y-auto"
-          style="height: 26rem;"
+          style="height: 50rem;"
           :data="data"
           @save="onSave"
         />
@@ -106,7 +106,7 @@ export default {
     content () {
       return this.lang === 'ru' ? 'content' : 'content_kg'
     },
-    results () {
+    rubrics () {
       return this.$store.state.directories.rubrics.results
     },
     total () {
@@ -150,8 +150,22 @@ export default {
           return false
         }
 
-        const action = typeof this.model.id === 'undefined' ? 'create' : 'update'
-        this.$store.dispatch(`directories/${action}`, { name: 'posts', payload: this.model })
+        let action
+        const data = { name: 'posts', payload: this.model }
+        switch (typeof this.entity.id) {
+          case 'undefined':
+            action = 'create'
+            break
+          case 'number':
+            action = 'update'
+            data.id = this.entity.id
+            delete this.model.id
+            break
+          default:
+            return false
+        }
+
+        this.$store.dispatch(`directories/${action}`, data)
           .then(() => {
             this.$router.push('/admin/posts')
           })

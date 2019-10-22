@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     onSuccess (response, file, fileList) {
-      this.imageUrl = '/' + response.url
+      this.imageUrl = response.url
       this.$emit('result', this.imageUrl)
     },
     onError (err, file) {
