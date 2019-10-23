@@ -73,7 +73,7 @@ export default {
   },
   auth: {
     redirect: {
-      login: '/admin/login'
+      login: '/admin'
     },
     strategies: {
       local: {

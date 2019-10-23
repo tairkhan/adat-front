@@ -15,7 +15,7 @@
         {{ message }}
       </div>
       <p class="description">
-        <NuxtLink class="error-link" :to="$store.state.auth.loggedIn ? '/admin' : '/'">
+        <NuxtLink class="error-link" :to="$store.state.auth.loggedIn ? '/admin/posts' : '/'">
           Вернуться на главную страницу
         </NuxtLink>
       </p>

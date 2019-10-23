@@ -6,6 +6,10 @@
 import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import ImageTool from '@editorjs/image'
+import List from '@editorjs/list'
+import Quote from '@editorjs/quote'
+import Table from '@editorjs/table'
+import Embed from '@editorjs/embed'
 
 export default {
   props: {
@@ -78,6 +82,36 @@ export default {
                     })
                 },
                 uploadByUrl: ''
+              }
+            }
+          },
+          list: {
+            class: List,
+            toolbox: {
+              title: 'Список'
+            }
+          },
+          quote: {
+            class: Quote,
+            toolbox: {
+              title: 'Цитата'
+            },
+            config: {
+              quotePlaceholder: 'Цитата',
+              captionPlaceholder: 'Автор цитаты'
+            }
+          },
+          table: {
+            class: Table,
+            toolbox: {
+              title: 'Таблица'
+            }
+          },
+          embed: {
+            class: Embed,
+            config: {
+              services: {
+                youtube: true
               }
             }
           }

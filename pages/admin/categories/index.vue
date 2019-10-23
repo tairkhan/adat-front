@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     fetch () {
-      const params = { page: this.currentPage, page_size: this.pageSize, sort_direction: 'asc' }
+      const params = { page: this.currentPage, page_size: this.pageSize }
       this.$store.dispatch('directories/fetch', { name: 'rubrics', params })
     },
     currentChange (currentPage) {

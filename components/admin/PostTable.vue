@@ -16,6 +16,12 @@
       </template>
     </el-table-column>
 
+    <el-table-column label="Статус">
+      <template #default="{ row }">
+        {{ row.status === 'published' ? 'Опубликовано' : 'Черновик' }}
+      </template>
+    </el-table-column>
+
     <el-table-column label="Действия">
       <template #default="{ row }">
         <el-button

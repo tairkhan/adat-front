@@ -49,7 +49,7 @@ export default {
         const { username, password } = this.model
         this.$auth.loginWith('local', { data: { username, password } })
           .then(() => {
-            this.$router.push('/admin')
+            this.$router.push('/admin/posts')
           })
           .catch((err) => {
             const status = err.response.status

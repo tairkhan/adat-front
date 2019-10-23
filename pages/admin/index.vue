@@ -1,11 +1,15 @@
 <template>
-  <div>
-  </div>
+  <login-form style="width: 24rem;" />
 </template>
 
 <script>
+import LoginForm from '@/components/admin/LoginForm'
+
 export default {
-  layout: 'admin'
+  layout: 'non-auth',
+  components: {
+    LoginForm
+  }
 }
 </script>
 

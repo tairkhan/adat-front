@@ -7,11 +7,6 @@
     unique-opened
     router
   >
-    <el-menu-item index="/admin">
-      <fa-icon icon="home" class="fa-fw" size="lg" />
-      <span class="font-bold">Главная</span>
-    </el-menu-item>
-
     <el-menu-item index="/admin/posts">
       <fa-icon icon="newspaper" class="fa-fw" size="lg" />
       <span class="font-bold">Новости</span>
