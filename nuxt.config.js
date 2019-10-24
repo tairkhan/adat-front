@@ -39,7 +39,7 @@ export default {
   plugins: [
     '@/plugins/fontawesome',
     '@/plugins/element-ui',
-    '@/plugins/lodash',
+    // '@/plugins/lodash',
     { src: '@/plugins/editor.js', ssr: false }
   ],
   /*

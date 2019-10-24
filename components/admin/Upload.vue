@@ -1,9 +1,9 @@
 <template>
-  <el-upload ref="upload" class="cover-uploader" v-bind="config">
-    <div v-if="imageUrl" class="cover">
+  <el-upload ref="upload" class="upload" v-bind="config">
+    <div v-if="imageUrl" class="upload__cover">
       <img :src="imageUrl">
     </div>
-    <i v-else class="el-icon-plus cover-uploader-icon"></i>
+    <i v-else class="upload__icon el-icon-plus"></i>
   </el-upload>
 </template>
 
@@ -48,29 +48,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cover-uploader {
+.upload {
   @apply relative border-4 border-dashed rounded-lg inline-block overflow-hidden cursor-pointer;
-}
 
-.cover-uploader:hover,
-.cover-uploader-icon:hover {
-  @apply border-blue-600 text-blue-600;
-}
-.cover,
-.cover-uploader-icon {
-  @apply w-56 h-32;
-}
-
-.cover {
-  @apply bg-gray-200 text-center;
-
-  img {
-    @apply inline-block h-full;
+  &__icon,
+  &__cover {
+    @apply w-56 h-32;
   }
-}
 
-.cover-uploader-icon {
-  @apply text-6xl text-gray-500;
-  line-height: 8rem;
+  &:hover,
+  &__icon:hover {
+    @apply border-blue-600 text-blue-600;
+  }
+
+  &__icon {
+    @apply text-6xl text-gray-500;
+    line-height: 8rem;
+  }
+
+  &__cover {
+    @apply bg-gray-200 text-center;
+
+    img {
+      @apply inline-block h-full;
+    }
+  }
 }
 </style>

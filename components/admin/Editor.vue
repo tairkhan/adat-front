@@ -8,7 +8,6 @@ import Header from '@editorjs/header'
 import ImageTool from '@editorjs/image'
 import List from '@editorjs/list'
 import Quote from '@editorjs/quote'
-import Table from '@editorjs/table'
 import Embed from '@editorjs/embed'
 
 export default {
@@ -99,12 +98,6 @@ export default {
             config: {
               quotePlaceholder: 'Цитата',
               captionPlaceholder: 'Автор цитаты'
-            }
-          },
-          table: {
-            class: Table,
-            toolbox: {
-              title: 'Таблица'
             }
           },
           embed: {
