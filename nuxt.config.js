@@ -39,7 +39,7 @@ export default {
   plugins: [
     '@/plugins/fontawesome',
     '@/plugins/element-ui',
-    // '@/plugins/lodash',
+    '@/plugins/lodash',
     { src: '@/plugins/editor.js', ssr: false }
   ],
   /*
@@ -85,7 +85,8 @@ export default {
         tokenName: 'access_token',
         tokenType: ''
       }
-    }
+    },
+    plugins: [{ src: '~/plugins/axios', ssr: true }]
   },
   eslint: {
     quiet: true

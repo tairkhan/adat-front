@@ -27,6 +27,11 @@
       <span class="font-bold">Создать рубрику</span>
     </el-menu-item>
 
+    <el-menu-item index="/admin/settings">
+      <fa-icon icon="cog" class="fa-fw" size="lg" />
+      <span class="font-bold">Настройки</span>
+    </el-menu-item>
+
     <el-menu-item index="" @click="$auth.logout()">
       <fa-icon icon="sign-out-alt" class="fa-fw" size="lg" />
       <span class="font-bold">Выйти</span>

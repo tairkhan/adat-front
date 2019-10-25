@@ -1,8 +1,11 @@
 <template>
   <div class="aside-block">
-    <h3 class="category">
-      Экономика
-    </h3>
+    <div class="border-b-2 border-red-600">
+      <h3 class="category">
+        Экономика
+      </h3>
+    </div>
+
     <div
       v-for="(item, i) in results"
       :key="i"

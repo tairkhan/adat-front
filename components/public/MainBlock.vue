@@ -34,7 +34,7 @@
       </div>
 
       <div class="flex flex-col h-full md:flex-row">
-        <div class="article md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2].cover_image_url)">
+        <div class="article w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2].cover_image_url)">
           <nuxt-link to="/">
             <div class="article__info">
               <span class="tag">
@@ -50,7 +50,7 @@
           </nuxt-link>
         </div>
 
-        <div class="article lg:text-xs lg:w-1/2" :style="style(results[3].cover_image_url)">
+        <div class="article w-full lg:text-xs lg:w-1/2" :style="style(results[3].cover_image_url)">
           <nuxt-link to="/">
             <div class="article__info">
               <span class="tag">

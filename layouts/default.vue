@@ -1,24 +1,26 @@
 <template>
-  <!-- <div class="default-layout xs:px-0 sm:px-0 md:px-0 lg:px-32"> -->
   <div class="default-layout">
-    <top class="lg:px-32" />
-    <Header class="lg:px-32" />
-    <div class="lg:px-32 flex-1 my-8">
+    <top-header class="px-2 lg:px-40" />
+    <logo class="px-2 lg:px-40" />
+    <navbar class="px-2 lg:px-40 shadow-md" />
+    <div class="px-2 lg:px-40 flex-1 my-8">
       <nuxt />
     </div>
-    <Footer class="lg:px-32" />
+    <Footer class="px-2 lg:px-40" />
   </div>
 </template>
 
 <script>
-import Top from '@/components/public/Top'
-import Header from '@/components/public/Header'
+import TopHeader from '@/components/public/TopHeader'
+import Logo from '@/components/public/Logo'
+import Navbar from '@/components/public/Navbar'
 import Footer from '@/components/public/Footer'
 
 export default {
   components: {
-    Top,
-    Header,
+    TopHeader,
+    Logo,
+    Navbar,
     Footer
   }
 }

@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h3 class="category">
-      Общество
-    </h3>
+    <div class="border-b-2 border-red-600">
+      <h3 class="category">
+        Общество
+      </h3>
+    </div>
+
     <div class="flex flex-col">
       <div
         v-for="(item, i) in results"

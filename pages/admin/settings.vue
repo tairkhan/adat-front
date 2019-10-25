@@ -1,15 +1,14 @@
 <template>
-  <div class=" shadow-md">
-    <Nav />
-  </div>
+  <settings-form />
 </template>
 
 <script>
-import Nav from '@/components/public/Nav'
+import SettingsForm from '@/components/admin/SettingsForm'
 
 export default {
+  layout: 'admin',
   components: {
-    Nav
+    SettingsForm
   }
 }
 </script>

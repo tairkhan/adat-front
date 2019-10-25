@@ -3,7 +3,7 @@
     <main-block />
 
     <div class="flex mt-8">
-      <extended-category-block class="w-2/3" />
+      <extended-category-block class="w-2/3 mr-8" />
       <aside-block class="w-1/3" />
     </div>
 
@@ -11,6 +11,10 @@
       <category-block class="w-1/3 mr-8" />
       <category-block class="w-1/3 mr-8" />
       <extra-aside-block class="w-1/3" />
+    </div>
+
+    <div class="flex mt-8">
+      <video-category-block :data="videos" class="w-full" />
     </div>
   </div>
 </template>
@@ -21,6 +25,7 @@ import ExtendedCategoryBlock from '@/components/public/ExtendedCategoryBlock'
 import AsideBlock from '@/components/public/AsideBlock'
 import CategoryBlock from '@/components/public/CategoryBlock'
 import ExtraAsideBlock from '@/components/public/ExtraAsideBlock'
+import VideoCategoryBlock from '@/components/public/VideoCategoryBlock'
 
 export default {
   components: {
@@ -28,7 +33,23 @@ export default {
     ExtendedCategoryBlock,
     AsideBlock,
     CategoryBlock,
-    ExtraAsideBlock
+    ExtraAsideBlock,
+    VideoCategoryBlock
+  },
+  data () {
+    return {
+      videos: []
+    }
+  },
+  created () {
+    this.fetch()
+  },
+  methods: {
+    async fetch () {
+      const params = { rubric: 'video', page_size: 3 }
+      const data = await this.$axios.$get('posts', { params })
+      this.videos = data.results
+    }
   }
 }
 </script>

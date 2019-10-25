@@ -22,7 +22,6 @@ import {
 
 locale.use(ru)
 
-Vue.prototype.$ELEMENT = { size: 'small' }
 Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm

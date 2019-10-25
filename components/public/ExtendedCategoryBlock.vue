@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h3 class="category">
-      Национальный интерес
-    </h3>
+    <div class="border-b-2 border-red-600">
+      <h3 class="category">
+        Национальный интерес
+      </h3>
+    </div>
 
     <div class="flex flex-col lg:flex-row">
       <div class="w-1/2 h-full my-5 mr-5">
         <div class="article" :style="{ background: `gray url('') no-repeat center`, 'background-size': 'cover', 'height': '24rem' }">
           <nuxt-link to="/">
             <div class="article__info">
-              <span class="tag">
-                В мире
-              </span>
+              <span class="tag">В мире</span>
             </div>
           </nuxt-link>
         </div>

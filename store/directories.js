@@ -33,7 +33,6 @@ export const actions = {
         throw err
       })
   },
-
   fetchOne (ctx, { name, id }) {
     if (!name || !id) {
       throw new Error('[directories/fetchOne] name and id are required')
@@ -44,7 +43,6 @@ export const actions = {
         throw err
       })
   },
-
   create (ctx, { name, payload }) {
     if (!name) {
       throw new Error('[directories/create] name param is required')
@@ -58,7 +56,6 @@ export const actions = {
         throw err
       })
   },
-
   update (ctx, { name, id, payload }) {
     if (!name) {
       throw new Error('[directories/update] name param is required')
@@ -72,7 +69,6 @@ export const actions = {
         throw err
       })
   },
-
   delete (ctx, { name, id }) {
     if (!name) {
       throw new Error('[directories/delete] name param is required')

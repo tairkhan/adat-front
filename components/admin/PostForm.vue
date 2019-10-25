@@ -6,7 +6,7 @@
     :hide-required-asterisk="true"
     label-position="top"
   >
-    <el-form-item label="Выберите язык">
+    <el-form-item label="Язык">
       <el-select v-model="lang">
         <el-option
           v-for="(item, i) in langOptions"
@@ -17,8 +17,8 @@
       </el-select>
     </el-form-item>
 
-    <el-form-item label="Выберите рубрику" prop="rubrics">
-      <el-select v-model="model.rubrics" multiple placeholder="Выберите рубрику">
+    <el-form-item label="Рубрика" prop="rubrics">
+      <el-select v-model="model.rubrics" multiple placeholder="Рубрика">
         <el-option
           v-for="item in rubrics"
           :key="item.id"
@@ -28,7 +28,7 @@
       </el-select>
     </el-form-item>
 
-    <el-form-item label="Выберите обложку" prop="cover_image_url">
+    <el-form-item label="Обложка" prop="cover_image_url">
       <upload :image-url="model.cover_image_url" @result="cover" />
     </el-form-item>
 
