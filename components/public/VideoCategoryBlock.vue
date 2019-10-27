@@ -32,10 +32,12 @@ export default {
   methods: {
     extractCover (content) {
       content = JSON.parse(content)
-      const source = content.blocks[0].data.source.split('/')
-      const result = source[source.length]
+      if (content.blocks) {
+        const source = content.blocks[0].data.source.split('/')
+        const result = source[source.length]
 
-      return `https://i.ytimg.com/vi/${result}/hqdefault.jpg`
+        return `https://i.ytimg.com/vi/${result}/hqdefault.jpg`
+      }
     }
   }
 }

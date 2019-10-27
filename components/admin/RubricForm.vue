@@ -57,7 +57,6 @@ export default {
           case 'number':
             action = 'update'
             data.id = this.entity.id
-            delete this.model.id
             break
           default:
             return false
