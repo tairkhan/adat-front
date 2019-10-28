@@ -4,8 +4,12 @@
 
     <div class="flex">
       <div class="mr-12">
-        <span>РУ</span>
-        <span>КГ</span>
+        <nuxt-link :to="switchLocalePath('ru')">
+          РУ
+        </nuxt-link>
+        <nuxt-link :to="switchLocalePath('kg')">
+          КГ
+        </nuxt-link>
       </div>
 
       <div>

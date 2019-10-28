@@ -5,7 +5,7 @@
       v-for="item in data"
       :key="item.id"
       class="article lg:border-r-4 w-full lg:w-1/3"
-      :style="{ background: `gray url('${extractCover(item.content)}') no-repeat center`, 'background-size': 'cover' }"
+      :style="{ background: `gray url('${extractCover(item.content)}') no-repeat center center`, 'background-size': 'cover' }"
     >
       <nuxt-link to="/">
         <div class="article__info">
@@ -33,8 +33,8 @@ export default {
     extractCover (content) {
       content = JSON.parse(content)
       if (content.blocks) {
-        const source = content.blocks[0].data.source.split('/')
-        const result = source[source.length]
+        const source = content.blocks[0].data.source.split('=')
+        const result = source[source.length - 1]
 
         return `https://i.ytimg.com/vi/${result}/hqdefault.jpg`
       }

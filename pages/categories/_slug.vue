@@ -5,7 +5,6 @@
 <script>
 
 export default {
-  layout: 'admin',
   components: {
   },
   data () {
@@ -13,11 +12,6 @@ export default {
     }
   },
   asyncData ({ store, params, error }) {
-    // this.$store.dispatch('directories/fetch', { name: 'posts', params: { page_size: 100 } })
-    //   .then((entity) => {
-    //     return { entity }
-    //   })
-    //   .catch(() => error({ statusCode: 404 }))
   }
 }
 </script>

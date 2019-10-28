@@ -57,7 +57,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    'nuxt-i18n'
   ],
   /*
   ** Axios module configuration
@@ -86,7 +87,21 @@ export default {
         tokenType: ''
       }
     },
-    plugins: [{ src: '~/plugins/axios', ssr: true }]
+    plugins: [
+      { src: '@/plugins/axios', ssr: true }
+    ]
+  },
+  i18n: {
+    locales: [
+      { code: 'ru', iso: 'ru-RU', file: 'ru.js' },
+      { code: 'kg', iso: 'ky-KG', file: 'kg.js' }
+    ],
+    defaultLocale: 'ru',
+    lazy: true,
+    langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: 'ru'
+    }
   },
   eslint: {
     quiet: true

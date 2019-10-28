@@ -13,8 +13,16 @@ h6 {
   font-weight: revert;
 }
 
+a {
+  outline: none;
+}
+
 p {
   color: #2d3748;
+}
+
+p:hover {
+  cursor: default;
 }
 
 .tag {
