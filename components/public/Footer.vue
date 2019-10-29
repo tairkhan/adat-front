@@ -1,52 +1,71 @@
 <template>
   <div class="footer">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
-      <nuxt-link to="/">
+      <nuxt-link :to="localePath('index')">
         <span class="font-bold text-4xl">
           <span>ADAT</span>.kg
         </span>
+        <p class="text-xs text-gray-500">
+          {{ $t('footer.logo') }}
+        </p>
       </nuxt-link>
 
       <div class="flex flex-col mb-4 uppercase font-bold">
-        <nuxt-link class="mb-4" to="/">
-          Реклама
+        <nuxt-link class="mb-4" :to="localePath('advertising')">
+          {{ $t('footer.advertising') }}
         </nuxt-link>
-        <nuxt-link class="mb-4" to="/">
-          Контакты и сотрудничество
+        <nuxt-link class="mb-4" :to="localePath('contacts')">
+          {{ $t('footer.contacts') }}
         </nuxt-link>
-        <nuxt-link to="/">
-          Правила использования
+        <nuxt-link :to="localePath('rules')">
+          {{ $t('footer.rules') }}
         </nuxt-link>
       </div>
 
       <div class="flex flex-col lg:flex-row">
         <div class="flex flex-col mr-8">
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Политика</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'politika' } })">
+            <span class="tag">
+              {{ $t('rubrics.politics') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Экономика</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'ekonomika' } })">
+            <span class="tag">
+              {{ $t('rubrics.economics') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Общество</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'v-mire' } })">
+            <span class="tag">
+              {{ $t('rubrics.world') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Экономика</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'analitika' } })">
+            <span class="tag">
+              {{ $t('rubrics.analytics') }}
+            </span>
           </nuxt-link>
         </div>
 
         <div class="flex flex-col">
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">В мире</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'obshchestvo' } })">
+            <span class="tag">
+              {{ $t('rubrics.society') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Спорт</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'nacionalnyy-interes' } })">
+            <span class="tag">
+              {{ $t('rubrics.nationalInterest') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Видео</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'sport' } })">
+            <span class="tag">
+              {{ $t('rubrics.sports') }}
+            </span>
           </nuxt-link>
-          <nuxt-link class="mb-4" to="/">
-            <span class="tag">Аналитика</span>
+          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'video' } })">
+            <span class="tag">
+              {{ $t('rubrics.videos') }}
+            </span>
           </nuxt-link>
         </div>
       </div>
@@ -82,18 +101,18 @@
 
     <div class="flex flex-wrap justify-between text-gray-500">
       <div>
-        © Все права защищены {{ new Date().getFullYear() }}
+        © {{ $t('footer.rights') }} {{ new Date().getFullYear() }}
       </div>
 
       <div class="flex flex-col w-full lg:flex-row lg:w-auto">
-        <nuxt-link class="mr-8" to="/">
-          Конфиденциальность
+        <nuxt-link class="mr-8" :to="localePath('privacy')">
+          {{ $t('footer.privacy') }}
         </nuxt-link>
-        <nuxt-link class="mr-8" to="/">
-          Реклама
+        <nuxt-link class="mr-8" :to="localePath('advertising')">
+          {{ $t('footer.advertising') }}
         </nuxt-link>
-        <nuxt-link to="/">
-          Связаться с нами
+        <nuxt-link :to="localePath('contact-us')">
+          {{ $t('footer.contactUs') }}
         </nuxt-link>
       </div>
     </div>

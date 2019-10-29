@@ -94,7 +94,7 @@ export default {
     },
     slug (i) {
       return {
-        name: 'slug',
+        name: 'posts-slug',
         params: {
           slug: this.results[i][this.$t('slug')]
         }

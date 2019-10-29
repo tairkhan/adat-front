@@ -1,22 +1,28 @@
 <template>
   <div class="navbar">
-    <nuxt-link class="navbar__link" to="/">
-      Главная
+    <nuxt-link class="navbar__link" :to="localePath('index')">
+      {{ $t('rubrics.main') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" to="/all">
-      Все статьи
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
+      {{ $t('rubrics.all') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" to="/politics">
-      Политика
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'politika' } })">
+      {{ $t('rubrics.politics') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" to="/economics">
-      Экономика
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'ekonomika' } })">
+      {{ $t('rubrics.economics') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" to="/videos">
-      Видео
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'video' } })">
+      {{ $t('rubrics.videos') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" to="/world">
-      В мире
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'v-mire' } })">
+      {{ $t('rubrics.world') }}
+    </nuxt-link><!--
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'sport' } })">
+      {{ $t('rubrics.sports') }}
+    </nuxt-link><!--
+    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'obshchestvo' } })">
+      {{ $t('rubrics.society') }}
     </nuxt-link>
   </div>
 </template>

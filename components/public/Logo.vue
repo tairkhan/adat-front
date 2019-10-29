@@ -4,6 +4,9 @@
       <span class="font-bold text-4xl">
         <span class="text-red-600">ADAT</span>.kg
       </span>
+      <p class="text-xs">
+        {{ $t('footer.logo') }}
+      </p>
     </nuxt-link>
   </div>
 </template>
