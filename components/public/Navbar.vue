@@ -6,30 +6,26 @@
     --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
       {{ $t('rubrics.all') }}
     </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'politika' } })">
-      {{ $t('rubrics.politics') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'ekonomika' } })">
-      {{ $t('rubrics.economics') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'video' } })">
-      {{ $t('rubrics.videos') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'v-mire' } })">
-      {{ $t('rubrics.world') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'sport' } })">
-      {{ $t('rubrics.sports') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug', params: { slug: 'obshchestvo' } })">
-      {{ $t('rubrics.society') }}
+    --><nuxt-link
+      v-for="(item, i) in data"
+      :key="i"
+      class="navbar__link"
+      :to="localePath({ name: 'categories-slug', params: { slug: $t('slug') } })"
+    >
+      {{ item[$t('title')] }}
     </nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    data: {
+      type: Array,
+      required: false,
+      default: () => ([])
+    }
+  }
 }
 </script>
 
