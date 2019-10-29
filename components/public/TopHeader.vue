@@ -6,14 +6,14 @@
       <div class="mr-12">
         <nuxt-link v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')">
           <div class="flex items-center">
-            <img class="mr-2" src="flag1.png">
-            РУ
+            <img class="mr-2" src="/flag2.png">
+            KG
           </div>
         </nuxt-link>
         <nuxt-link v-if="$i18n.locale !== 'kg'" :to="switchLocalePath('kg')">
           <div class="flex items-center">
-            <img class="mr-2" src="flag2.png">
-            КГ
+            <img class="mr-2" src="/flag1.png">
+            RU
           </div>
         </nuxt-link>
       </div>

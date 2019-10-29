@@ -28,7 +28,7 @@ export default {
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     'element-ui/lib/theme-chalk/index.css',
-    '@/assets/css/main.scss'
+    '@/assets/css/main.css'
   ],
   purgeCSS: {
     enabled: false
@@ -37,6 +37,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/dayjs',
     '@/plugins/fontawesome',
     '@/plugins/element-ui',
     '@/plugins/lodash',

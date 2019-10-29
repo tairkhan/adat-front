@@ -32,8 +32,15 @@ export default {
   methods: {
     extractCover (content) {
       content = JSON.parse(content)
+
       if (content.blocks) {
-        const source = content.blocks[0].data.source.split('=')
+        const embed = content.blocks.find(block => block.type === 'embed')
+
+        if (!embed) {
+          return ''
+        }
+
+        const source = embed.data.source.split('=')
         const result = source[source.length - 1]
 
         return `https://i.ytimg.com/vi/${result}/hqdefault.jpg`

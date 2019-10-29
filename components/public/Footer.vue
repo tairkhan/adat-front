@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
-      <nuxt-link :to="localePath('index')">
+      <nuxt-link class="mb-4" :to="localePath('index')">
         <span class="font-bold text-4xl">
           <span>ADAT</span>.kg
         </span>
@@ -72,7 +72,7 @@
 
       <div>
         <div class="uppercase font-bold">
-          Мы в соц. сетях
+          {{ $t('footer.social') }}
         </div>
 
         <div class="inline-block bg-gray-900 mt-2">
@@ -127,7 +127,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  @apply bg-black pt-12 pb-2 text-white text-xs;
+  @apply pt-12 pb-2 text-white text-xs;
   background-color: #171717;
 }
 </style>

@@ -40,7 +40,7 @@
       <el-input v-model="model.title_kg" />
     </el-form-item>
 
-    <el-form-item label="Контент" :prop="content">
+    <el-form-item label="Контент">
       <client-only>
         <editor
           class="border overflow-y-auto"
@@ -103,9 +103,6 @@ export default {
     }
   },
   computed: {
-    content () {
-      return this.lang === 'ru' ? 'content' : 'content_kg'
-    },
     rubrics () {
       return this.$store.state.directories.rubrics.results
     },
@@ -115,7 +112,7 @@ export default {
   },
   watch: {
     lang (val) {
-      const data = this.model[this.content]
+      const data = this.model[this.content()]
       this.data = JSON.parse(data)
     }
   },
@@ -131,13 +128,12 @@ export default {
     cover (url) {
       this.model.cover_image_url = url
     },
+    content () {
+      return this.lang === 'ru' ? 'content' : 'content_kg'
+    },
     onSave (data) {
       const content = JSON.stringify(data)
-      if (this.lang === 'ru') {
-        this.model.content = content
-      } else {
-        this.model.content_kg = content
-      }
+      this.model[this.content()] = content
     },
     onSubmit () {
       this.$refs.form.validate((valid) => {

@@ -21,8 +21,6 @@ export const postRules = {
   cover_image_url: requiredFn('Выберите обложку'),
   title: required,
   title_kg: required,
-  content: required,
-  content_kg: required,
   rubrics: required,
   status: [required, statusPattern]
 }

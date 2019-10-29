@@ -1,6 +1,10 @@
 <template>
-  <div>
+  <div class="article">
+    <span class="text-gray-800 text-xs">
+      {{ $dayjs(data.created_at).format('DD/MM/YYYY') }}
+    </span>
     <h1> {{ data[$t('title')] }} </h1>
+
     <div v-html="html"></div>
   </div>
 </template>
@@ -23,6 +27,8 @@ export default {
         return ''
       }
 
+      console.log(blocks)
+
       blocks.forEach((block) => {
         switch (block.type) {
           case 'header':
@@ -32,18 +38,18 @@ export default {
             html += `<p>${block.data.text}</p>`
             break
           case 'image':
-            html += `<img src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`
+            html += `<img src="${block.data.file.url}" title="${block.data.caption}" /><em>${block.data.caption}</em>`
             break
           case 'list':
-            html += '<ul>'
+            const style = block.data.style === 'ordered' ? 'decimal"' : 'disc'
+            html += `<ul class="list-${style}">`
             block.data.items.forEach((li) => {
               html += `<li>${li}</li>`
             })
             html += '</ul>'
             break
           case 'quote':
-            const alignment = block.data.alignment === 'left' ? 'text-left' : 'text-right'
-            html += `<blockquote class="${alignment}">${block.data.text}</blockquote>`
+            html += `<blockquote class="text-${block.data.alignment}">${block.data.text}</blockquote><em>${block.data.caption}</em>`
             break
           case 'embed':
             html +=
@@ -52,7 +58,7 @@ export default {
               frameborder="0" allow="accelerometer; autoplay;
               encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
-              `
+              <em>${block.data.caption}</em>`
             break
           default:
             break
@@ -66,5 +72,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.article {
+  @apply w-full;
+}
 
+@screen lg {
+  .article {
+    @apply w-1/2;
+  }
+}
 </style>
