@@ -4,11 +4,11 @@
 
     <div class="flex">
       <div class="mr-12">
-        <nuxt-link :to="switchLocalePath('ru')">
-          РУ
+        <nuxt-link v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')">
+          RU
         </nuxt-link>
-        <nuxt-link :to="switchLocalePath('kg')">
-          КГ
+        <nuxt-link v-if="$i18n.locale !== 'kg'" :to="switchLocalePath('kg')">
+          KG
         </nuxt-link>
       </div>
 
