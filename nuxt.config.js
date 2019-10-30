@@ -1,5 +1,3 @@
-const isDev = process.env.NODE_ENV !== 'production'
-
 export default {
   mode: 'universal',
   server: {
@@ -71,8 +69,8 @@ export default {
     prefix: '/api/v1'
   },
   proxy: {
-    '/api': isDev ? 'http://localhost:3400' : 'http://adat.test',
-    '/public': isDev ? 'http://localhost:3400' : 'http://adat.test'
+    '/api': 'http://localhost:3400',
+    '/public': 'http://localhost:3400'
   },
   auth: {
     redirect: {
@@ -86,7 +84,6 @@ export default {
           logout: false
         },
         tokenRequired: true,
-        tokenName: 'access_token',
         tokenType: ''
       }
     },
