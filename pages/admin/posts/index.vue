@@ -13,7 +13,7 @@
 
 <script>
 import PostTable from '@/components/admin/PostTable'
-import BasePagination from '@/components/admin/BasePagination'
+import BasePagination from '@/components/public/BasePagination'
 
 export default {
   layout: 'admin',

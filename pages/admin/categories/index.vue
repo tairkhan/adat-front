@@ -13,7 +13,7 @@
 
 <script>
 import RubricTable from '@/components/admin/RubricTable'
-import BasePagination from '@/components/admin/BasePagination'
+import BasePagination from '@/components/public/BasePagination'
 
 export default {
   layout: 'admin',

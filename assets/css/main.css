@@ -2,31 +2,22 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+a {
+  @apply outline-none;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply text-gray-900;
   font-size: revert;
   font-weight: revert;
 }
 
-a {
-  @apply outline-none;
-}
-
-p {
-  @apply text-gray-800;
-}
-
 ul {
   padding: revert;
-}
-
-blockquote {
-  @apply border-l-8 border-gray-500 bg-gray-200 py-1 pl-4 pr-1 text-gray-800 text-2xl italic;
 }
 
 .article h1,
@@ -42,16 +33,16 @@ blockquote {
   @apply block mb-4;
 }
 
-.article em {
-  @apply text-gray-700;
-}
-
 .article a {
   @apply text-blue-700 underline;
 }
 
 .article img {
   @apply border;
+}
+
+.article blockquote {
+  @apply border-l-8 border-gray-500 bg-gray-200 py-1 pl-4 pr-1 text-gray-800 text-2xl italic;
 }
 
 .tag {

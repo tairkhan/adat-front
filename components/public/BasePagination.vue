@@ -3,7 +3,7 @@
     <el-pagination
       v-bind="$props"
       :background="true"
-      layout="prev, pager, next, ->"
+      layout="prev, next"
       @current-change="currentChange"
     />
   </div>
