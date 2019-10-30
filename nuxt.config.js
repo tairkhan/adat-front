@@ -1,4 +1,3 @@
-
 export default {
   mode: 'universal',
   server: {
@@ -83,7 +82,9 @@ export default {
           login: { url: '/auth/login', method: 'post', propertyName: 'token' },
           user: { url: '/auth/user', method: 'get', propertyName: 'user' },
           logout: false
-        }
+        },
+        tokenRequired: true,
+        tokenType: ''
       }
     },
     plugins: [

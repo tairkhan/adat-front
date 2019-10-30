@@ -20,7 +20,7 @@ export default {
     return {
       config: {
         action: '/api/v1/files',
-        headers: { 'access_token': this.$auth.getToken('local') },
+        headers: { 'authorization': this.$auth.getToken('local') },
         showFileList: false,
         accept: 'image/*',
         onSuccess: this.onSuccess,
