@@ -2,7 +2,7 @@
   <div class="aside-block">
     <div class="border-b-2 border-red-600">
       <h3 class="category">
-        Все статьи
+        {{ $t('rubrics.all') }}
       </h3>
     </div>
 
@@ -12,11 +12,13 @@
       class="py-5 border-b text-center"
     >
       <div class="mb-5 text-sm">
-        <span class="font-bold">АДАТ</span> - <span>{{ new Date(item.created_at).toLocaleDateString() }}</span>
+        <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
       </div>
-      <p>
-        {{ item.title }}
-      </p>
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
+        <p>
+          {{ item[$t('title')] }}
+        </p>
+      </nuxt-link>
     </div>
   </div>
 </template>

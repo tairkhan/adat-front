@@ -2,15 +2,16 @@
   <div class="navbar">
     <nuxt-link class="navbar__link" :to="localePath('index')">
       {{ $t('rubrics.main') }}
-    </nuxt-link><!--
-    --><nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
+    </nuxt-link>
+    <nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
       {{ $t('rubrics.all') }}
-    </nuxt-link><!--
-    --><nuxt-link
+    </nuxt-link>
+
+    <nuxt-link
       v-for="(item, i) in data"
       :key="i"
       class="navbar__link"
-      :to="localePath({ name: 'categories-slug', params: { slug: $t('slug') } })"
+      :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
     >
       {{ item[$t('title')] }}
     </nuxt-link>

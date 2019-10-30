@@ -24,49 +24,19 @@
 
       <div class="flex flex-col lg:flex-row">
         <div class="flex flex-col mr-8">
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'politika' } })">
+          <nuxt-link
+            v-for="(item, i) in data"
+            :key="i"
+            class="mb-4"
+            :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
+          >
             <span class="tag">
-              {{ $t('rubrics.politics') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'ekonomika' } })">
-            <span class="tag">
-              {{ $t('rubrics.economics') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'v-mire' } })">
-            <span class="tag">
-              {{ $t('rubrics.world') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'analitika' } })">
-            <span class="tag">
-              {{ $t('rubrics.analytics') }}
+              {{ item[$t('title')] }}
             </span>
           </nuxt-link>
         </div>
 
         <div class="flex flex-col">
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'obshchestvo' } })">
-            <span class="tag">
-              {{ $t('rubrics.society') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'nacionalnyy-interes' } })">
-            <span class="tag">
-              {{ $t('rubrics.nationalInterest') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'sport' } })">
-            <span class="tag">
-              {{ $t('rubrics.sports') }}
-            </span>
-          </nuxt-link>
-          <nuxt-link class="mb-4" :to="localePath({ name: 'categories-slug', params: { slug: 'video' } })">
-            <span class="tag">
-              {{ $t('rubrics.videos') }}
-            </span>
-          </nuxt-link>
         </div>
       </div>
 
@@ -121,7 +91,13 @@
 
 <script>
 export default {
-
+  props: {
+    data: {
+      type: Array,
+      required: false,
+      default: () => ([])
+    }
+  }
 }
 </script>
 

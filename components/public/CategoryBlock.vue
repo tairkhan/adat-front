@@ -2,26 +2,28 @@
   <div>
     <div class="border-b-2 border-red-600">
       <h3 class="category">
-        Общество
+        {{ $t('rubrics.society') }}
       </h3>
     </div>
 
     <div class="flex flex-col">
-      <div
+      <nuxt-link
         v-for="(item, i) in results"
         :key="i"
-        class="flex my-5"
+        :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
       >
-        <img :src="item.cover_image_url" class="w-32 h-24 mr-2 border">
-        <div>
-          <h3>
-            {{ item.title }}
-          </h3>
-          <div class="text-sm">
-            <span class="font-bold">АДАТ</span> - <span>{{ new Date(item.created_at).toLocaleDateString() }}</span>
+        <div class="flex my-5">
+          <img :src="item.cover_image_url" class="w-32 h-24 border mr-2 border">
+          <div>
+            <h3>
+              {{ item[$t('title')] }}
+            </h3>
+            <div class="text-sm">
+              <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
+            </div>
           </div>
         </div>
-      </div>
+      </nuxt-link>
     </div>
   </div>
 </template>

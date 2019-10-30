@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-4 pl-4">
+  <div class="min-h-screen flex justify-center items-center bg-gray-200">
     <nuxt />
   </div>
 </template>

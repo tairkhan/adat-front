@@ -3,8 +3,25 @@
     <main-block />
 
     <div class="flex mt-8">
-      <extended-category-block class="w-2/3 mr-8" />
-      <aside-block class="w-1/3" />
+      <div class="w-full lg:w-2/3 mr-8">
+        <div class="border-b-2 border-red-600 mb-8">
+          <h3 class="category">
+            {{ $t('rubrics.nationalInterest') }}
+          </h3>
+        </div>
+
+        <extended-category-block />
+      </div>
+
+      <div class="w-full lg:w-1/3">
+        <div class="border-b-2 border-red-600">
+          <h3 class="category">
+            {{ $t('rubrics.analytics') }}
+          </h3>
+        </div>
+
+        <aside-block />
+      </div>
     </div>
 
     <div class="flex mt-8">
@@ -14,7 +31,7 @@
     </div>
 
     <div class="flex mt-8">
-      <video-category-block :data="videos" class="w-full" />
+      <video-category-block :data="posts.videos" class="w-full" />
     </div>
   </div>
 </template>
@@ -38,17 +55,24 @@ export default {
   },
   data () {
     return {
-      videos: []
+      posts: {
+        videos: []
+      }
     }
   },
   created () {
-    this.fetch()
+    this.fetchVideos()
   },
   methods: {
-    async fetch () {
+    async fetchPostsBy (rubric) {
+      const params = { rubric, page_size: 5 }
+      const data = await this.$axios.$get('posts', { params })
+      this.posts[rubric] = data.results
+    },
+    async fetchVideos () {
       const params = { rubric: 'video', page_size: 3 }
       const data = await this.$axios.$get('posts', { params })
-      this.videos = data.results
+      this.posts.videos = data.results
     }
   }
 }

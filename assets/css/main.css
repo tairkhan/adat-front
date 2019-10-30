@@ -21,10 +21,6 @@ p {
   @apply text-gray-800;
 }
 
-p:hover {
-  @apply cursor-default;
-}
-
 ul {
   padding: revert;
 }

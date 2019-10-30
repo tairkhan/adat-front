@@ -2,7 +2,7 @@
 export default {
   mode: 'universal',
   server: {
-    port: 3000
+    port: 3401
   },
   /*
   ** Headers of the page
@@ -70,8 +70,8 @@ export default {
     prefix: '/api/v1'
   },
   proxy: {
-    '/api': 'http://localhost:3300',
-    '/public': 'http://localhost:3300'
+    '/api': 'http://localhost:3400',
+    '/public': 'http://localhost:3400'
   },
   auth: {
     redirect: {
@@ -101,6 +101,9 @@ export default {
     lazy: true,
     langDir: 'locales/',
     vueI18n: {
+      fallbackLocale: 'ru'
+    },
+    detectBrowserLanguage: {
       fallbackLocale: 'ru'
     }
   },

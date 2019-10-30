@@ -4,16 +4,16 @@
     <div
       v-for="item in data"
       :key="item.id"
-      class="article lg:border-r-4 w-full lg:w-1/3"
+      class="news-block lg:border-r-4 w-full lg:w-1/3"
       :style="{ background: `gray url('${extractCover(item.content)}') no-repeat center center`, 'background-size': 'cover' }"
     >
-      <nuxt-link to="/">
-        <div class="article__info">
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
+        <div class="news-block__info">
           <span class="tag">
-            {{ item.rubrics[0].title }}
+            {{ item.rubrics[0][$t('title')] }}
           </span>
-          <div class="article__title">
-            {{ item.title }}
+          <div class="news-block__title">
+            {{ item[$t('title')] }}
           </div>
         </div>
       </nuxt-link>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article {
+.news-block {
   @apply h-64 border-white border-b-4;
 
   &:hover &__info {

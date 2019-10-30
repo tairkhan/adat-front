@@ -1,15 +1,15 @@
 <template>
   <div v-if="results.length >= 4" class="main-block flex-col lg:flex-row">
-    <div class="article lg:border-r-4 lg:w-1/2" :style="style(results[0].cover_image_url)">
+    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(results[0].cover_image_url)">
       <nuxt-link :to="localePath(slug(0))">
-        <div class="article__info">
+        <div class="news-block__info">
           <span class="tag">
             {{ results[0].rubrics[0][$t('title')] }}
           </span>
-          <div class="article__title">
+          <div class="news-block__title">
             {{ results[0][$t('title')] }}
           </div>
-          <span class="article__date">
+          <span class="news-block__date">
             {{ new Date(results[0].created_at).toLocaleDateString() }}
           </span>
         </div>
@@ -17,16 +17,16 @@
     </div>
 
     <div class="flex flex-col w-full lg:w-1/2">
-      <div class="article h-full lg:text-sm" :style="style(results[1].cover_image_url)">
+      <div class="news-block h-full lg:text-sm" :style="style(results[1].cover_image_url)">
         <nuxt-link :to="localePath(slug(1))">
-          <div class="article__info">
+          <div class="news-block__info">
             <span class="tag">
               {{ results[1].rubrics[0][$t('title')] }}
             </span>
-            <div class="article__title">
+            <div class="news-block__title">
               {{ results[1][$t('title')] }}
             </div>
-            <span class="article__date">
+            <span class="news-block__date">
               {{ new Date(results[1].created_at).toLocaleDateString() }}
             </span>
           </div>
@@ -34,32 +34,32 @@
       </div>
 
       <div class="flex flex-col h-full md:flex-row">
-        <div class="article w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2].cover_image_url)">
+        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2].cover_image_url)">
           <nuxt-link :to="localePath(slug(2))">
-            <div class="article__info">
+            <div class="news-block__info">
               <span class="tag">
                 {{ results[2].rubrics[0][$t('title')] }}
               </span>
-              <div class="article__title">
+              <div class="news-block__title">
                 {{ results[2][$t('title')] }}
               </div>
-              <span class="article__date">
+              <span class="news-block__date">
                 {{ new Date(results[2].created_at).toLocaleDateString() }}
               </span>
             </div>
           </nuxt-link>
         </div>
 
-        <div class="article w-full lg:text-xs lg:w-1/2" :style="style(results[3].cover_image_url)">
+        <div class="news-block w-full lg:text-xs lg:w-1/2" :style="style(results[3].cover_image_url)">
           <nuxt-link :to="localePath(slug(3))">
-            <div class="article__info">
+            <div class="news-block__info">
               <span class="tag">
                 {{ results[3].rubrics[0][$t('title')] }}
               </span>
-              <div class="article__title">
+              <div class="news-block__title">
                 {{ results[3][$t('title')] }}
               </div>
-              <span class="article__date">
+              <span class="news-block__date">
                 {{ new Date(results[3].created_at).toLocaleDateString() }}
               </span>
             </div>
@@ -109,7 +109,7 @@ export default {
   @apply flex;
 }
 
-.article {
+.news-block {
   @apply border-white border-b-4;
 
   &:hover &__info {
@@ -136,7 +136,7 @@ export default {
 }
 
 @screen lg {
-  .main-block > .article {
+  .main-block > .news-block {
     height: 30rem
   }
 }

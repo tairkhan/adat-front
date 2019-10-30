@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <span class="text-gray-800 text-xs">
-      {{ $dayjs(data.created_at).format('DD/MM/YYYY') }}
+      {{ $dayjs(data.created_at).format('DD MM YYYY') }}
     </span>
     <h1> {{ data[$t('title')] }} </h1>
 

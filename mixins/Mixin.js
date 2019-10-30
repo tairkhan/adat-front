@@ -1,4 +1,3 @@
-<script>
 export default {
   computed: {
     rubrics () {
@@ -18,8 +17,3 @@ export default {
     }
   }
 }
-</script>
-
-<style lang="scss" scoped>
-
-</style>

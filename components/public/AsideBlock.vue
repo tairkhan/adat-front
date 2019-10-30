@@ -1,22 +1,18 @@
 <template>
   <div class="aside-block">
-    <div class="border-b-2 border-red-600">
-      <h3 class="category">
-        Экономика
-      </h3>
-    </div>
-
     <div
       v-for="(item, i) in results"
       :key="i"
       class="my-5"
     >
-      <div class="mb-5 text-sm">
-        <span class="font-bold">АДАТ</span> - <span>{{ new Date(item.created_at).toLocaleDateString() }}</span>
+      <div class="mb-1 text-sm">
+        <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
       </div>
-      <p class="text-xs">
-        {{ item.title }}
-      </p>
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
+        <p class="text-xs">
+          {{ item[$t('title')] }}
+        </p>
+      </nuxt-link>
     </div>
   </div>
 </template>
