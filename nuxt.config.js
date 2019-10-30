@@ -66,7 +66,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    proxy: true,
+    proxy: process.env.NODE_ENV !== 'production',
     prefix: '/api/v1'
   },
   proxy: {
