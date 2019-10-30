@@ -9,7 +9,7 @@ module.exports = {
   }],
 
   deploy: {
-    production: {
+    staging: {
       ssh_options: ['ForwardAgent=yes', 'port=25333'],
       user: 'developer',
       host: ['10.12.91.47'],
