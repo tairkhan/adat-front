@@ -1,3 +1,4 @@
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
   mode: 'universal',
@@ -66,12 +67,12 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    proxy: process.env.NODE_ENV !== 'production',
+    proxy: true,
     prefix: '/api/v1'
   },
   proxy: {
-    '/api': 'http://localhost:3400',
-    '/public': 'http://localhost:3400'
+    '/api': isDev ? 'http://localhost:3400' : 'http://adat.test',
+    '/public': isDev ? 'http://localhost:3400' : 'http://adat.test'
   },
   auth: {
     redirect: {
