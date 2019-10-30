@@ -3,7 +3,7 @@ export default function ({ $axios, $auth }) {
     const freshToken = response.headers.fresh_token
     if (freshToken) {
       $auth.setToken('local', freshToken)
-      $axios.setHeader('access_token', freshToken)
+      $axios.setHeader('authorization', freshToken)
     }
   })
 }
