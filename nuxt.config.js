@@ -84,6 +84,7 @@ export default {
           user: { url: '/auth/user', method: 'get', propertyName: 'user' },
           logout: false
         },
+        tokenRequired: true,
         tokenName: 'access_token',
         tokenType: ''
       }
