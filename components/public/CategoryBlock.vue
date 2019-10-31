@@ -12,7 +12,7 @@
         :style="style(item)"
       >
         <div class="flex flex-col justify-end h-full p-4">
-          <div class="w-full text-white font-bold w-fulluppercase">
+          <div class="w-full text-white font-bold w-full uppercase">
             {{ item[$t('title')] }}
           </div>
           <span class="text-xs text-white mt-4">

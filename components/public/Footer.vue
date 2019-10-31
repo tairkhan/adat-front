@@ -25,7 +25,7 @@
       <div class="flex flex-col lg:flex-row">
         <div class="flex flex-col mr-8">
           <nuxt-link
-            v-for="(item, i) in data"
+            v-for="(item, i) in rubrics"
             :key="i"
             class="mb-4"
             :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
@@ -90,14 +90,10 @@
 </template>
 
 <script>
+import RubricMixin from '@/mixins/RubricMixin'
+
 export default {
-  props: {
-    data: {
-      type: Array,
-      required: false,
-      default: () => ([])
-    }
-  }
+  mixins: [RubricMixin]
 }
 </script>
 

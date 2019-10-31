@@ -72,23 +72,13 @@
 
 <script>
 import Mixin from '@/mixins/Mixin'
+import PostMixin from '@/mixins/PostMixin'
 
 export default {
-  mixins: [Mixin],
-  data () {
-    return {
-      results: []
-    }
-  },
+  mixins: [Mixin, PostMixin],
   created () {
-    this.fetch()
-  },
-  methods: {
-    async fetch () {
-      const params = { page_size: 4 }
-      const data = await this.$axios.$get('posts', { params })
-      this.results = data.results
-    }
+    this.pageSize = 4
+    this.fetchPosts()
   }
 }
 </script>

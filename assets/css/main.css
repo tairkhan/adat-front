@@ -16,11 +16,12 @@ h6 {
   font-weight: revert;
 }
 
-a:hover h3 {
+a:hover h3,
+a:hover p {
   @apply text-red-600;
 }
 
-p {
+p, em {
   @apply text-gray-800;
 }
 

@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-wrap">
       <nuxt-link
-        v-for="(item, i) in posts"
+        v-for="(item, i) in results"
         :key="i"
         :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
         class="mb-4 md:mr-4 lg:mr-4 w-full md:w-5/12 lg:w-3/12"
@@ -22,7 +22,7 @@
     </div>
 
     <base-pagination
-      v-if="posts.length !== 0"
+      v-if="results.length !== 0"
       :page-size="pageSize"
       :total="total"
       :current-page="currentPage"
@@ -41,12 +41,21 @@ export default {
     BasePagination
   },
   mixins: [Mixin, PostMixin],
-  created () {
-    const slug = this.$route.params.slug
-    if (slug) {
-      this.rubric = slug
-    }
+  async asyncData ({ app, params, error }) {
+    try {
+      let rubric = params.slug
+      if (!rubric) {
+        rubric = null
+        return { rubric }
+      }
 
+      await app.$axios.$get(`rubrics/${rubric}`)
+      return { rubric }
+    } catch (err) {
+      error({ statusCode: 404 })
+    }
+  },
+  created () {
     this.fetchPosts()
   }
 }

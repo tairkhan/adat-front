@@ -56,12 +56,10 @@
       </div>
     </div>
 
-    <div class="mt-8">
-      <video-category-block :data="posts.videos" class="w-full" />
-    </div>
+    <video-category-block class="mt-8 w-full" />
 
     <div class="mt-8">
-      <div class="w-full lg:w-1/3">
+      <div class="w-1/3">
         <div class="border-b-2 border-red-600">
           <h3 class="category">
             {{ $t('rubrics.politics') }}
@@ -92,28 +90,6 @@ export default {
     ExtraAsideBlock,
     VideoCategoryBlock,
     BottomCategoryBlock
-  },
-  data () {
-    return {
-      posts: {
-        videos: []
-      }
-    }
-  },
-  created () {
-    this.fetchVideos()
-  },
-  methods: {
-    async fetchPostsBy (rubric) {
-      const params = { rubric, page_size: 5 }
-      const data = await this.$axios.$get('posts', { params })
-      this.posts[rubric] = data.results
-    },
-    async fetchVideos () {
-      const params = { rubric: 'video', page_size: 3 }
-      const data = await this.$axios.$get('posts', { params })
-      this.posts.videos = data.results
-    }
   }
 }
 </script>

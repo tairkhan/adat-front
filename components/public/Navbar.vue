@@ -8,7 +8,7 @@
     </nuxt-link>
 
     <nuxt-link
-      v-for="(item, i) in data"
+      v-for="(item, i) in rubrics"
       :key="i"
       class="navbar__link"
       :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
@@ -19,14 +19,10 @@
 </template>
 
 <script>
+import RubricMixin from '@/mixins/RubricMixin'
+
 export default {
-  props: {
-    data: {
-      type: Array,
-      required: false,
-      default: () => ([])
-    }
-  }
+  mixins: [RubricMixin]
 }
 </script>
 

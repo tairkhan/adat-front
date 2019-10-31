@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col lg:flex-row justify-between">
     <div
-      v-for="item in data"
+      v-for="item in results"
       :key="item.id"
-      class="news-block lg:border-r-4 lg:w-4/12"
+      class="news-block mb-8 lg:mb-0 h-56 w-full lg:w-3/12"
       :style="style(item)"
     >
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
@@ -22,22 +22,20 @@
 
 <script>
 import Mixin from '@/mixins/Mixin'
+import PostMixin from '@/mixins/PostMixin'
 
 export default {
-  mixins: [Mixin],
-  props: {
-    data: {
-      type: Array,
-      required: true
-    }
+  mixins: [Mixin, PostMixin],
+  created () {
+    this.pageSize = 3
+    this.rubric = 'video'
+    this.fetchPosts()
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .news-block {
-  @apply h-64 border-white border-b-4;
-
   &:hover &__info {
     background-color: rgba(0, 0, 0, .6);
   }

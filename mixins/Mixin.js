@@ -10,27 +10,22 @@ export default {
     },
     extractCover (item) {
       const isVideo = item.rubrics.find(rubric => rubric.slug === 'video')
+      const content = JSON.parse(item[this.$t('content')])
+      const blocks = content.blocks
 
-      if (!isVideo) {
+      if (!isVideo || !blocks) {
         return item.cover_image_url
       }
 
-      const content = JSON.parse(item[this.$t('content')])
-
-      console.log(content)
-
-      if (content.blocks) {
-        const embed = content.blocks.find(block => block.type === 'embed')
-
-        if (!embed) {
-          return item.cover_image_url
-        }
-
-        const source = embed.data.source.split('=')
-        const result = source[source.length - 1]
-
-        return `https://i.ytimg.com/vi/${result}/mqdefault.jpg`
+      const embed = blocks.find(block => block.type === 'embed')
+      if (!embed) {
+        return item.cover_image_url
       }
+
+      const source = embed.data.source.split('=')
+      const result = source[source.length - 1]
+
+      return `https://i.ytimg.com/vi/${result}/mqdefault.jpg`
     },
     extractFirstParagraph (content) {
       content = JSON.parse(content)

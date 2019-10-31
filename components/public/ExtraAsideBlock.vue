@@ -9,7 +9,9 @@
         <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
       </div>
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-        {{ item[$t('title')] }}
+        <p>
+          {{ item[$t('title')] }}
+        </p>
       </nuxt-link>
     </div>
   </div>

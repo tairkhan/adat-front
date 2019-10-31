@@ -3,30 +3,26 @@ export default {
     return {
       currentPage: 1,
       pageSize: 10,
-      rubric: null
-    }
-  },
-  computed: {
-    posts () {
-      return this.$store.state.directories.posts.results
-    },
-    total () {
-      return this.$store.state.directories.posts.total
+      rubric: null,
+      results: [],
+      total: 0
     }
   },
   methods: {
-    fetchPosts () {
+    async fetchPosts () {
       const params = { page: this.currentPage, page_size: this.pageSize }
 
       if (this.rubric) {
         params.rubric = this.rubric
       }
 
-      this.$store.dispatch('directories/fetch', { name: 'posts', params })
+      const data = await this.$axios.$get('posts', { params })
+      this.results = data.results
+      this.total = data.total
     },
     currentChange (currentPage) {
       this.currentPage = currentPage
-      this.fetch()
+      this.fetchPosts()
     }
   }
 }
