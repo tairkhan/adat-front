@@ -15,9 +15,7 @@ import TopHeader from '@/components/public/TopHeader'
 import Logo from '@/components/public/Logo'
 import Navbar from '@/components/public/Navbar'
 import Footer from '@/components/public/Footer'
-
-import Mixin from '@/mixins/Mixin.js'
-import RubricMixin from '@/mixins/RubricMixin.js'
+import RubricMixin from '@/mixins/RubricMixin'
 
 export default {
   components: {
@@ -26,7 +24,10 @@ export default {
     Navbar,
     Footer
   },
-  mixins: [Mixin, RubricMixin]
+  mixins: [RubricMixin],
+  created () {
+    this.fetchRubrics()
+  }
 }
 </script>
 

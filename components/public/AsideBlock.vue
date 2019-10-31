@@ -1,15 +1,15 @@
 <template>
-  <div class="aside-block">
+  <div>
     <div
       v-for="(item, i) in results"
       :key="i"
-      class="my-5"
+      class="mt-8"
     >
-      <div class="mb-1 text-sm">
-        <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
+      <div class="mb-2 text-gray-800 text-sm">
+        <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
       </div>
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-        <p class="text-xs">
+        <p class="text-sm">
           {{ item[$t('title')] }}
         </p>
       </nuxt-link>
@@ -38,7 +38,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.aside-block {
-  @apply text-gray-800;
-}
+
 </style>

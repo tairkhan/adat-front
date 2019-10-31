@@ -1,13 +1,13 @@
 <template>
-  <div class="flex flex-row">
-    <div class="w-1/2 mr-5">
+  <div class="flex flex-col lg:flex-row">
+    <div class="w-full mt-8 lg:mr-8">
       <div
         v-for="(item, i) in results"
         :key="i"
       >
         <div v-if="i === 0">
           <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-            <div class="news-block w-full" style="height: 18rem;" :style="style(item.cover_image_url)">
+            <div class="news-block w-full" style="height: 18rem;" :style="style(item)">
               <div class="news-block__info">
                 <span class="tag">{{ item.rubrics[0][$t('title')] }}</span>
               </div>
@@ -15,32 +15,34 @@
           </nuxt-link>
 
           <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-            <h3>{{ item[$t('title')] }}</h3>
+            <h3 class="mt-5">
+              {{ item[$t('title')] }}
+            </h3>
           </nuxt-link>
 
           <div class="my-2 text-gray-800 text-sm">
-            <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
+            <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
           </div>
 
-          <p v-html="extractParagraph(item[$t('content')])" class="normal-case"></p>
+          <p v-html="extractFirstParagraph(item[$t('content')])"></p>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-col w-1/2">
+    <div class="flex flex-col w-full">
       <div
         v-for="(item, i) in results"
         :key="i"
       >
         <nuxt-link v-if="i !== 0" :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-          <div class="flex mb-5">
-            <img :src="item.cover_image_url" class="w-32 h-24 mr-2 border">
-            <div>
+          <div class="flex mt-8">
+            <div class="w-32 h-24 mr-5" :style="style(item)"></div>
+            <div class="flex-1">
               <h3>
                 {{ item[$t('title')] }}
               </h3>
-              <div class="text-sm">
-                <span class="font-bold">АДАТ</span> - <span>{{ $dayjs(item.created_at).format('DD MM YYYY') }}</span>
+              <div class="text-gray-800 text-sm">
+                <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
               </div>
             </div>
           </div>
@@ -51,7 +53,10 @@
 </template>
 
 <script>
+import Mixin from '@/mixins/Mixin'
+
 export default {
+  mixins: [Mixin],
   data () {
     return {
       results: []
@@ -65,25 +70,6 @@ export default {
       const params = { page_size: 4 }
       const data = await this.$axios.$get('posts', { params })
       this.results = data.results
-    },
-    style (cover) {
-      return {
-        background: `gray url('${cover}') no-repeat center`,
-        'background-size': 'cover'
-      }
-    },
-    extractParagraph (content) {
-      content = JSON.parse(content)
-
-      if (content.blocks) {
-        const paragraph = content.blocks.find(block => block.type === 'paragraph')
-
-        if (!paragraph) {
-          return ''
-        }
-
-        return paragraph.data.text
-      }
     }
   }
 }

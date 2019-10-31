@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    fetch () {
+    fetchPosts () {
       const params = { page: this.currentPage, page_size: this.pageSize }
 
       if (this.rubric) {

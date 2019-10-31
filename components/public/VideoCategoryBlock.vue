@@ -1,11 +1,10 @@
 <template>
-  <!-- https://i.ytimg.com/vi/ffwefwefwef/hqdefault.jpg -->
-  <div class="flex flex-col lg:flex-row">
+  <div class="flex flex-col lg:flex-row justify-between">
     <div
       v-for="item in data"
       :key="item.id"
-      class="news-block lg:border-r-4 w-full lg:w-1/3"
-      :style="{ background: `gray url('${extractCover(item.content)}') no-repeat center center`, 'background-size': 'cover' }"
+      class="news-block lg:border-r-4 lg:w-4/12"
+      :style="style(item)"
     >
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
         <div class="news-block__info">
@@ -22,29 +21,14 @@
 </template>
 
 <script>
+import Mixin from '@/mixins/Mixin'
+
 export default {
+  mixins: [Mixin],
   props: {
     data: {
       type: Array,
       required: true
-    }
-  },
-  methods: {
-    extractCover (content) {
-      content = JSON.parse(content)
-
-      if (content.blocks) {
-        const embed = content.blocks.find(block => block.type === 'embed')
-
-        if (!embed) {
-          return ''
-        }
-
-        const source = embed.data.source.split('=')
-        const result = source[source.length - 1]
-
-        return `https://i.ytimg.com/vi/${result}/hqdefault.jpg`
-      }
     }
   }
 }

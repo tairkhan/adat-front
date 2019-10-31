@@ -16,6 +16,14 @@ h6 {
   font-weight: revert;
 }
 
+a:hover h3 {
+  @apply text-red-600;
+}
+
+p {
+  @apply text-gray-800;
+}
+
 ul {
   padding: revert;
 }

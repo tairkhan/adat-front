@@ -1,7 +1,7 @@
 <template>
   <div v-if="results.length >= 4" class="main-block flex-col lg:flex-row">
-    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(results[0].cover_image_url)">
-      <nuxt-link :to="localePath(slug(0))">
+    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(results[0])">
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[0][$t('slug')] } })">
         <div class="news-block__info">
           <span class="tag">
             {{ results[0].rubrics[0][$t('title')] }}
@@ -10,15 +10,15 @@
             {{ results[0][$t('title')] }}
           </div>
           <span class="news-block__date">
-            {{ new Date(results[0].created_at).toLocaleDateString() }}
+            {{ $dayjs(results[0].created_at).format('DD MM YYYY') }}
           </span>
         </div>
       </nuxt-link>
     </div>
 
     <div class="flex flex-col w-full lg:w-1/2">
-      <div class="news-block h-full lg:text-sm" :style="style(results[1].cover_image_url)">
-        <nuxt-link :to="localePath(slug(1))">
+      <div class="news-block h-full lg:text-sm" :style="style(results[1])">
+        <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[1][$t('slug')] } })">
           <div class="news-block__info">
             <span class="tag">
               {{ results[1].rubrics[0][$t('title')] }}
@@ -27,15 +27,15 @@
               {{ results[1][$t('title')] }}
             </div>
             <span class="news-block__date">
-              {{ new Date(results[1].created_at).toLocaleDateString() }}
+              {{ $dayjs(results[1].created_at).format('DD MM YYYY') }}
             </span>
           </div>
         </nuxt-link>
       </div>
 
       <div class="flex flex-col h-full md:flex-row">
-        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2].cover_image_url)">
-          <nuxt-link :to="localePath(slug(2))">
+        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2])">
+          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[2][$t('slug')] } })">
             <div class="news-block__info">
               <span class="tag">
                 {{ results[2].rubrics[0][$t('title')] }}
@@ -44,14 +44,14 @@
                 {{ results[2][$t('title')] }}
               </div>
               <span class="news-block__date">
-                {{ new Date(results[2].created_at).toLocaleDateString() }}
+                {{ $dayjs(results[2].created_at).format('DD MM YYYY') }}
               </span>
             </div>
           </nuxt-link>
         </div>
 
-        <div class="news-block w-full lg:text-xs lg:w-1/2" :style="style(results[3].cover_image_url)">
-          <nuxt-link :to="localePath(slug(3))">
+        <div class="news-block w-full lg:text-xs lg:w-1/2" :style="style(results[3])">
+          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[3][$t('slug')] } })">
             <div class="news-block__info">
               <span class="tag">
                 {{ results[3].rubrics[0][$t('title')] }}
@@ -60,7 +60,7 @@
                 {{ results[3][$t('title')] }}
               </div>
               <span class="news-block__date">
-                {{ new Date(results[3].created_at).toLocaleDateString() }}
+                {{ $dayjs(results[3].created_at).format('DD MM YYYY') }}
               </span>
             </div>
           </nuxt-link>
@@ -71,7 +71,10 @@
 </template>
 
 <script>
+import Mixin from '@/mixins/Mixin'
+
 export default {
+  mixins: [Mixin],
   data () {
     return {
       results: []
@@ -85,20 +88,6 @@ export default {
       const params = { page_size: 4 }
       const data = await this.$axios.$get('posts', { params })
       this.results = data.results
-    },
-    style (cover) {
-      return {
-        background: `gray url('${cover}') no-repeat center`,
-        'background-size': 'cover'
-      }
-    },
-    slug (i) {
-      return {
-        name: 'posts-slug',
-        params: {
-          slug: this.results[i][this.$t('slug')]
-        }
-      }
     }
   }
 }

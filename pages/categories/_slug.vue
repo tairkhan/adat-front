@@ -5,16 +5,16 @@
         v-for="(item, i) in posts"
         :key="i"
         :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
-        class="link w-full lg:w-3/12"
+        class="mb-4 md:mr-4 lg:mr-4 w-full md:w-5/12 lg:w-3/12"
       >
-        <div class="image" :style="{ background: `url('${item.cover_image_url}') no-repeat center`, 'background-size': 'cover' }"></div>
+        <div class="h-56 w-full border" :style="style(item)"></div>
 
         <div class="border-t pt-1 pb-4 px-2">
           <h3>
             {{ item[$t('title')] }}
           </h3>
 
-          <div class="text-gray-800 text-xs">
+          <div class="text-gray-800 text-sm">
             <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
           </div>
         </div>
@@ -33,40 +33,25 @@
 
 <script>
 import BasePagination from '@/components/public/BasePagination'
+import Mixin from '@/mixins/Mixin'
 import PostMixin from '@/mixins/PostMixin'
 
 export default {
   components: {
     BasePagination
   },
-  mixins: [PostMixin],
+  mixins: [Mixin, PostMixin],
   created () {
     const slug = this.$route.params.slug
     if (slug) {
       this.rubric = slug
     }
 
-    this.fetch()
+    this.fetchPosts()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.link {
-  @apply border bg-gray-100 mr-4 mb-4 rounded-lg shadow-xl;
 
-  &:hover {
-    .image {
-      opacity: .9;
-    }
-
-    h3 {
-      @apply text-red-600;
-    }
-  }
-
-  .image {
-    @apply h-56 w-full rounded-t-lg;
-  }
-}
 </style>
