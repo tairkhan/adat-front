@@ -60,9 +60,9 @@ export default {
         this.fetchPosts()
       }
     }, 500),
-    results (arr) {
-      if (arr) {
-        this.found = this.found.concat(arr)
+    results (val) {
+      if (val) {
+        this.found = this.found.concat(val)
       }
     }
   },

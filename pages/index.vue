@@ -81,6 +81,8 @@ import ExtraAsideBlock from '@/components/public/ExtraAsideBlock'
 import VideoCategoryBlock from '@/components/public/VideoCategoryBlock'
 import BottomCategoryBlock from '@/components/public/BottomCategoryBlock'
 
+import RubricMixin from '@/mixins/RubricMixin'
+
 export default {
   components: {
     MainBlock,
@@ -90,6 +92,54 @@ export default {
     ExtraAsideBlock,
     VideoCategoryBlock,
     BottomCategoryBlock
+  },
+  mixins: [RubricMixin],
+  data () {
+    return {
+      layout: [
+        {
+          row: 'flex flex-col lg:flex-row',
+          rubrics: [
+            {
+              class: 'mt-8 mr-8 w-full lg:w-2/3'
+            },
+            {
+              class: 'mt-8 w-full lg:w-1/3'
+            }
+          ]
+        },
+        {
+          row: 'flex flex-col lg:flex-row',
+          rubrics: [
+            {
+              class: 'mt-8 mr-8 w-full lg:w-1/3'
+            },
+            {
+              class: 'mt-8 mr-8 w-full lg:w-1/3'
+            },
+            {
+              class: 'mt-8 w-full lg:w-1/3'
+            }
+          ]
+        },
+        {
+          row: 'mt-8 w-full',
+          rubrics: [
+            {
+              class: ''
+            }
+          ]
+        },
+        {
+          row: 'mt-8',
+          rubrics: [
+            {
+              class: ''
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 </script>

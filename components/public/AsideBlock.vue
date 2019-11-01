@@ -24,7 +24,6 @@ export default {
   mixins: [PostMixin],
   created () {
     this.pageSize = 4
-    this.rubric = 'analitika'
     this.fetchPosts()
   }
 }

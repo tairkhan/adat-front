@@ -60,7 +60,6 @@ export default {
   mixins: [Mixin, PostMixin],
   created () {
     this.pageSize = 5
-    this.rubric = 'nacionalnyy-interes'
     this.fetchPosts()
   }
 }
