@@ -1,5 +1,5 @@
 <template>
-  <div class="top-header">
+  <div class="flex flex-wrap justify-between py-1 text-white text-xs" style="background-color: #171717;">
     <div></div>
 
     <div class="flex">
@@ -50,8 +50,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top-header {
-  @apply flex justify-between py-1 text-white text-xs;
-  background-color: #171717;
-}
+
 </style>

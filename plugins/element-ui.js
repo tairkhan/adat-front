@@ -17,7 +17,8 @@ import {
   MessageBox,
   Notification,
   Menu,
-  MenuItem
+  MenuItem,
+  Dialog
 } from 'element-ui'
 
 locale.use(ru)
@@ -43,3 +44,5 @@ Vue.use(Pagination)
 // Nav
 Vue.use(Menu)
 Vue.use(MenuItem)
+// Others
+Vue.use(Dialog)

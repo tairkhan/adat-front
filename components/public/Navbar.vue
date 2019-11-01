@@ -1,19 +1,27 @@
 <template>
-  <div class="navbar">
-    <nuxt-link class="navbar__link" :to="localePath('index')">
-      {{ $t('rubrics.main') }}
-    </nuxt-link>
-    <nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
-      {{ $t('rubrics.all') }}
-    </nuxt-link>
+  <div class="navbar flex flex-wrap justify-between items-center">
+    <div>
+      <nuxt-link class="navbar__link" :to="localePath('index')">
+        {{ $t('rubrics.main') }}
+      </nuxt-link>
+      <nuxt-link class="navbar__link" :to="localePath({ name: 'categories-slug' })">
+        {{ $t('rubrics.all') }}
+      </nuxt-link>
 
-    <nuxt-link
-      v-for="(item, i) in rubrics"
-      :key="i"
-      class="navbar__link"
-      :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
-    >
-      {{ item[$t('title')] }}
+      <nuxt-link
+        v-for="(item, i) in rubrics"
+        :key="i"
+        class="navbar__link"
+        :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
+      >
+        {{ item[$t('title')] }}
+      </nuxt-link>
+    </div>
+
+    <nuxt-link :to="localePath('search')">
+      <span class="py-1 px-2 text-gray-800">
+        <fa-icon icon="search" class="fa-fw" />
+      </span>
     </nuxt-link>
   </div>
 </template>
@@ -44,5 +52,4 @@ export default {
     transition: .2s;
   }
 }
-
 </style>

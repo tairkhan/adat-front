@@ -4,6 +4,7 @@ export default {
       currentPage: 1,
       pageSize: 10,
       rubric: null,
+      search: null,
       results: [],
       total: 0
     }
@@ -14,6 +15,10 @@ export default {
 
       if (this.rubric) {
         params.rubric = this.rubric
+      }
+
+      if (this.search) {
+        params.search = this.search
       }
 
       const data = await this.$axios.$get('posts', { params })

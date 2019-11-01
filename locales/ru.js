@@ -2,6 +2,8 @@ export default {
   title: 'title',
   slug: 'slug',
   content: 'content',
+  search: 'Поиск',
+  showMore: 'Показать ещё',
   rubrics: {
     main: 'Главная',
     all: 'Все статьи',
@@ -16,7 +18,7 @@ export default {
   },
   footer: {
     logo: 'Новостной портал Кыргызской Республики',
-    advertising: 'Реклама',
+    ads: 'Реклама',
     contacts: 'Контакты и сотрудничество',
     rules: 'Правила использования',
     social: 'Мы в соц. сетях',

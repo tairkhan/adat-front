@@ -9,9 +9,9 @@ export default {
   components: {
     Article
   },
-  async asyncData ({ store, params, error }) {
+  async asyncData ({ app, params, error }) {
     try {
-      const data = await store.dispatch('directories/fetchOne', { name: 'posts', id: params.slug })
+      const data = await app.$axios.$get(`posts/${params.slug}`)
       return { data }
     } catch (err) {
       error({ statusCode: 404 })

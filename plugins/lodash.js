@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import { camelCase } from 'lodash-es'
+import { camelCase, debounce } from 'lodash-es'
 
-Vue.prototype.$_ = { camelCase }
+Vue.prototype.$_ = { camelCase, debounce }

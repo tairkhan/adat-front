@@ -2,6 +2,8 @@ export default {
   title: 'title_kg',
   slug: 'slug_kg',
   content: 'content_kg',
+  search: 'Издөө',
+  showMore: 'Ɵзгөчөлүктөрү',
   rubrics: {
     main: 'Башкы бет',
     all: 'Бардык жаңылыктар',
@@ -16,7 +18,7 @@ export default {
   },
   footer: {
     logo: 'Кыргыз Республикасынын маалымат порталы',
-    advertising: 'Реклама',
+    ads: 'Реклама',
     contacts: 'Байланышуу жана кызматташтык',
     rules: 'Колдонуу эрежелери',
     social: 'Биз коомдук желедебиз',

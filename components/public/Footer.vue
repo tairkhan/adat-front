@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="pt-12 pb-2 text-white text-xs" style="background-color: #171717;">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
       <nuxt-link class="mb-4" :to="localePath('index')">
         <span class="font-bold text-4xl">
@@ -11,8 +11,8 @@
       </nuxt-link>
 
       <div class="flex flex-col mb-4 uppercase font-bold">
-        <nuxt-link class="mb-4" :to="localePath('advertising')">
-          {{ $t('footer.advertising') }}
+        <nuxt-link class="mb-4" :to="localePath('ads')">
+          {{ $t('footer.ads') }}
         </nuxt-link>
         <nuxt-link class="mb-4" :to="localePath('contacts')">
           {{ $t('footer.contacts') }}
@@ -78,8 +78,8 @@
         <nuxt-link class="mr-8" :to="localePath('privacy')">
           {{ $t('footer.privacy') }}
         </nuxt-link>
-        <nuxt-link class="mr-8" :to="localePath('advertising')">
-          {{ $t('footer.advertising') }}
+        <nuxt-link class="mr-8" :to="localePath('ads')">
+          {{ $t('footer.ads') }}
         </nuxt-link>
         <nuxt-link :to="localePath('contact-us')">
           {{ $t('footer.contactUs') }}
@@ -98,8 +98,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  @apply pt-12 pb-2 text-white text-xs;
-  background-color: #171717;
-}
+
 </style>

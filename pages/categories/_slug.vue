@@ -43,13 +43,11 @@ export default {
   mixins: [Mixin, PostMixin],
   async asyncData ({ app, params, error }) {
     try {
-      let rubric = params.slug
-      if (!rubric) {
-        rubric = null
-        return { rubric }
+      const rubric = params.slug
+      if (rubric) {
+        await app.$axios.$get(`rubrics/${rubric}`)
       }
 
-      await app.$axios.$get(`rubrics/${rubric}`)
       return { rubric }
     } catch (err) {
       error({ statusCode: 404 })

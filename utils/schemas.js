@@ -1,7 +1,7 @@
 import { morphism } from 'morphism'
 
 export const postSchema = morphism({
-  cover_image_url: 'cover_image_url',
+  cover_image_url: ({ content }) => content.cover_image_url || '',
   title: 'title',
   title_kg: 'title_kg',
   content: ({ content }) => content || '{}',
