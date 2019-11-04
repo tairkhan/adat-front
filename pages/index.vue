@@ -2,72 +2,26 @@
   <div>
     <main-block />
 
-    <div class="flex flex-col lg:flex-row">
-      <div class="mt-8 mr-8 w-full lg:w-2/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.nationalInterest') }}
-          </h3>
-        </div>
+    <div v-if="rubrics.length > 6">
+      <div
+        v-for="(row, i) in layout"
+        :key="i"
+        :class="row.class"
+      >
+        <div
+          v-for="(item, j) in row.rubrics"
+          :key="j"
+          :class="item.class"
+        >
+          <div class="border-b-2 border-red-600">
+            <h3 class="category">
+              {{ item.index !== null ? rubrics[item.index][$t('title')] : $t('rubrics.all') }}
+            </h3>
+          </div>
 
-        <extended-category-block />
-      </div>
-
-      <div class="mt-8 w-full lg:w-1/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.analytics') }}
-          </h3>
-        </div>
-
-        <aside-block />
-      </div>
-    </div>
-
-    <div class="flex flex-col lg:flex-row">
-      <div class="mt-8 mr-8 w-full lg:w-1/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.economics') }}
-          </h3>
-        </div>
-
-        <category-block />
-      </div>
-
-      <div class="mt-8 mr-8 w-full lg:w-1/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.society') }}
-          </h3>
-        </div>
-
-        <category-block />
-      </div>
-
-      <div class="mt-8 w-full lg:w-1/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.all') }}
-          </h3>
-        </div>
-
-        <extra-aside-block />
-      </div>
-    </div>
-
-    <video-category-block class="mt-8 w-full" />
-
-    <div class="mt-8">
-      <div class="w-1/3">
-        <div class="border-b-2 border-red-600">
-          <h3 class="category">
-            {{ $t('rubrics.politics') }}
-          </h3>
+          <component :is="item.component" :category="item.index !== null ? rubrics[item.index] : {}" />
         </div>
       </div>
-
-      <bottom-category-block />
     </div>
   </div>
 </template>
@@ -78,7 +32,7 @@ import ExtendedCategoryBlock from '@/components/public/ExtendedCategoryBlock'
 import AsideBlock from '@/components/public/AsideBlock'
 import CategoryBlock from '@/components/public/CategoryBlock'
 import ExtraAsideBlock from '@/components/public/ExtraAsideBlock'
-import VideoCategoryBlock from '@/components/public/VideoCategoryBlock'
+import SpotlightCategoryBlock from '@/components/public/SpotlightCategoryBlock'
 import BottomCategoryBlock from '@/components/public/BottomCategoryBlock'
 
 import RubricMixin from '@/mixins/RubricMixin'
@@ -90,7 +44,7 @@ export default {
     AsideBlock,
     CategoryBlock,
     ExtraAsideBlock,
-    VideoCategoryBlock,
+    SpotlightCategoryBlock,
     BottomCategoryBlock
   },
   mixins: [RubricMixin],
@@ -98,43 +52,57 @@ export default {
     return {
       layout: [
         {
-          row: 'flex flex-col lg:flex-row',
+          class: 'flex flex-col lg:flex-row',
           rubrics: [
             {
-              class: 'mt-8 mr-8 w-full lg:w-2/3'
+              index: 0,
+              class: 'mt-8 mr-8 w-full lg:w-2/3',
+              component: 'extended-category-block'
             },
             {
-              class: 'mt-8 w-full lg:w-1/3'
+              index: 3,
+              class: 'mt-8 w-full lg:w-1/3',
+              component: 'aside-block'
             }
           ]
         },
         {
-          row: 'flex flex-col lg:flex-row',
+          class: 'flex flex-col lg:flex-row',
           rubrics: [
             {
-              class: 'mt-8 mr-8 w-full lg:w-1/3'
+              index: 2,
+              class: 'mt-8 mr-8 w-full lg:w-1/3',
+              component: 'category-block'
             },
             {
-              class: 'mt-8 mr-8 w-full lg:w-1/3'
+              index: 6,
+              class: 'mt-8 mr-8 w-full lg:w-1/3',
+              component: 'category-block'
             },
             {
-              class: 'mt-8 w-full lg:w-1/3'
+              index: null,
+              class: 'mt-8 w-full lg:w-1/3',
+              component: 'extra-aside-block'
             }
           ]
         },
         {
-          row: 'mt-8 w-full',
+          class: 'mt-8 w-full',
           rubrics: [
             {
-              class: ''
+              index: 4,
+              class: '',
+              component: 'spotlight-category-block'
             }
           ]
         },
         {
-          row: 'mt-8',
+          class: 'mt-8',
           rubrics: [
             {
-              class: ''
+              index: 1,
+              class: '',
+              component: 'bottom-category-block'
             }
           ]
         }

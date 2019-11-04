@@ -18,21 +18,23 @@
 </template>
 
 <script>
+import PostMixin from '@/mixins/PostMixin'
+
 export default {
-  data () {
-    return {
-      results: []
+  mixins: [PostMixin],
+  props: {
+    category: {
+      type: Object,
+      required: false,
+      default: () => ({})
     }
   },
   created () {
-    this.fetch()
-  },
-  methods: {
-    async fetch () {
-      const params = { page_size: 4 }
-      const data = await this.$axios.$get('posts', { params })
-      this.results = data.results
+    this.pageSize = 4
+    if (this.category) {
+      this.rubric = this.category[this.$t('slug')]
     }
+    this.fetchPosts()
   }
 }
 </script>

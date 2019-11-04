@@ -29,16 +29,18 @@ export default {
     },
     extractFirstParagraph (content) {
       content = JSON.parse(content)
+      const blocks = content.blocks
 
-      if (content.blocks) {
-        const paragraph = content.blocks.find(block => block.type === 'paragraph')
-
-        if (!paragraph) {
-          return ''
-        }
-
-        return paragraph.data.text
+      if (!blocks) {
+        return ''
       }
+
+      const paragraph = blocks.find(block => block.type === 'paragraph')
+      if (!paragraph) {
+        return ''
+      }
+
+      return paragraph.data.text
     },
     parseHtml (content) {
       let html = ''

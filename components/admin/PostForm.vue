@@ -28,7 +28,7 @@
       </el-select>
     </el-form-item>
 
-    <el-form-item label="Обложка" prop="cover_image_url">
+    <el-form-item label="Обложка">
       <upload :image-url="model.cover_image_url" @result="cover" />
     </el-form-item>
 

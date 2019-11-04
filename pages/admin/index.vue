@@ -1,5 +1,5 @@
 <template>
-  <login-form style="width: 24rem;" />
+  <login-form class="mt-32 border bg-white pt-4 px-4 rounded-lg" style="width: 24rem;" />
 </template>
 
 <script>

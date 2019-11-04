@@ -58,8 +58,18 @@ import PostMixin from '@/mixins/PostMixin'
 
 export default {
   mixins: [Mixin, PostMixin],
+  props: {
+    category: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    }
+  },
   created () {
     this.pageSize = 5
+    if (this.category) {
+      this.rubric = this.category[this.$t('slug')]
+    }
     this.fetchPosts()
   }
 }

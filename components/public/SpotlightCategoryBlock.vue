@@ -3,7 +3,7 @@
     <div
       v-for="item in results"
       :key="item.id"
-      class="news-block mb-8 lg:mb-0 h-56 w-full lg:w-3/12"
+      class="news-block mt-8 h-56 w-full lg:w-3/12"
       :style="style(item)"
     >
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
@@ -26,9 +26,18 @@ import PostMixin from '@/mixins/PostMixin'
 
 export default {
   mixins: [Mixin, PostMixin],
+  props: {
+    category: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    }
+  },
   created () {
     this.pageSize = 3
-    this.rubric = 'video'
+    if (this.category) {
+      this.rubric = this.category[this.$t('slug')]
+    }
     this.fetchPosts()
   }
 }

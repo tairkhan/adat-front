@@ -6,15 +6,7 @@ export default {
   showMore: 'Показать ещё',
   rubrics: {
     main: 'Главная',
-    all: 'Все статьи',
-    politics: 'Политика',
-    economics: 'Экономика',
-    analytics: 'Аналитика',
-    videos: 'Видео',
-    world: 'В мире',
-    society: 'Общество',
-    sports: 'Спорт',
-    nationalInterest: 'Национальный интерес'
+    all: 'Все статьи'
   },
   footer: {
     logo: 'Новостной портал Кыргызской Республики',

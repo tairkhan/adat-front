@@ -6,15 +6,7 @@ export default {
   showMore: 'Ɵзгөчөлүктөрү',
   rubrics: {
     main: 'Башкы бет',
-    all: 'Бардык жаңылыктар',
-    politics: 'Саясат',
-    economics: 'Экономика',
-    analytics: 'Аналитика',
-    videos: 'Видео',
-    world: 'Дүйнɵдɵ',
-    society: 'Коом',
-    sports: 'Спорт',
-    nationalInterest: 'Улуттук кызыкчылык'
+    all: 'Бардык жаңылыктар'
   },
   footer: {
     logo: 'Кыргыз Республикасынын маалымат порталы',

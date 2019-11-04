@@ -15,12 +15,13 @@ export default {
       entity: null
     }
   },
-  asyncData ({ store, params, error }) {
-    return store.dispatch('directories/fetchOne', { name: 'rubrics', id: params.id })
-      .then((entity) => {
-        return { entity }
-      })
-      .catch(() => error({ statusCode: 404 }))
+  async asyncData ({ app, params, error }) {
+    try {
+      const entity = await app.$axios.$get(`rubrics/${params.id}`)
+      return { entity }
+    } catch (err) {
+      error({ statusCode: 404 })
+    }
   }
 }
 </script>
