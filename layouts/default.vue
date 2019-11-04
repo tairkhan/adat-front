@@ -4,7 +4,9 @@
     <logo class="px-2 md:px-20 lg:px-32" />
     <navbar class="px-2 md:px-20 lg:px-32 shadow-md" />
     <div class="px-2 md:px-20 lg:px-32 flex-1 my-5">
-      <nuxt />
+      <transition name="fade">
+        <nuxt />
+      </transition>
     </div>
     <Footer class="px-2 md:px-20 lg:px-32" />
   </div>
@@ -34,5 +36,11 @@ export default {
 <style lang="scss" scoped>
 .default-layout {
   @apply min-h-screen flex flex-col;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
