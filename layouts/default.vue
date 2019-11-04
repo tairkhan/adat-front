@@ -3,7 +3,7 @@
     <top-header class="px-2 md:px-20 lg:px-32" />
     <logo class="px-2 md:px-20 lg:px-32" />
     <navbar class="px-2 md:px-20 lg:px-32 shadow-md" />
-    <div class="px-2 md:px-20 lg:px-32 flex-1 my-8">
+    <div class="px-2 md:px-20 lg:px-32 flex-1 my-5">
       <nuxt />
     </div>
     <Footer class="px-2 md:px-20 lg:px-32" />

@@ -1,8 +1,10 @@
 <template>
   <div>
+    <slider class="mb-5" />
+
     <main-block />
 
-    <div v-if="rubrics.length > 6">
+    <div v-if="rubrics.length >= 7">
       <div
         v-for="(row, i) in layout"
         :key="i"
@@ -27,6 +29,7 @@
 </template>
 
 <script>
+import Slider from '@/components/public/Slider'
 import MainBlock from '@/components/public/MainBlock'
 import ExtendedCategoryBlock from '@/components/public/ExtendedCategoryBlock'
 import AsideBlock from '@/components/public/AsideBlock'
@@ -39,6 +42,7 @@ import RubricMixin from '@/mixins/RubricMixin'
 
 export default {
   components: {
+    Slider,
     MainBlock,
     ExtendedCategoryBlock,
     AsideBlock,

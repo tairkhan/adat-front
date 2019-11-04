@@ -97,9 +97,6 @@ export default {
     defaultLocale: 'ru',
     lazy: true,
     langDir: 'locales/',
-    vueI18n: {
-      fallbackLocale: 'ru'
-    },
     detectBrowserLanguage: {
       fallbackLocale: 'ru'
     }

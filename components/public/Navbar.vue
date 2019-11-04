@@ -18,8 +18,8 @@
       </nuxt-link>
     </div>
 
-    <nuxt-link :to="localePath('search')">
-      <span class="py-1 px-2 text-gray-800">
+    <nuxt-link class="mb-4 lg:m-0" :to="localePath('search')">
+      <span class="p-1 text-gray-800">
         <fa-icon icon="search" class="fa-fw" />
       </span>
     </nuxt-link>

@@ -4,6 +4,7 @@ export default {
   content: 'content_kg',
   search: 'Издөө',
   showMore: 'Ɵзгөчөлүктөрү',
+  last: 'Акыркы жаңылыктар',
   rubrics: {
     main: 'Башкы бет',
     all: 'Бардык жаңылыктар'

@@ -4,6 +4,7 @@ export default {
   content: 'content',
   search: 'Поиск',
   showMore: 'Показать ещё',
+  last: 'Последние новости',
   rubrics: {
     main: 'Главная',
     all: 'Все статьи'
