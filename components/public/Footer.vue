@@ -1,18 +1,18 @@
 <template>
   <div class="pt-12 pb-2 text-white text-xs" style="background-color: #171717;">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
-      <nuxt-link class="mb-4" :to="localePath('index')">
+      <nuxt-link to="/" class="leading-tight">
         <span class="font-bold text-4xl">
-          <span>ADAT</span>.kg
+          ADAT.kg
         </span>
-        <p class="text-xs text-gray-500">
-          {{ $t('footer.logo') }}
+        <p class="text-sm text-white">
+          {{ $t('logo') }}
         </p>
       </nuxt-link>
 
       <div class="flex flex-col mb-4 uppercase font-bold">
-        <nuxt-link class="mb-4" :to="localePath('ads')">
-          {{ $t('footer.ads') }}
+        <nuxt-link class="mb-4" :to="localePath('advertising')">
+          {{ $t('footer.advertising') }}
         </nuxt-link>
         <nuxt-link class="mb-4" :to="localePath('contacts')">
           {{ $t('footer.contacts') }}
@@ -78,8 +78,8 @@
         <nuxt-link class="mr-8" :to="localePath('privacy')">
           {{ $t('footer.privacy') }}
         </nuxt-link>
-        <nuxt-link class="mr-8" :to="localePath('ads')">
-          {{ $t('footer.ads') }}
+        <nuxt-link class="mr-8" :to="localePath('advertising')">
+          {{ $t('footer.advertising') }}
         </nuxt-link>
         <nuxt-link :to="localePath('contact-us')">
           {{ $t('footer.contactUs') }}

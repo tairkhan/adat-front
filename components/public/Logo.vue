@@ -5,7 +5,7 @@
         <span class="text-red-600">ADAT</span>.kg
       </span>
       <p class="text-sm">
-        {{ $t('footer.logo') }}
+        {{ $t('logo') }}
       </p>
     </nuxt-link>
   </div>

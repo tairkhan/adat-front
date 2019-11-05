@@ -21,7 +21,7 @@
             </h3>
           </div>
 
-          <component :is="item.component" :category="item.index !== null ? rubrics[item.index] : {}" />
+          <component :is="item.component" :rubric="item.index !== null ? rubrics[item.index] : {}" />
         </div>
       </div>
     </div>
@@ -52,6 +52,11 @@ export default {
     BottomCategoryBlock
   },
   mixins: [RubricMixin],
+  head () {
+    return {
+      title: this.$t('rubrics.main')
+    }
+  },
   data () {
     return {
       layout: [

@@ -21,6 +21,11 @@ export default {
     PostTable,
     BasePagination
   },
+  head () {
+    return {
+      title: 'Новости'
+    }
+  },
   data () {
     return {
       currentPage: 1,

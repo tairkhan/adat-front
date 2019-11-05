@@ -21,6 +21,11 @@ export default {
     RubricTable,
     BasePagination
   },
+  head () {
+    return {
+      title: 'Рубрики'
+    }
+  },
   data () {
     return {
       currentPage: 1,

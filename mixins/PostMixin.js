@@ -3,7 +3,7 @@ export default {
     return {
       currentPage: 1,
       pageSize: 10,
-      rubric: null,
+      category: null,
       search: null,
       results: [],
       total: 0
@@ -13,8 +13,8 @@ export default {
     async fetchPosts () {
       const params = { page: this.currentPage, page_size: this.pageSize }
 
-      if (this.rubric) {
-        params.rubric = this.rubric
+      if (this.category) {
+        params.rubric = this.category
       }
 
       if (this.search) {

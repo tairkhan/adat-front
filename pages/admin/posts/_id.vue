@@ -10,17 +10,18 @@ export default {
   components: {
     PostForm
   },
+  async asyncData ({ $axios, params }) {
+    const entity = await $axios.$get(`posts/${params.id}`)
+    return { entity }
+  },
+  head () {
+    return {
+      title: `Новости | ${this.entity.title}`
+    }
+  },
   data () {
     return {
       entity: null
-    }
-  },
-  async asyncData ({ app, params, error }) {
-    try {
-      const entity = await app.$axios.$get(`posts/${params.id}`)
-      return { entity }
-    } catch (err) {
-      error({ statusCode: 404 })
     }
   }
 }

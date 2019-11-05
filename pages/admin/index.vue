@@ -9,6 +9,11 @@ export default {
   layout: 'non-auth',
   components: {
     LoginForm
+  },
+  head () {
+    return {
+      title: 'Войти'
+    }
   }
 }
 </script>

@@ -44,6 +44,11 @@ import PostMixin from '@/mixins/PostMixin'
 
 export default {
   mixins: [Mixin, PostMixin],
+  head () {
+    return {
+      title: this.$t('search')
+    }
+  },
   data () {
     return {
       found: []

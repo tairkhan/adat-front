@@ -9,12 +9,13 @@ export default {
   components: {
     Article
   },
-  async asyncData ({ app, params, error }) {
-    try {
-      const data = await app.$axios.$get(`posts/${params.slug}`)
-      return { data }
-    } catch (err) {
-      error({ statusCode: 404 })
+  async asyncData ({ $axios, params }) {
+    const data = await $axios.$get(`posts/${params.slug}`)
+    return { data }
+  },
+  head () {
+    return {
+      title: this.data[this.$t('title')]
     }
   }
 }

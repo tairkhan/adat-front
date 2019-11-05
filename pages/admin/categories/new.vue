@@ -9,6 +9,11 @@ export default {
   layout: 'admin',
   components: {
     RubricForm
+  },
+  head () {
+    return {
+      title: 'Создать рубрику'
+    }
   }
 }
 </script>

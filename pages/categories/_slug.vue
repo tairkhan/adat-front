@@ -41,16 +41,18 @@ export default {
     BasePagination
   },
   mixins: [Mixin, PostMixin],
-  async asyncData ({ app, params, error }) {
-    try {
-      const rubric = params.slug
-      if (rubric) {
-        await app.$axios.$get(`rubrics/${rubric}`)
-      }
+  async asyncData ({ $axios, params }) {
+    let rubric = null
+    if (params.slug) {
+      rubric = await $axios.$get(`rubrics/${params.slug}`)
+    }
 
-      return { rubric }
-    } catch (err) {
-      error({ statusCode: 404 })
+    const category = params.slug
+    return { rubric, category }
+  },
+  head () {
+    return {
+      title: this.rubric ? this.rubric[this.$t('title')] : this.$t('rubrics.all')
     }
   },
   created () {

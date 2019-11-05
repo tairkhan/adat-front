@@ -9,6 +9,11 @@ export default {
   layout: 'admin',
   components: {
     SettingsForm
+  },
+  head () {
+    return {
+      title: 'Настройки'
+    }
   }
 }
 </script>

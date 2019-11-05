@@ -9,6 +9,11 @@ export default {
   layout: 'admin',
   components: {
     PostForm
+  },
+  head () {
+    return {
+      title: 'Создать новость'
+    }
   }
 }
 </script>

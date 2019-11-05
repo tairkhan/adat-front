@@ -1,19 +1,32 @@
 <template>
   <div class="flex flex-wrap justify-between py-1 text-white text-xs" style="background-color: #171717;">
-    <div></div>
+    <div class="flex">
+      <div class="mr-4 flex items-center">
+        <span class="mr-2 text-sm">$</span>
+      </div>
+      <div class="mr-4 flex items-center">
+        <span class="mr-2 text-sm">€</span>
+      </div>
+      <div class="mr-4 flex items-center">
+        <span class="mr-2 text-sm">₽</span>
+      </div>
+      <div class="mr-4 flex items-center">
+        <span class="mr-2 text-sm">₸</span>
+      </div>
+    </div>
 
     <div class="flex">
       <div class="mr-12">
         <nuxt-link v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag2.png">
-            KG
+            КГ
           </div>
         </nuxt-link>
         <nuxt-link v-if="$i18n.locale !== 'kg'" :to="switchLocalePath('kg')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag1.png">
-            RU
+            РУ
           </div>
         </nuxt-link>
       </div>
