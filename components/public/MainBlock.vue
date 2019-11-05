@@ -10,7 +10,7 @@
             {{ results[0][$t('title')] }}
           </div>
           <span class="news-block__date">
-            {{ $dayjs(results[0].created_at).format('DD MM YYYY') }}
+            <span class="font-bold">АДАТ</span> {{ $dayjs(results[0].created_at).format('ll') }}
           </span>
         </div>
       </nuxt-link>
@@ -26,9 +26,6 @@
             <div class="news-block__title">
               {{ results[1][$t('title')] }}
             </div>
-            <span class="news-block__date">
-              {{ $dayjs(results[1].created_at).format('DD MM YYYY') }}
-            </span>
           </div>
         </nuxt-link>
       </div>
@@ -43,9 +40,6 @@
               <div class="news-block__title">
                 {{ results[2][$t('title')] }}
               </div>
-              <span class="news-block__date">
-                {{ $dayjs(results[2].created_at).format('DD MM YYYY') }}
-              </span>
             </div>
           </nuxt-link>
         </div>
@@ -59,9 +53,6 @@
               <div class="news-block__title">
                 {{ results[3][$t('title')] }}
               </div>
-              <span class="news-block__date">
-                {{ $dayjs(results[3].created_at).format('DD MM YYYY') }}
-              </span>
             </div>
           </nuxt-link>
         </div>
@@ -110,7 +101,7 @@ export default {
   }
 
   &__date {
-    @apply text-xs text-white mt-4;
+    @apply text-white text-sm mt-4;
   }
 }
 

@@ -21,8 +21,8 @@ a:hover p {
   @apply text-red-600;
 }
 
-p, em {
-  @apply text-gray-800;
+p, em, blockquote {
+  @apply text-gray-900;
 }
 
 ul {
@@ -36,6 +36,7 @@ ul {
 .article h5,
 .article h6,
 .article p,
+.article img,
 .article ul,
 .article blockquote,
 .article em {
@@ -51,13 +52,13 @@ ul {
 }
 
 .article blockquote {
-  @apply border-l-8 border-gray-500 bg-gray-200 py-1 pl-4 pr-1 text-gray-800 text-2xl italic;
+  @apply border-l-8 border-gray-500 py-1 pl-4 pr-1;
 }
 
 .tag {
   @apply py-1 px-2 bg-yellow-500 text-black uppercase text-xs font-bold rounded;
 }
 
-.category {
+.category-title {
   @apply inline-block py-0 px-2 bg-red-600 text-white uppercase;
 }

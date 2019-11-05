@@ -16,7 +16,7 @@
           :class="item.class"
         >
           <div class="border-b-2 border-red-600">
-            <h3 class="category">
+            <h3 class="category-title">
               {{ item.index !== null ? rubrics[item.index][$t('title')] : $t('rubrics.all') }}
             </h3>
           </div>

@@ -16,7 +16,7 @@
             {{ item[$t('title')] }}
           </div>
           <span class="text-xs text-white mt-4">
-            <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('DD MM YYYY') }}
+            <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('ll') }}
           </span>
         </div>
       </div>
@@ -28,7 +28,7 @@
             {{ item[$t('title')] }}
           </h3>
           <div class="text-gray-800 text-sm">
-            <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
+            <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('ll') }}
           </div>
         </div>
       </div>

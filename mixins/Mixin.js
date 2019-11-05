@@ -59,7 +59,7 @@ export default {
             html += `<p>${block.data.text}</p>`
             break
           case 'image':
-            html += `<img src="${block.data.file.url}" title="${block.data.caption}" /><em>${block.data.caption}</em>`
+            html += `<div><img class="w-full" src="${block.data.file.url}"><em>${block.data.caption}</em></div>`
             break
           case 'list':
             const style = block.data.style === 'ordered' ? 'decimal"' : 'disc'

@@ -15,7 +15,7 @@
           </h3>
 
           <div class="text-gray-800 text-sm">
-            <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
+            <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('ll') }}
           </div>
         </div>
       </nuxt-link>

@@ -6,7 +6,7 @@
       class="mt-8"
     >
       <div class="mb-2 text-gray-800 text-sm">
-        <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('DD MM YYYY') }}
+        <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('ll') }}
       </div>
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
         <p class="text-sm">
