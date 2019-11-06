@@ -28,7 +28,10 @@ export default {
   },
   mixins: [RubricMixin],
   created () {
-    this.fetchRubrics()
+    this.rubricPageSize = 8
+    if (!this.rubrics.length) {
+      this.fetchRubrics()
+    }
   }
 }
 </script>

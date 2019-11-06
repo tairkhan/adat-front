@@ -1,17 +1,17 @@
 export default {
   data () {
     return {
-      currentPage: 1,
-      pageSize: 10,
+      postPage: 1,
+      postPageSize: 10,
       category: null,
       search: null,
-      results: [],
-      total: 0
+      posts: [],
+      totalPosts: 0
     }
   },
   methods: {
     async fetchPosts () {
-      const params = { page: this.currentPage, page_size: this.pageSize }
+      const params = { page: this.postPage, page_size: this.postPageSize }
 
       if (this.category) {
         params.rubric = this.category
@@ -22,11 +22,11 @@ export default {
       }
 
       const data = await this.$axios.$get('posts', { params })
-      this.results = data.results
-      this.total = data.total
+      this.posts = data.results
+      this.totalPosts = data.total
     },
-    currentChange (currentPage) {
-      this.currentPage = currentPage
+    postPageChange (page) {
+      this.postPage = page
       this.fetchPosts()
     }
   }

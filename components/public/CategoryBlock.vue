@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <nuxt-link
-      v-for="(item, i) in results"
+      v-for="(item, i) in posts"
       :key="i"
       :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
       class="mt-8"
@@ -50,7 +50,7 @@ export default {
     }
   },
   created () {
-    this.pageSize = 4
+    this.postPageSize = 4
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]
     }

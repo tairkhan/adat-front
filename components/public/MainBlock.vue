@@ -1,57 +1,57 @@
 <template>
-  <div v-if="results.length >= 4" class="main-block flex-col lg:flex-row">
-    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(results[0])">
-      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[0][$t('slug')] } })">
+  <div v-if="posts.length >= 4" class="main-block flex-col lg:flex-row">
+    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(posts[0])">
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[0][$t('slug')] } })">
         <div class="news-block__info">
           <span class="tag">
-            {{ results[0].rubrics[0][$t('title')] }}
+            {{ posts[0].rubrics[0][$t('title')] }}
           </span>
           <div class="news-block__title">
-            {{ results[0][$t('title')] }}
+            {{ posts[0][$t('title')] }}
           </div>
           <span class="news-block__date">
-            <span class="font-bold">АДАТ</span> {{ $dayjs(results[0].created_at).format('ll') }}
+            <span class="font-bold">АДАТ</span> {{ $dayjs(posts[0].created_at).format('ll') }}
           </span>
         </div>
       </nuxt-link>
     </div>
 
     <div class="flex flex-col w-full lg:w-1/2">
-      <div class="news-block h-full lg:text-sm" :style="style(results[1])">
-        <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[1][$t('slug')] } })">
+      <div class="news-block h-full lg:text-sm" :style="style(posts[1])">
+        <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[1][$t('slug')] } })">
           <div class="news-block__info">
             <span class="tag">
-              {{ results[1].rubrics[0][$t('title')] }}
+              {{ posts[1].rubrics[0][$t('title')] }}
             </span>
             <div class="news-block__title">
-              {{ results[1][$t('title')] }}
+              {{ posts[1][$t('title')] }}
             </div>
           </div>
         </nuxt-link>
       </div>
 
       <div class="flex flex-col h-full md:flex-row">
-        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(results[2])">
-          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[2][$t('slug')] } })">
+        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(posts[2])">
+          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[2][$t('slug')] } })">
             <div class="news-block__info">
               <span class="tag">
-                {{ results[2].rubrics[0][$t('title')] }}
+                {{ posts[2].rubrics[0][$t('title')] }}
               </span>
               <div class="news-block__title">
-                {{ results[2][$t('title')] }}
+                {{ posts[2][$t('title')] }}
               </div>
             </div>
           </nuxt-link>
         </div>
 
-        <div class="news-block w-full lg:text-xs lg:w-1/2" :style="style(results[3])">
-          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[3][$t('slug')] } })">
+        <div class="news-block w-full lg:text-xs lg:w-1/2" :style="style(posts[3])">
+          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[3][$t('slug')] } })">
             <div class="news-block__info">
               <span class="tag">
-                {{ results[3].rubrics[0][$t('title')] }}
+                {{ posts[3].rubrics[0][$t('title')] }}
               </span>
               <div class="news-block__title">
-                {{ results[3][$t('title')] }}
+                {{ posts[3][$t('title')] }}
               </div>
             </div>
           </nuxt-link>
@@ -68,7 +68,7 @@ import PostMixin from '@/mixins/PostMixin'
 export default {
   mixins: [Mixin, PostMixin],
   created () {
-    this.pageSize = 4
+    this.postPageSize = 4
     this.fetchPosts()
   }
 }

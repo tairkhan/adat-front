@@ -2,7 +2,7 @@
   <div class="px-2 md:px-20 lg:px-32">
     <input id="search" v-model="search" :placeholder="$t('search')">
 
-    <div v-if="results.length !== 0" class="flex flex-col mt-4 pb-8 px-2 md:px-20 lg:px-32 rounded-lg" style="background-color: #f2f2f2;">
+    <div v-if="posts.length" class="flex flex-col mt-4 pb-8 px-2 md:px-20 lg:px-32 rounded-lg" style="background-color: #f2f2f2;">
       <nuxt-link
         v-for="(item, i) in found"
         :key="i"
@@ -25,7 +25,7 @@
       </nuxt-link>
 
       <div
-        v-if="results.length !== 0 && found.length < total"
+        v-if="posts.length && found.length < totalPosts"
         class="mt-8 text-center"
       >
         <el-button type="danger" plain @click="downloadMore">
@@ -57,15 +57,15 @@ export default {
   watch: {
     search: debounce(function (val) {
       this.found = []
-      this.results = []
-      this.currentPage = 1
+      this.posts = []
+      this.postPage = 1
       this.search = val
 
       if (this.search) {
         this.fetchPosts()
       }
     }, 500),
-    results (val) {
+    posts (val) {
       if (val) {
         this.found = this.found.concat(val)
       }
@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     downloadMore () {
-      this.currentPage += 1
+      this.postPage += 1
       this.fetchPosts()
     }
   }

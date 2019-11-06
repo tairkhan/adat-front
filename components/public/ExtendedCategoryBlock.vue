@@ -2,7 +2,7 @@
   <div class="flex flex-col lg:flex-row">
     <div class="w-full mt-8 lg:mr-8">
       <div
-        v-for="(item, i) in results"
+        v-for="(item, i) in posts"
         :key="i"
       >
         <div v-if="i === 0">
@@ -31,7 +31,7 @@
 
     <div class="flex flex-col w-full">
       <div
-        v-for="(item, i) in results"
+        v-for="(item, i) in posts"
         :key="i"
       >
         <nuxt-link v-if="i !== 0" :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
@@ -66,7 +66,7 @@ export default {
     }
   },
   created () {
-    this.pageSize = 5
+    this.postPageSize = 5
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]
     }

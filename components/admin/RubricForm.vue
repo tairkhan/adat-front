@@ -48,34 +48,34 @@ export default {
           return false
         }
 
-        let action
-        const data = { name: 'rubrics', payload: this.model }
+        const payload = this.model
         switch (typeof this.entity.id) {
           case 'undefined':
-            action = 'create'
+            this.$axios.$post('rubrics', payload)
+              .then(this.resolveHandler)
+              .catch(this.rejectHandler)
             break
           case 'number':
-            action = 'update'
-            data.id = this.entity.id
+            this.$axios.$put(`rubrics/${this.entity.id}`, payload)
+              .then(this.resolveHandler)
+              .catch(this.rejectHandler)
             break
           default:
-            return false
+            break
         }
+      })
+    },
+    resolveHandler () {
+      this.$router.push('/admin/categories')
+    },
+    rejectHandler (err) {
+      const status = err.response.status
+      const message = err.response.data.message
 
-        this.$store.dispatch(`directories/${action}`, data)
-          .then(() => {
-            this.$router.push('/admin/categories')
-          })
-          .catch((err) => {
-            const status = err.response.status
-            const message = err.response.data.message
-
-            this.$notify({
-              type: 'error',
-              title: status,
-              message
-            })
-          })
+      this.$notify({
+        type: 'error',
+        title: status,
+        message
       })
     }
   }

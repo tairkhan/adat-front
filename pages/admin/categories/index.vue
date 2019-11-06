@@ -1,13 +1,13 @@
 <template>
   <div>
     <base-pagination
-      :page-size="pageSize"
-      :total="total"
-      :current-page="currentPage"
-      @current-change="currentChange"
+      :page-size="rubricPageSize"
+      :total="totalRubrics"
+      :current-page="rubricPage"
+      @current-change="rubricPageChange"
     />
 
-    <rubric-table :data="results" @delete="onDelete" />
+    <rubric-table :data="rubrics" @delete="onDelete" />
   </div>
 </template>
 
@@ -15,53 +15,34 @@
 import RubricTable from '@/components/admin/RubricTable'
 import BasePagination from '@/components/public/BasePagination'
 
+import RubricMixin from '@/mixins/RubricMixin'
+
 export default {
   layout: 'admin',
   components: {
     RubricTable,
     BasePagination
   },
+  mixins: [RubricMixin],
   head () {
     return {
       title: 'Рубрики'
     }
   },
-  data () {
-    return {
-      currentPage: 1,
-      pageSize: 10
-    }
-  },
-  computed: {
-    results () {
-      return this.$store.state.directories.rubrics.results
-    },
-    total () {
-      return this.$store.state.directories.rubrics.total
-    }
-  },
   created () {
-    this.fetch()
+    this.fetchRubrics()
   },
   methods: {
-    fetch () {
-      const params = { page: this.currentPage, page_size: this.pageSize, sort_direction: 'asc' }
-      this.$store.dispatch('directories/fetch', { name: 'rubrics', params })
-    },
-    currentChange (currentPage) {
-      this.currentPage = currentPage
-      this.fetch()
-    },
     onDelete (payload) {
       this.$confirm('Вы действительно хотите удалить данную рубрику?')
         .then(() => {
-          this.$store.dispatch('directories/delete', { name: 'rubrics', id: payload.id })
+          this.$axios.$delete(`rubrics/${payload.id}`)
             .then(() => {
-              if (this.results.length === 1 && this.currentPage > 1) {
-                this.currentPage -= 1
+              if (this.rubrics.length === 1 && this.rubricPage > 1) {
+                this.rubricPage -= 1
               }
 
-              this.fetch()
+              this.fetchRubrics()
               this.$message({
                 type: 'success',
                 message: 'Удаление завершено'

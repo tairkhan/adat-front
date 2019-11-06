@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="(item, i) in results"
+      v-for="(item, i) in posts"
       :key="i"
       class="mt-8"
     >
@@ -30,7 +30,7 @@ export default {
     }
   },
   created () {
-    this.pageSize = 4
+    this.postPageSize = 4
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]
     }

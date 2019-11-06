@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap">
     <div
-      v-for="(item, i) in results"
+      v-for="(item, i) in posts"
       :key="i"
       class="mt-8 border-white lg:border-r-8 w-full lg:w-1/3"
     >
@@ -34,7 +34,7 @@ export default {
     }
   },
   created () {
-    this.pageSize = 6
+    this.postPageSize = 6
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]
     }

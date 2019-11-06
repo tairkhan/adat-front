@@ -75,10 +75,13 @@ import { postSchema } from '@/utils/schemas'
 import { postRules } from '@/utils/rules'
 import Upload from '@/components/admin/Upload'
 
+import RubricMixin from '@/mixins/RubricMixin'
+
 export default {
   components: {
     Upload
   },
+  mixins: [RubricMixin],
   props: {
     entity: {
       type: Object,
@@ -102,14 +105,6 @@ export default {
       ]
     }
   },
-  computed: {
-    rubrics () {
-      return this.$store.state.directories.rubrics.results
-    },
-    total () {
-      return this.$store.state.directories.rubrics.total
-    }
-  },
   watch: {
     lang (val) {
       const data = this.model[this.content()]
@@ -117,14 +112,11 @@ export default {
     }
   },
   created () {
-    this.fetch()
+    this.rubricPageSize = 100
+    this.fetchRubrics()
     this.lang = 'ru'
   },
   methods: {
-    fetch () {
-      const params = { page_size: 100, sort_direction: 'asc' }
-      this.$store.dispatch('directories/fetch', { name: 'rubrics', params })
-    },
     cover (url) {
       this.model.cover_image_url = url
     },
@@ -146,34 +138,34 @@ export default {
           return false
         }
 
-        let action
-        const data = { name: 'posts', payload: this.model }
+        const payload = this.model
         switch (typeof this.entity.id) {
           case 'undefined':
-            action = 'create'
+            this.$axios.$post('posts', payload)
+              .then(this.resolveHandler)
+              .catch(this.rejectHandler)
             break
           case 'number':
-            action = 'update'
-            data.id = this.entity.id
+            this.$axios.$put(`posts/${this.entity.id}`, payload)
+              .then(this.resolveHandler)
+              .catch(this.rejectHandler)
             break
           default:
-            return false
+            break
         }
+      })
+    },
+    resolveHandler () {
+      this.$router.push('/admin/posts')
+    },
+    rejectHandler (err) {
+      const status = err.response.status
+      const message = err.response.data.message
 
-        this.$store.dispatch(`directories/${action}`, data)
-          .then(() => {
-            this.$router.push('/admin/posts')
-          })
-          .catch((err) => {
-            const status = err.response.status
-            const message = err.response.data.message
-
-            this.$notify({
-              type: 'error',
-              title: status,
-              message
-            })
-          })
+      this.$notify({
+        type: 'error',
+        title: status,
+        message
       })
     }
   }

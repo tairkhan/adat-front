@@ -18,13 +18,16 @@
 
     <el-table-column label="Статус">
       <template #default="{ row }">
-        {{ row.status === 'published' ? 'Опубликовано' : 'Черновик' }}
+        <span v-if="row.status === 'draft'">Черновик</span>
+        <span v-else-if="row.status === 'published'">Опубликовано</span>
+        <span v-else-if="row.status === 'trashed'">Удалено</span>
       </template>
     </el-table-column>
 
     <el-table-column label="Действия">
       <template #default="{ row }">
         <el-button
+          :class="row.status === 'trashed' ? 'invisible' : ''"
           size="mini"
           @click="onEdit(row.id)"
         >

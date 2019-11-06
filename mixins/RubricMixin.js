@@ -1,13 +1,27 @@
 export default {
+  data () {
+    return {
+      rubricPage: 1,
+      rubricPageSize: 10,
+      sortDirection: 'asc'
+    }
+  },
   computed: {
     rubrics () {
-      return this.$store.state.directories.rubrics.results
+      return this.$store.state.rubrics.results
+    },
+    totalRubrics () {
+      return this.$store.state.rubrics.total
     }
   },
   methods: {
     fetchRubrics () {
-      const params = { page_size: 8, sort_direction: 'asc' }
-      this.$store.dispatch('directories/fetch', { name: 'rubrics', params })
+      const params = { page: this.rubricPage, page_size: this.rubricPageSize, sort_direction: this.sortDirection }
+      this.$store.dispatch('fetch', { params })
+    },
+    rubricPageChange (page) {
+      this.rubricPage = page
+      this.fetchRubrics()
     }
   }
 }

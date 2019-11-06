@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-wrap">
       <nuxt-link
-        v-for="(item, i) in results"
+        v-for="(item, i) in posts"
         :key="i"
         :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
         class="mb-4 md:mr-4 lg:mr-4 w-full md:w-5/12 lg:w-3/12"
@@ -22,11 +22,11 @@
     </div>
 
     <base-pagination
-      v-if="results.length !== 0"
-      :page-size="pageSize"
-      :total="total"
-      :current-page="currentPage"
-      @current-change="currentChange"
+      v-if="posts.length"
+      :page-size="postPageSize"
+      :total="totalPosts"
+      :current-page="postPage"
+      @current-change="postPageChange"
     />
   </div>
 </template>

@@ -1,13 +1,13 @@
 <template>
   <div>
     <base-pagination
-      :page-size="pageSize"
-      :total="total"
-      :current-page="currentPage"
-      @current-change="currentChange"
+      :page-size="postPageSize"
+      :total="totalPosts"
+      :current-page="postPage"
+      @current-change="postPageChange"
     />
 
-    <post-table :data="results" @delete="onDelete" />
+    <post-table :data="posts" @delete="onDelete" />
   </div>
 </template>
 
@@ -15,53 +15,34 @@
 import PostTable from '@/components/admin/PostTable'
 import BasePagination from '@/components/public/BasePagination'
 
+import PostMixin from '@/mixins/PostMixin'
+
 export default {
   layout: 'admin',
   components: {
     PostTable,
     BasePagination
   },
+  mixins: [PostMixin],
   head () {
     return {
       title: 'Новости'
     }
   },
-  data () {
-    return {
-      currentPage: 1,
-      pageSize: 10
-    }
-  },
-  computed: {
-    results () {
-      return this.$store.state.directories.posts.results
-    },
-    total () {
-      return this.$store.state.directories.posts.total
-    }
-  },
   created () {
-    this.fetch()
+    this.fetchPosts()
   },
   methods: {
-    fetch () {
-      const params = { page: this.currentPage, page_size: this.pageSize }
-      this.$store.dispatch('directories/fetch', { name: 'posts', params })
-    },
-    currentChange (currentPage) {
-      this.currentPage = currentPage
-      this.fetch()
-    },
     onDelete (payload) {
       this.$confirm('Вы действительно хотите удалить данную новость?')
         .then(() => {
-          this.$store.dispatch('directories/delete', { name: 'posts', id: payload.id })
-            .then(() => {
-              if (this.results.length === 1 && this.currentPage > 1) {
-                this.currentPage -= 1
+          this.$axios.$delete(`posts/${payload.id}`)
+            .then((data) => {
+              if (data === 1 && this.posts.length === 1 && this.postPage > 1) {
+                this.postPage -= 1
               }
 
-              this.fetch()
+              this.fetchPosts()
               this.$message({
                 type: 'success',
                 message: 'Удаление завершено'

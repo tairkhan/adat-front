@@ -1,13 +1,13 @@
 <template>
-  <div v-if="results.length === 3" class="flex items-center">
+  <div v-if="posts.length === 3" class="flex items-center">
     <div class="mr-4 px-2 py-1 bg-black text-white text-xs font-bold uppercase">
       {{ $t('last') }}
     </div>
 
     <transition name="fade" mode="out-in">
-      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: results[index][$t('slug')] } })" :key="index">
+      <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[index][$t('slug')] } })" :key="index">
         <p>
-          {{ results[index][$t('title')] }}
+          {{ posts[index][$t('title')] }}
         </p>
       </nuxt-link>
     </transition>
@@ -28,7 +28,7 @@ export default {
     }
   },
   async created () {
-    this.pageSize = 3
+    this.postPageSize = 3
     await this.fetchPosts()
     return this.timer
   },
