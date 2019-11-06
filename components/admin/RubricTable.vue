@@ -6,19 +6,21 @@
 
     <el-table-column label="Действия">
       <template #default="{ row }">
-        <el-button
-          size="mini"
-          @click="onEdit(row.id)"
-        >
-          Редактировать
-        </el-button>
-        <el-button
-          type="danger"
-          size="mini"
-          @click="$emit('delete', row)"
-        >
-          Удалить
-        </el-button>
+        <el-button-group>
+          <el-button
+            size="mini"
+            @click="onEdit(row.id)"
+          >
+            Редактировать
+          </el-button>
+          <el-button
+            type="danger"
+            size="mini"
+            @click="$emit('delete', row)"
+          >
+            Удалить
+          </el-button>
+        </el-button-group>
       </template>
     </el-table-column>
   </base-table>

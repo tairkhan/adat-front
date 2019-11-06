@@ -7,7 +7,7 @@
       @current-change="postPageChange"
     />
 
-    <post-table :data="posts" @delete="onDelete" />
+    <post-table :data="posts" @restore="onRestore" @delete="onDelete" />
   </div>
 </template>
 
@@ -33,8 +33,15 @@ export default {
     this.fetchPosts()
   },
   methods: {
+    onRestore (id) {
+      this.$axios.$put(`posts/${id}/unpublish`)
+        .then(() => {
+          this.fetchPosts()
+        })
+    },
     onDelete (payload) {
-      this.$confirm('Вы действительно хотите удалить данную новость?')
+      const trash = payload.status === 'trashed'
+      this.$confirm(trash ? 'Вы действительно хотите удалить данную новость?' : 'Удалить в корзину?')
         .then(() => {
           this.$axios.$delete(`posts/${payload.id}`)
             .then((data) => {
@@ -45,7 +52,7 @@ export default {
               this.fetchPosts()
               this.$message({
                 type: 'success',
-                message: 'Удаление завершено'
+                message: trash ? 'Удаление завершено' : 'Новость отправлена в корзину'
               })
             })
         })

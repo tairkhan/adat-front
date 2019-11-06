@@ -4,6 +4,7 @@ import ru from 'element-ui/lib/locale/lang/ru-RU'
 import {
   Icon,
   Button,
+  ButtonGroup,
   Input,
   Select,
   Option,
@@ -30,6 +31,7 @@ Vue.prototype.$confirm = MessageBox.confirm
 // Basic
 Vue.use(Icon)
 Vue.use(Button)
+Vue.use(ButtonGroup)
 // Form
 Vue.use(Input)
 Vue.use(Select)
