@@ -2,7 +2,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-a {
+a, button:focus {
   @apply outline-none;
 }
 
@@ -22,7 +22,7 @@ a:hover p {
 }
 
 p, em, blockquote {
-  @apply text-gray-900;
+  @apply text-gray-800;
 }
 
 ul {
