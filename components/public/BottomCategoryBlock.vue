@@ -38,6 +38,8 @@ export default {
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]
     }
+    this.status = 'published'
+
     this.fetchPosts()
   }
 }

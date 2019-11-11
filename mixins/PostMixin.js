@@ -4,6 +4,7 @@ export default {
       postPage: 1,
       postPageSize: 10,
       category: null,
+      status: null,
       search: null,
       posts: [],
       totalPosts: 0
@@ -15,6 +16,10 @@ export default {
 
       if (this.category) {
         params.rubric = this.category
+      }
+
+      if (this.status) {
+        params.status = this.status
       }
 
       if (this.search) {

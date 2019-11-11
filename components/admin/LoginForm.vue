@@ -11,7 +11,7 @@
     @keyup.enter.native="onSubmit"
   >
     <el-form-item label="логин:" prop="username">
-      <el-input v-model="model.username" />
+      <el-input v-model="model.username" autofocus />
     </el-form-item>
 
     <el-form-item label="пароль:" prop="password">

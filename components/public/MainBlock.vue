@@ -69,6 +69,7 @@ export default {
   mixins: [Mixin, PostMixin],
   created () {
     this.postPageSize = 4
+    this.status = 'published'
     this.fetchPosts()
   }
 }
