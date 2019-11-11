@@ -7,7 +7,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ADAT.kg',
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -20,7 +20,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff', height: '2px' },
+  loading: { color: '#85ce61' },
   /*
   ** Global CSS
   */
@@ -82,7 +82,9 @@ export default {
           login: { url: '/auth/login', method: 'post', propertyName: 'token' },
           user: { url: '/auth/user', method: 'get', propertyName: 'user' },
           logout: false
-        }
+        },
+        tokenRequired: true,
+        tokenType: ''
       }
     },
     plugins: [
@@ -97,6 +99,9 @@ export default {
     defaultLocale: 'ru',
     lazy: true,
     langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: 'ru'
+    },
     detectBrowserLanguage: {
       fallbackLocale: 'ru'
     }
