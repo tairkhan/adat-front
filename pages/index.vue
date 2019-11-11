@@ -65,7 +65,7 @@ export default {
           rubrics: [
             {
               index: 0,
-              class: 'mt-8 mr-8 w-full lg:w-2/3',
+              class: 'mt-8 pr-8 w-full lg:w-2/3',
               component: 'extended-category-block'
             },
             {
@@ -80,12 +80,12 @@ export default {
           rubrics: [
             {
               index: 2,
-              class: 'mt-8 mr-8 w-full lg:w-1/3',
+              class: 'mt-8 pr-8 w-full lg:w-1/3',
               component: 'category-block'
             },
             {
               index: 6,
-              class: 'mt-8 mr-8 w-full lg:w-1/3',
+              class: 'mt-8 pr-8 w-full lg:w-1/3',
               component: 'category-block'
             },
             {
