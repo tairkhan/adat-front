@@ -16,17 +16,17 @@
     </div>
 
     <div class="flex">
-      <div class="mr-12">
-        <nuxt-link v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')">
-          <div class="flex items-center">
-            <img class="mr-2" src="/flag2.png">
-            КГ
-          </div>
-        </nuxt-link>
-        <nuxt-link v-if="$i18n.locale !== 'kg'" :to="switchLocalePath('kg')">
+      <div class="flex mr-12 font-bold">
+        <nuxt-link class="mr-4" :to="switchLocalePath('ru')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag1.png">
             РУ
+          </div>
+        </nuxt-link>
+        <nuxt-link :to="switchLocalePath('kg')">
+          <div class="flex items-center">
+            <img class="mr-2" src="/flag2.png">
+            КГ
           </div>
         </nuxt-link>
       </div>
