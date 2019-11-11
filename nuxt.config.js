@@ -7,7 +7,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ADAT.kg',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -20,7 +20,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#85ce61' },
+  loading: { color: '#fff', height: '2px' },
   /*
   ** Global CSS
   */
