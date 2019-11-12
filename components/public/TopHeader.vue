@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-wrap justify-between py-1 text-white text-xs" style="background-color: #171717;">
     <div class="flex">
-      <div v-if="currencies.USD" class="mr-4 flex items-center">
+      <div :class="!currencies.USD ? 'invisible' : ''" v-show="currencies.USD" class="mr-4 flex items-center">
         <span class="mr-2 text-sm">$ {{ currencies.USD }}</span>
       </div>
-      <div v-if="currencies.EUR" class="mr-4 flex items-center">
+      <div :class="!currencies.EUR ? 'invisible' : ''" class="mr-4 flex items-center">
         <span class="mr-2 text-sm">€ {{ currencies.EUR }}</span>
       </div>
-      <div v-if="currencies.RUB" class="mr-4 flex items-center">
+      <div :class="!currencies.RUB ? 'invisible' : ''" class="mr-4 flex items-center">
         <span class="mr-2 text-sm">₽ {{ currencies.RUB }}</span>
       </div>
-      <div v-if="currencies.KZT" class="mr-4 flex items-center">
+      <div :class="!currencies.KZT ? 'invisible' : ''" class="mr-4 flex items-center">
         <span class="mr-2 text-sm">₸ {{ currencies.KZT }}</span>
       </div>
     </div>

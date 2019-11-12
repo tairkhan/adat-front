@@ -29,7 +29,8 @@
     "lodash-es": "^4.17.0",
     "morphism": "^1.12.1",
     "nuxt": "^2.10.2",
-    "nuxt-i18n": "^6.3.0"
+    "nuxt-i18n": "^6.3.0",
+    "htmlparser2": "^4.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

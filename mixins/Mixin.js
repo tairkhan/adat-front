@@ -1,3 +1,15 @@
+const htmlparser2 = require('htmlparser2')
+
+const truncate = (s) => {
+  if (s.length > 160) {
+    const temp = s.slice(0, 161).split(' ')
+    temp[temp.length - 1] = ' ...'
+    return temp.join(' ')
+  } else {
+    return s
+  }
+}
+
 export default {
   methods: {
     style (item) {
@@ -27,7 +39,7 @@ export default {
 
       return `https://i.ytimg.com/vi/${result}/mqdefault.jpg`
     },
-    extractFirstParagraph (content) {
+    excerpt (content) {
       content = JSON.parse(content)
       const blocks = content.blocks
 
@@ -40,7 +52,20 @@ export default {
         return ''
       }
 
-      return paragraph.data.text
+      const temp = []
+      const parser = new htmlparser2.Parser(
+        {
+          ontext (text) {
+            temp.push(text)
+          }
+        },
+        { decodeEntities: true }
+      )
+      parser.write(paragraph.data.text)
+      parser.end()
+      const result = temp.join('')
+
+      return truncate(result)
     },
     parseHtml (content) {
       let html = ''

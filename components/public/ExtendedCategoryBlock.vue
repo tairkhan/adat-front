@@ -24,7 +24,7 @@
             <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('ll') }}
           </div>
 
-          <p v-html="extractFirstParagraph(item[$t('content')])"></p>
+          <p v-html="excerpt(item[$t('content')])"></p>
         </div>
       </div>
     </div>
