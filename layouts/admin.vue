@@ -14,6 +14,22 @@ export default {
   middleware: 'auth',
   components: {
     Aside
+  },
+  head () {
+    return {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: null
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: null
+        }
+      ]
+    }
   }
 }
 </script>

@@ -11,7 +11,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'keywords', name: 'keywords', content: 'новости' }
+      { hid: 'keywords', name: 'keywords', content: 'новости, статьи, политика, экономика, события, кыргызстан, средняя азия' },
+      { hid: 'description', name: 'description', content: 'Новостной портал Кыргызской Республики' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

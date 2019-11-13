@@ -1,6 +1,6 @@
 <template>
   <div class="py-8">
-    <nuxt-link to="/" class="leading-tight">
+    <nuxt-link to="/" class="inline-block leading-tight">
       <span class="font-bold text-4xl">
         <span class="text-red-600">ADAT</span>.kg
       </span>

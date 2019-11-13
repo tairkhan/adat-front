@@ -1,7 +1,7 @@
 <template>
   <div class="pt-12 pb-2 text-white text-xs" style="background-color: #171717;">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
-      <nuxt-link to="/" class="leading-tight">
+      <nuxt-link to="/" class="self-start leading-tight">
         <span class="font-bold text-4xl">
           ADAT.kg
         </span>
