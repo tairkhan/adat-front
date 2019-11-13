@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen flex overflow-hidden">
     <Aside class="w-56" />
-    <div class="flex-grow pl-8 py-8 pr-56 overflow-y-auto">
+    <div class="flex-grow p-8 overflow-y-auto">
       <nuxt />
     </div>
   </div>

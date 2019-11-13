@@ -1,5 +1,7 @@
 <template>
-  <Article :data="data" />
+  <div class="flex justify-center">
+    <Article :data="data" />
+  </div>
 </template>
 
 <script>
