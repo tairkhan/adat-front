@@ -66,6 +66,10 @@
           </el-select>
         </el-form-item>
 
+        <el-form-item prop="on_main_page">
+          <el-checkbox v-model="model.on_main_page" label="Закрепить на главном блоке" />
+        </el-form-item>
+
         <el-form-item>
           <el-button type="primary" @click="onSubmit">
             Отправить

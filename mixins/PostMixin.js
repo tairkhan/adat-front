@@ -6,6 +6,7 @@ export default {
       category: null,
       status: null,
       search: null,
+      on_main_page: null,
       posts: [],
       totalPosts: 0
     }
@@ -24,6 +25,10 @@ export default {
 
       if (this.search) {
         params.search = this.search
+      }
+
+      if (this.on_main_page) {
+        params.on_main_page = this.on_main_page
       }
 
       const data = await this.$axios.$get('posts', { params })

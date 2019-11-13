@@ -29,7 +29,7 @@ export const rubricRules = {
 }
 
 export const settingsRules = {
-  oldPassword: [
+  password: [
     required,
     passwordLength
   ],

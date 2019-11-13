@@ -7,8 +7,8 @@
     label-position="top"
     @keyup.enter.native="onSubmit"
   >
-    <el-form-item label="Старый пароль" prop="oldPassword">
-      <el-input v-model="model.oldPassword" type="password" />
+    <el-form-item label="Старый пароль" prop="password">
+      <el-input v-model="model.password" type="password" />
     </el-form-item>
 
     <el-form-item label="Новый пароль" prop="newPassword">
@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       model: {
-        oldPassword: '',
+        password: '',
         newPassword: ''
       },
       rules: settingsRules
@@ -50,7 +50,26 @@ export default {
           return false
         }
 
-        this.$refs.form.resetFields()
+        this.$axios.$post('auth/user/update_password', this.model)
+          .then(this.resolveHandler)
+          .catch(this.rejectHandler)
+      })
+    },
+    resolveHandler () {
+      this.$message({
+        type: 'success',
+        message: 'Пароль успешно обновлён'
+      })
+      this.$refs.form.resetFields()
+    },
+    rejectHandler (err) {
+      const status = err.response.status
+      const message = err.response.data.message
+
+      this.$notify({
+        type: 'error',
+        title: status,
+        message
       })
     }
   }

@@ -70,6 +70,7 @@ export default {
   created () {
     this.postPageSize = 4
     this.status = 'published'
+    this.on_main_page = true
     this.fetchPosts()
   }
 }

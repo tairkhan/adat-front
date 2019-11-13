@@ -7,7 +7,8 @@ export const postSchema = morphism({
   content: ({ content }) => content || '{}',
   content_kg: entity => entity.content_kg || '{}',
   rubrics: ({ rubrics }) => rubrics ? rubrics.map(item => item.id) : [],
-  status: ({ status }) => status || 'draft'
+  status: ({ status }) => status || 'draft',
+  on_main_page: entity => entity.on_main_page || false
 })
 
 export const rubricSchema = morphism({
