@@ -1,5 +1,5 @@
 <template>
-  <settings-form />
+  <settings-form class="lg:w-1/3" />
 </template>
 
 <script>

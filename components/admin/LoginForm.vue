@@ -4,25 +4,31 @@
     :model="model"
     :rules="rules"
     :hide-required-asterisk="true"
-    :status-icon="true"
-    label-position="left"
-    label-width="70px"
-    size="small"
     @keyup.enter.native="onSubmit"
   >
-    <el-form-item label="логин:" prop="username">
-      <el-input v-model="model.username" autofocus />
-    </el-form-item>
-
-    <el-form-item label="пароль:" prop="password">
-      <el-input v-model="model.password" type="password" />
-    </el-form-item>
-
     <el-form-item>
-      <el-button type="info" plain @click="onSubmit">
-        войти
-      </el-button>
+      <h2>Вход</h2>
     </el-form-item>
+
+    <el-form-item prop="username">
+      <el-input v-model="model.username" autofocus placeholder="Логин">
+        <template slot="prepend">
+          <fa-icon icon="user" class="fa-fw" />
+        </template>
+      </el-input>
+    </el-form-item>
+
+    <el-form-item prop="password">
+      <el-input v-model="model.password" type="password" placeholder="Пароль">
+        <template slot="prepend">
+          <fa-icon icon="lock" class="fa-fw" />
+        </template>
+      </el-input>
+    </el-form-item>
+
+    <el-button class="w-full" type="primary" @click="onSubmit">
+      Войти
+    </el-button>
   </el-form>
 </template>
 

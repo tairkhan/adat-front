@@ -1,5 +1,5 @@
 <template>
-  <rubric-form />
+  <rubric-form class="lg:w-1/3" />
 </template>
 
 <script>
