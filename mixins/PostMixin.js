@@ -2,7 +2,7 @@ export default {
   data () {
     return {
       postPage: 1,
-      postPageSize: 10,
+      postPageSize: 1,
       category: null,
       status: null,
       search: null,

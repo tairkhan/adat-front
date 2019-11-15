@@ -3,21 +3,18 @@ export default {
     return {
       rubricPage: 1,
       rubricPageSize: 10,
-      sortDirection: 'asc'
-    }
-  },
-  computed: {
-    rubrics () {
-      return this.$store.state.rubrics.results
-    },
-    totalRubrics () {
-      return this.$store.state.rubrics.total
+      sortDirection: 'asc',
+      rubrics: [],
+      totalRubrics: 0
     }
   },
   methods: {
-    fetchRubrics () {
+    async fetchRubrics () {
       const params = { page: this.rubricPage, page_size: this.rubricPageSize, sort_direction: this.sortDirection }
-      this.$store.dispatch('fetch', { params })
+
+      const data = await this.$axios.$get('rubrics', { params })
+      this.rubrics = data.results
+      this.totalRubrics = data.total
     },
     rubricPageChange (page) {
       this.rubricPage = page

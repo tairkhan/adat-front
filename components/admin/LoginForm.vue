@@ -55,6 +55,7 @@ export default {
         const { username, password } = this.model
         this.$auth.loginWith('local', { data: { username, password } })
           .then(() => {
+            this.$i18n.setLocaleCookie('ru')
             this.$router.push('/admin/posts')
           })
           .catch((err) => {

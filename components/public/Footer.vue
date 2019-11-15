@@ -1,7 +1,7 @@
 <template>
   <div class="pt-12 pb-2 text-white text-xs" style="background-color: #171717;">
     <div class="flex flex-col justify-between mb-12 lg:flex-row">
-      <nuxt-link to="/" class="self-start leading-tight">
+      <nuxt-link :to="localePath('index')" class="self-start leading-tight">
         <span class="font-bold text-4xl">
           ADAT.kg
         </span>
@@ -25,7 +25,7 @@
       <div class="flex flex-col lg:flex-row">
         <div class="flex flex-col mr-8">
           <nuxt-link
-            v-for="(item, i) in rubrics"
+            v-for="(item, i) in results"
             :key="i"
             class="mb-4"
             :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
@@ -90,10 +90,10 @@
 </template>
 
 <script>
-import RubricMixin from '@/mixins/RubricMixin'
+import StoreMixin from '@/mixins/StoreMixin'
 
 export default {
-  mixins: [RubricMixin]
+  mixins: [StoreMixin]
 }
 </script>
 

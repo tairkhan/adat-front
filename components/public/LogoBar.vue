@@ -1,10 +1,10 @@
 <template>
-  <div class="py-8">
-    <nuxt-link to="/" class="inline-block leading-tight">
+  <div class="bg-red-600 py-8 text-white">
+    <nuxt-link :to="localePath('index')" class="inline-block leading-tight">
       <span class="font-bold text-4xl">
-        <span class="text-red-600">ADAT</span>.kg
+        ADAT.kg
       </span>
-      <p class="text-sm">
+      <p class="text-sm text-white">
         {{ $t('logo') }}
       </p>
     </nuxt-link>

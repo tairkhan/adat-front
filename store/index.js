@@ -1,10 +1,10 @@
 export const state = () => ({
-  rubrics: { results: [], total: 0 }
+  data: { results: [], total: 0 }
 })
 
 export const mutations = {
   SET_DATA (state, { data }) {
-    state.rubrics = data
+    state.data = data
   }
 }
 

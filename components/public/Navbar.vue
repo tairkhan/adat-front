@@ -15,7 +15,7 @@
         </nuxt-link>
 
         <nuxt-link
-          v-for="(item, i) in rubrics"
+          v-for="(item, i) in results"
           :key="i"
           class="navbar__link lg:mr-8"
           :to="localePath({ name: 'categories-slug', params: { slug: item[$t('slug')] } })"
@@ -32,10 +32,10 @@
 </template>
 
 <script>
-import RubricMixin from '@/mixins/RubricMixin'
+import StoreMixin from '@/mixins/StoreMixin'
 
 export default {
-  mixins: [RubricMixin],
+  mixins: [StoreMixin],
   methods: {
     navbarAction () {
       const navbar = document.getElementById('navbar')

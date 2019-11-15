@@ -2,8 +2,7 @@
   <div class="flex justify-end">
     <el-pagination
       v-bind="$props"
-      :background="true"
-      layout="prev, next"
+      layout="prev, pager, next"
       @current-change="currentChange"
     />
   </div>

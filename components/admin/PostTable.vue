@@ -9,7 +9,7 @@
         <span
           v-for="item in row.rubrics"
           :key="item.id"
-          class="border px-1 mr-1 text-xs rounded"
+          class="inline-block border p-1 mb-1 mr-1 rounded"
         >
           {{ item.title }}
         </span>
@@ -26,24 +26,24 @@
 
     <el-table-column label="Действия" width="350">
       <template #default="{ row }">
-        <el-button-group>
+        <el-button-group class="w-full">
           <el-button
             v-if="row.status !== 'trashed'"
-            size="mini"
+            class="w-1/2"
             @click="onEdit(row.id)"
           >
             Редактировать
           </el-button>
           <el-button
             v-else
-            size="mini"
+            class="w-1/2"
             @click="onRestore(row.id)"
           >
             Восстановить
           </el-button>
           <el-button
+            class="w-1/2"
             type="danger"
-            size="mini"
             @click="$emit('delete', row)"
           >
             Удалить {{ row.status !== 'trashed' ? ' в корзину' : '' }}

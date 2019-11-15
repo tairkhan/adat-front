@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout">
     <top-header class="px-2 md:px-20 lg:px-32" />
-    <logo class="px-2 md:px-20 lg:px-32" />
+    <logo-bar class="px-2 md:px-20 lg:px-32" />
     <navbar class="px-2 md:px-20 lg:px-32 shadow-md" />
     <div class="px-2 md:px-20 lg:px-32 flex-1 my-5">
       <transition name="fade">
@@ -14,24 +14,23 @@
 
 <script>
 import TopHeader from '@/components/public/TopHeader'
-import Logo from '@/components/public/Logo'
+import LogoBar from '@/components/public/LogoBar'
 import Navbar from '@/components/public/Navbar'
 import Footer from '@/components/public/Footer'
-import RubricMixin from '@/mixins/RubricMixin'
+import StoreMixin from '@/mixins/StoreMixin'
 
 export default {
   components: {
     TopHeader,
-    Logo,
+    LogoBar,
     Navbar,
     Footer
   },
-  mixins: [RubricMixin],
+  mixins: [StoreMixin],
   created () {
-    this.rubricPageSize = 8
-    const len = this.rubrics.length
+    const len = this.results.length
     if (!len || len > 8) {
-      this.fetchRubrics()
+      this.fetch()
     }
   }
 }

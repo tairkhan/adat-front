@@ -6,16 +6,16 @@
 
     <el-table-column label="Действия">
       <template #default="{ row }">
-        <el-button-group>
+        <el-button-group class="w-full">
           <el-button
-            size="mini"
+            class="w-1/2"
             @click="onEdit(row.id)"
           >
             Редактировать
           </el-button>
           <el-button
+            class="w-1/2"
             type="danger"
-            size="mini"
             @click="$emit('delete', row)"
           >
             Удалить

@@ -4,7 +4,7 @@
 
     <main-block />
 
-    <div v-if="rubrics.length >= 7">
+    <div v-if="results.length >= 7">
       <div
         v-for="(row, i) in layout"
         :key="i"
@@ -17,11 +17,11 @@
         >
           <div class="border-b-2 border-red-600">
             <h3 class="category-title">
-              {{ item.index !== null ? rubrics[item.index][$t('title')] : $t('rubrics.all') }}
+              {{ item.index !== null ? results[item.index][$t('title')] : $t('rubrics.all') }}
             </h3>
           </div>
 
-          <component :is="item.component" :rubric="item.index !== null ? rubrics[item.index] : {}" />
+          <component :is="item.component" :rubric="item.index !== null ? results[item.index] : {}" />
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@ import ExtraAsideBlock from '@/components/public/ExtraAsideBlock'
 import SpotlightCategoryBlock from '@/components/public/SpotlightCategoryBlock'
 import BottomCategoryBlock from '@/components/public/BottomCategoryBlock'
 
-import RubricMixin from '@/mixins/RubricMixin'
+import StoreMixin from '@/mixins/StoreMixin'
 
 export default {
   components: {
@@ -51,7 +51,7 @@ export default {
     SpotlightCategoryBlock,
     BottomCategoryBlock
   },
-  mixins: [RubricMixin],
+  mixins: [StoreMixin],
   head () {
     return {
       title: this.$t('rubrics.main')
