@@ -20,8 +20,8 @@ a:hover h3 {
   @apply text-red-600;
 }
 
-p, em, blockquote {
-  @apply text-gray-800;
+p, em, blockquote, figcaption {
+  @apply text-gray-900;
 }
 
 ul {
@@ -35,19 +35,15 @@ ul {
 .article h5,
 .article h6,
 .article p,
-.article img,
+.article figure,
 .article ul,
 .article blockquote,
 .article em {
-  @apply block mb-4;
+  @apply block mb-2;
 }
 
 .article a {
   @apply text-blue-700 underline;
-}
-
-.article img {
-  @apply border;
 }
 
 .article blockquote {
