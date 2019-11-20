@@ -128,7 +128,7 @@ export default {
               this.fetchPosts()
               this.$message({
                 type: 'success',
-                message: trash ? 'Удаление завершено' : 'Новость отправлена в корзину'
+                message: trash ? 'Новость удалена' : 'Новость отправлена в корзину'
               })
             })
         })

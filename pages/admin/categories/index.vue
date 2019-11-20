@@ -45,7 +45,7 @@ export default {
               this.fetchRubrics()
               this.$message({
                 type: 'success',
-                message: 'Удаление завершено'
+                message: 'Рубрика удалена'
               })
             })
         })

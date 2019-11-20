@@ -1,95 +1,113 @@
 <template>
-  <el-form
-    ref="form"
-    :model="model"
-    :rules="rules"
-    :hide-required-asterisk="true"
-    label-position="top"
-  >
-    <div class="flex flex-col justify-between lg:flex-row">
-      <div class="flex-1 overflow-x-auto">
-        <el-form-item :class="lang === 'ru' ? 'visible' : 'hidden'" label="Заголовок новости" prop="title">
-          <el-input v-model="model.title" />
-        </el-form-item>
+  <div>
+    <el-form
+      ref="form"
+      :model="model"
+      :rules="rules"
+      :hide-required-asterisk="true"
+      label-position="top"
+    >
+      <div class="flex flex-col justify-between lg:flex-row">
+        <div class="flex-1">
+          <el-form-item :class="lang === 'ru' ? 'visible' : 'hidden'" label="Заголовок новости" prop="title">
+            <el-input v-model="model.title" />
+          </el-form-item>
 
-        <el-form-item :class="lang === 'kg' ? 'visible' : 'hidden'" label="Заголовок новости" prop="title_kg">
-          <el-input v-model="model.title_kg" />
-        </el-form-item>
+          <el-form-item :class="lang === 'kg' ? 'visible' : 'hidden'" label="Заголовок новости" prop="title_kg">
+            <el-input v-model="model.title_kg" />
+          </el-form-item>
 
-        <el-form-item label="Контент">
-          <client-only>
-            <editor
-              class="border overflow-y-auto"
-              style="height: 50rem;"
-              :data="data"
-              @save="onSave"
-            />
-          </client-only>
-        </el-form-item>
+          <el-form-item label="Контент">
+            <client-only>
+              <editor
+                class="border overflow-y-auto"
+                style="height: 50rem;"
+                :data="data"
+                @save="onSave"
+              />
+            </client-only>
+          </el-form-item>
+        </div>
+
+        <div class="lg:ml-8 lg:w-56">
+          <el-form-item label="Язык">
+            <el-select v-model="lang">
+              <el-option
+                v-for="(item, i) in langOptions"
+                :key="i"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+
+          <el-form-item label="Рубрика" prop="rubrics">
+            <el-select v-model="model.rubrics" multiple placeholder="Рубрика">
+              <el-option
+                v-for="item in rubrics"
+                :key="item.id"
+                :label="item.title"
+                :value="item.id"
+              />
+            </el-select>
+          </el-form-item>
+
+          <el-form-item label="Обложка">
+            <el-button @click="visible = true">
+              Выбрать обложку
+            </el-button>
+          </el-form-item>
+
+          <el-form-item v-if="model.cover_image_url">
+            <img class="inline-block h-32 border rounded" :src="model.cover_image_url">
+          </el-form-item>
+
+          <el-form-item label="Статус" prop="status">
+            <el-select v-model="model.status">
+              <el-option
+                v-for="(item, i) in statusOptions"
+                :key="i"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+
+          <el-form-item prop="on_main_page">
+            <el-checkbox v-model="model.on_main_page" label="Закрепить на главном блоке" />
+          </el-form-item>
+
+          <el-form-item>
+            <el-button type="primary" @click="onSubmit">
+              Подтвердить
+            </el-button>
+          </el-form-item>
+        </div>
       </div>
+    </el-form>
 
-      <div class="lg:ml-8 lg:w-56">
-        <el-form-item label="Язык">
-          <el-select v-model="lang">
-            <el-option
-              v-for="(item, i) in langOptions"
-              :key="i"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-
-        <el-form-item label="Рубрика" prop="rubrics">
-          <el-select v-model="model.rubrics" multiple placeholder="Рубрика">
-            <el-option
-              v-for="item in rubrics"
-              :key="item.id"
-              :label="item.title"
-              :value="item.id"
-            />
-          </el-select>
-        </el-form-item>
-
-        <el-form-item label="Обложка">
-          <upload :image-url="model.cover_image_url" @result="cover" />
-        </el-form-item>
-
-        <el-form-item label="Статус" prop="status">
-          <el-select v-model="model.status">
-            <el-option
-              v-for="(item, i) in statusOptions"
-              :key="i"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-
-        <el-form-item prop="on_main_page">
-          <el-checkbox v-model="model.on_main_page" label="Закрепить на главном блоке" />
-        </el-form-item>
-
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">
-            Отправить
-          </el-button>
-        </el-form-item>
-      </div>
-    </div>
-  </el-form>
+    <base-dialog
+      :visible.sync="visible"
+      title="Выбрать обложку"
+      :fullscreen="true"
+      @closed="visible = false"
+    >
+      <library v-if="visible" :image="model.cover_image_url" @cover="onApplyCover" @closed="visible = false" />
+    </base-dialog>
+  </div>
 </template>
 
 <script>
+import BaseDialog from '@/components/admin/BaseDialog'
+import Library from '@/components/admin/Library'
+import RubricMixin from '@/mixins/RubricMixin'
 import { postSchema } from '@/utils/schemas'
 import { postRules } from '@/utils/rules'
-import Upload from '@/components/admin/Upload'
-
-import RubricMixin from '@/mixins/RubricMixin'
 
 export default {
   components: {
-    Upload
+    BaseDialog,
+    Library
   },
   mixins: [RubricMixin],
   props: {
@@ -112,7 +130,8 @@ export default {
       statusOptions: [
         { label: 'Черновик', value: 'draft' },
         { label: 'Опубликовано', value: 'published' }
-      ]
+      ],
+      visible: false
     }
   },
   watch: {
@@ -127,7 +146,8 @@ export default {
     this.lang = 'ru'
   },
   methods: {
-    cover (url) {
+    onApplyCover (url) {
+      this.visible = false
       this.model.cover_image_url = url
     },
     content () {

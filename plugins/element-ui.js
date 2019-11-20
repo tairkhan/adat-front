@@ -5,6 +5,9 @@ import {
   Icon,
   Button,
   ButtonGroup,
+  Radio,
+  RadioButton,
+  RadioGroup,
   Checkbox,
   Input,
   Select,
@@ -34,6 +37,9 @@ Vue.use(Icon)
 Vue.use(Button)
 Vue.use(ButtonGroup)
 // Form
+Vue.use(Radio)
+Vue.use(RadioButton)
+Vue.use(RadioGroup)
 Vue.use(Checkbox)
 Vue.use(Input)
 Vue.use(Select)

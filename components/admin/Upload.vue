@@ -1,27 +1,24 @@
 <template>
-  <el-upload ref="upload" class="upload" v-bind="config">
-    <div v-if="imageUrl" class="upload__cover">
-      <img :src="imageUrl">
+  <el-upload ref="upload" v-bind="attrs">
+    <div class="h-full flex flex-col justify-center items-center" @click="$refs.upload.clearFiles()">
+      <fa-icon icon="cloud-upload-alt" size="4x" />
+      <div class="text-xs">
+        Перетащите изображения сюда или нажмите для загрузки
+      </div>
     </div>
-    <i v-else class="upload__icon el-icon-plus"></i>
   </el-upload>
 </template>
 
 <script>
 export default {
-  props: {
-    imageUrl: {
-      type: String,
-      required: false,
-      default: () => ''
-    }
-  },
   data () {
     return {
-      config: {
+      attrs: {
         action: '/api/v1/files',
         headers: { 'authorization': this.$auth.getToken('local') },
+        multiple: true,
         showFileList: false,
+        drag: true,
         accept: 'image/*',
         onSuccess: this.onSuccess,
         onError: this.onError
@@ -30,12 +27,27 @@ export default {
   },
   methods: {
     onSuccess (response, file, fileList) {
-      this.imageUrl = response.url
-      this.$emit('result', this.imageUrl)
+      this.$refs.upload.clearFiles()
+
+      this.$notify({
+        type: 'success',
+        title: 200,
+        message: 'Отправлено'
+      })
+
+      this.$emit('uploaded')
     },
-    onError (err, file) {
+    onError (err, file, fileList) {
+      this.$refs.upload.clearFiles()
+
       const status = err.status
-      const message = `Неудалось загрузить файл "${file.name}". `
+      let message
+
+      if (status === 413) {
+        message = 'Превышен размер файла'
+      } else if (status === 422) {
+        message = 'Недопустимый формат файла'
+      }
 
       this.$notify({
         type: 'error',
@@ -48,30 +60,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.upload {
-  @apply relative border-4 border-dashed rounded-lg inline-block overflow-hidden cursor-pointer;
 
-  &__icon,
-  &__cover {
-    @apply w-56 h-32;
-  }
-
-  &:hover,
-  &__icon:hover {
-    @apply border-blue-600 text-blue-600;
-  }
-
-  &__icon {
-    @apply text-6xl text-gray-500;
-    line-height: 8rem;
-  }
-
-  &__cover {
-    @apply bg-gray-200 text-center;
-
-    img {
-      @apply inline-block h-full;
-    }
-  }
-}
 </style>

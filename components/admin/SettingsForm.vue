@@ -16,7 +16,7 @@
     </el-form-item>
 
     <el-form-item>
-      <el-button type="success" @click="onSubmit">
+      <el-button type="primary" @click="onSubmit">
         Подтвердить
       </el-button>
     </el-form-item>
