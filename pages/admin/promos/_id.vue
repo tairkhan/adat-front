@@ -1,22 +1,22 @@
 <template>
-  <post-form :entity="entity" />
+  <promo-form :entity="entity" />
 </template>
 
 <script>
-import PostForm from '@/components/admin/PostForm'
+import PromoForm from '@/components/admin/PromoForm'
 
 export default {
   layout: 'admin',
   components: {
-    PostForm
+    PromoForm
   },
   async asyncData ({ $axios, params }) {
-    const entity = await $axios.$get(`posts/${params.id}`)
+    const entity = await $axios.$get(`promos/${params.id}`)
     return { entity }
   },
   head () {
     return {
-      title: `Новости | ${this.entity.title}`
+      title: 'Промо'
     }
   }
 }

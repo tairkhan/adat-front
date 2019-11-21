@@ -6,7 +6,6 @@
 
 <script>
 import Article from '@/components/public/Article'
-
 import Mixin from '@/mixins/Mixin'
 
 export default {

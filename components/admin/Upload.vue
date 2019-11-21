@@ -27,19 +27,13 @@ export default {
   },
   methods: {
     onSuccess (response, file, fileList) {
-      this.$refs.upload.clearFiles()
-
       this.$notify({
         type: 'success',
         title: 200,
         message: 'Отправлено'
       })
-
-      this.$emit('uploaded')
     },
     onError (err, file, fileList) {
-      this.$refs.upload.clearFiles()
-
       const status = err.status
       let message
 

@@ -28,13 +28,14 @@ export const rubricRules = {
   title_kg: required
 }
 
-export const settingsRules = {
-  password: [
-    required,
-    passwordLength
-  ],
-  newPassword: [
-    required,
-    passwordLength
-  ]
+export const passwordRules = {
+  password: [required, passwordLength],
+  newPassword: [required, passwordLength]
+}
+
+export const promoRules = {
+  promo_url: required,
+  image_url: required,
+  position: required,
+  active: required
 }

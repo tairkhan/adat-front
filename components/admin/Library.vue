@@ -13,12 +13,12 @@
     </el-form-item>
 
     <el-form-item v-if="tab === 'upload'">
-      <upload @uploaded="uploaded" />
+      <upload />
     </el-form-item>
 
     <el-form-item v-else-if="tab === 'library'">
       <div class="flex flex-wrap">
-        <div v-for="item in files" :key="item.uuid" class="mr-4 mb-4">
+        <div v-for="item in files" :key="item.uuid" class="mr-4 mb-4 shadow-lg">
           <input
             :id="item.uuid"
             v-model="selectedImage"
@@ -27,11 +27,11 @@
             type="radio"
           >
 
-          <label :for="item.uuid" :title="item.originalname" class="block border-4 border-white rounded-lg rounded-lg">
-            <img class="w-48 h-32 rounded" :src="item.url">
+          <label :for="item.uuid" :title="item.originalname" class="block border-4 border-white rounded">
+            <img class="w-48 h-32 bg-gray-700" :src="item.url">
           </label>
 
-          <div class="p-2 leading-none text-right shadow-lg">
+          <div class="p-2 leading-none text-right">
             <span class="cursor-pointer hover:opacity-75">
               <a
                 :href="item.url"
@@ -94,6 +94,14 @@ export default {
       totalFiles: 0
     }
   },
+  watch: {
+    tab (val) {
+      if (val === 'library') {
+        this.filePage = 1
+        this.fetchFiles()
+      }
+    }
+  },
   created () {
     this.fetchFiles()
   },
@@ -144,11 +152,6 @@ export default {
     },
     filePageChange (page) {
       this.filePage = page
-      this.fetchFiles()
-    },
-    uploaded () {
-      this.tab = 'library'
-      this.filePage = 1
       this.fetchFiles()
     }
   }

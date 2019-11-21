@@ -18,11 +18,6 @@ export default {
     return {
       title: `Рубрики | ${this.entity.title}`
     }
-  },
-  data () {
-    return {
-      entity: null
-    }
   }
 }
 </script>

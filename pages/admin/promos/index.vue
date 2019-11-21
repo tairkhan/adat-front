@@ -7,44 +7,44 @@
       @current-change="rubricPageChange"
     />
 
-    <rubric-table :data="rubrics" @delete="onDelete" />
+    <promo-table :data="promos" @delete="onDelete" />
   </div>
 </template>
 
 <script>
-import RubricTable from '@/components/admin/RubricTable'
+import PromoTable from '@/components/admin/PromoTable'
 import BasePagination from '@/components/public/BasePagination'
-import RubricMixin from '@/mixins/RubricMixin'
+import PromoMixin from '@/mixins/PromoMixin'
 
 export default {
   layout: 'admin',
   components: {
-    RubricTable,
+    PromoTable,
     BasePagination
   },
-  mixins: [RubricMixin],
+  mixins: [PromoMixin],
   head () {
     return {
-      title: 'Рубрики'
+      title: 'Промо'
     }
   },
   created () {
-    this.fetchRubrics()
+    this.fetchPromos()
   },
   methods: {
     onDelete (payload) {
-      this.$confirm('Вы действительно хотите удалить данную рубрику?')
+      this.$confirm('Вы действительно хотите удалить данное промо?')
         .then(() => {
-          this.$axios.$delete(`rubrics/${payload.id}`)
+          this.$axios.$delete(`promos/${payload.id}`)
             .then(() => {
-              if (this.rubrics.length === 1 && this.rubricPage > 1) {
-                this.rubricPage -= 1
+              if (this.promos.length === 1 && this.promoPage > 1) {
+                this.promoPage -= 1
               }
 
-              this.fetchRubrics()
+              this.fetchPromos()
               this.$message({
                 type: 'success',
-                message: 'Рубрика удалена'
+                message: 'Промо удалено'
               })
             })
         })

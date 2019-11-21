@@ -27,6 +27,16 @@
       <span class="font-bold">Создать рубрику</span>
     </el-menu-item>
 
+    <el-menu-item index="/admin/promos">
+      <fa-icon icon="ad" class="fa-fw" size="lg" />
+      <span class="font-bold">Промо</span>
+    </el-menu-item>
+
+    <el-menu-item index="/admin/promos/new">
+      <fa-icon icon="plus" class="fa-fw" size="lg" />
+      <span class="font-bold">Создать промо</span>
+    </el-menu-item>
+
     <el-menu-item index="/admin/settings">
       <fa-icon icon="cog" class="fa-fw" size="lg" />
       <span class="font-bold">Настройки</span>

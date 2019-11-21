@@ -24,23 +24,16 @@
 </template>
 
 <script>
-import { settingsRules } from '@/utils/rules'
+import { passwordRules } from '@/utils/rules'
 
 export default {
-  props: {
-    entity: {
-      type: Object,
-      required: false,
-      default: () => ({})
-    }
-  },
   data () {
     return {
       model: {
         password: '',
         newPassword: ''
       },
-      rules: settingsRules
+      rules: passwordRules
     }
   },
   methods: {

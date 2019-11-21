@@ -62,7 +62,6 @@
 <script>
 import PostTable from '@/components/admin/PostTable'
 import BasePagination from '@/components/public/BasePagination'
-
 import RubricMixin from '@/mixins/RubricMixin'
 import PostMixin from '@/mixins/PostMixin'
 

@@ -8,7 +8,10 @@ export default function ({ $axios, $auth, redirect }) {
   })
 
   $axios.onError((err) => {
-    switch (err.response.status) {
+    const status = err &&
+                   err.response &&
+                   err.response.status
+    switch (status) {
       case 404:
         redirect('/error')
         break

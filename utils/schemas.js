@@ -15,3 +15,10 @@ export const rubricSchema = morphism({
   title: 'title',
   title_kg: 'title_kg'
 })
+
+export const promoSchema = morphism({
+  promo_url: 'promo_url',
+  image_url: 'image_url',
+  position: ({ position }) => position || 'header_main',
+  active: ({ active }) => active || false
+})
