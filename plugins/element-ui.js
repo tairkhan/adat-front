@@ -23,6 +23,7 @@ import {
   Notification,
   Menu,
   MenuItem,
+  Submenu,
   Dialog
 } from 'element-ui'
 
@@ -54,5 +55,6 @@ Vue.use(Pagination)
 // Nav
 Vue.use(Menu)
 Vue.use(MenuItem)
+Vue.use(Submenu)
 // Others
 Vue.use(Dialog)
