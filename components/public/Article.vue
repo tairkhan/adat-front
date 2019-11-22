@@ -4,7 +4,7 @@
       {{ $dayjs(data.created_at).format('lll') }}
     </span>
     <h1> {{ data[$t('title')] }} </h1>
-    <div>
+    <div class="mb-4">
       <img class="w-full" :src="data.cover_image_url">
     </div>
 
@@ -38,7 +38,7 @@ export default {
 
 @screen lg {
   .article {
-    @apply w-2/3;
+    @apply w-6/12;
   }
 }
 </style>
