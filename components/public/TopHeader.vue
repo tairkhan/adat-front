@@ -2,16 +2,16 @@
   <div class="flex flex-wrap justify-between py-1 text-white text-xs" style="background-color: #171717;">
     <div class="flex">
       <div v-if="currencies.USD">
-        <span class="mr-2 text-sm">$ {{ currencies.USD }}</span>
+        <span class="mr-4 text-sm">$ {{ currencies.USD }}</span>
       </div>
       <div v-if="currencies.EUR">
-        <span class="mr-2 text-sm">€ {{ currencies.EUR }}</span>
+        <span class="mr-4 text-sm">€ {{ currencies.EUR }}</span>
       </div>
       <div v-if="currencies.RUB">
-        <span class="mr-2 text-sm">₽ {{ currencies.RUB }}</span>
+        <span class="mr-4 text-sm">₽ {{ currencies.RUB }}</span>
       </div>
       <div v-if="currencies.KZT">
-        <span class="mr-2 text-sm">₸ {{ currencies.KZT }}</span>
+        <span class="mr-4 text-sm">₸ {{ currencies.KZT }}</span>
       </div>
     </div>
 
