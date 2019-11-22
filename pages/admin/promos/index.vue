@@ -1,10 +1,10 @@
 <template>
   <div>
     <base-pagination
-      :page-size="rubricPageSize"
-      :total="totalRubrics"
-      :current-page="rubricPage"
-      @current-change="rubricPageChange"
+      :page-size="promoPageSize"
+      :total="totalPromos"
+      :current-page="promoPage"
+      @current-change="promoPageChange"
     />
 
     <promo-table :data="promos" @delete="onDelete" />

@@ -26,7 +26,6 @@
             type="danger"
             @click="$emit('delete', row)"
           >
-            {{ row.active }}
             Удалить
           </el-button>
         </el-button-group>

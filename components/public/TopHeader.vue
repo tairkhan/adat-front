@@ -1,22 +1,22 @@
 <template>
   <div class="flex flex-wrap justify-between py-1 text-white text-xs" style="background-color: #171717;">
     <div class="flex">
-      <div :class="!currencies.USD ? 'invisible' : ''" v-show="currencies.USD" class="mr-4 flex items-center">
+      <div v-if="currencies.USD">
         <span class="mr-2 text-sm">$ {{ currencies.USD }}</span>
       </div>
-      <div :class="!currencies.EUR ? 'invisible' : ''" class="mr-4 flex items-center">
+      <div v-if="currencies.EUR">
         <span class="mr-2 text-sm">€ {{ currencies.EUR }}</span>
       </div>
-      <div :class="!currencies.RUB ? 'invisible' : ''" class="mr-4 flex items-center">
+      <div v-if="currencies.RUB">
         <span class="mr-2 text-sm">₽ {{ currencies.RUB }}</span>
       </div>
-      <div :class="!currencies.KZT ? 'invisible' : ''" class="mr-4 flex items-center">
+      <div v-if="currencies.KZT">
         <span class="mr-2 text-sm">₸ {{ currencies.KZT }}</span>
       </div>
     </div>
 
-    <div class="flex">
-      <div class="flex mr-12">
+    <div class="flex justify-between w-full lg:w-auto">
+      <div class="flex lg:mr-12">
         <nuxt-link class="mr-4" :to="switchLocalePath('ru')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag1.png">
