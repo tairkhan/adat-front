@@ -17,6 +17,13 @@ module.exports = {
       repo: 'git@github.com:AdiletSot/adat-front.git',
       path: '/home/developer/adat-front',
       'post-deploy': 'npm ci && npm run build && pm2 startOrGracefulReload ecosystem.config.js'
+    },
+    production: {
+      user: 'root',
+      host: ['176.126.166.48'],
+      ref: 'origin/master',
+      repo: 'git@github.com:AdiletSot/adat-front.git',
+      path: '/root/adat-front'
     }
   }
 }
