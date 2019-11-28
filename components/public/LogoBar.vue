@@ -1,11 +1,11 @@
 <template>
   <div class="bg-red-600 flex flex-col justify-between lg:items-center lg:flex-row pb-2 lg:pb-0">
-    <div class="py-2 lg:py-8">
-      <nuxt-link :to="localePath('index')" class="inline-block leading-tight text-white">
+    <div class="py-2 lg:py-8" style="color: #ffc633;">
+      <nuxt-link :to="localePath('index')" class="inline-block leading-tight">
         <span class="font-bold text-4xl">
           ADAT.kg
         </span>
-        <p class="text-sm text-white">
+        <p class="text-sm" style="color: #ffc633;">
           {{ $t('logo') }}
         </p>
       </nuxt-link>
