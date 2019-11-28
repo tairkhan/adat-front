@@ -34,6 +34,7 @@
           >
             Редактировать
           </el-button>
+
           <el-button
             v-else
             class="w-1/2"
@@ -41,6 +42,7 @@
           >
             Восстановить
           </el-button>
+
           <el-button
             class="w-1/2"
             type="danger"

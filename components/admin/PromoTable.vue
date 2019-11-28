@@ -12,7 +12,7 @@
       </template>
     </el-table-column>
 
-    <el-table-column label="Действия">
+    <el-table-column label="Действия" width="350">
       <template #default="{ row }">
         <el-button-group class="w-full">
           <el-button
