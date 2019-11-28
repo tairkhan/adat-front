@@ -3,7 +3,9 @@
     <span class="text-gray-800 text-xs uppercase">
       {{ $dayjs(data.created_at).format('lll') }}
     </span>
-    <h1> {{ data[$t('title')] }} </h1>
+    <h1 class="leading-tight">
+      {{ data[$t('title')] }}
+    </h1>
     <div class="mb-4">
       <img class="w-full" :src="data.cover_image_url">
     </div>

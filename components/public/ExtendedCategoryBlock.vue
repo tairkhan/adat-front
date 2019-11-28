@@ -15,7 +15,7 @@
           </nuxt-link>
 
           <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
-            <h3 class="mt-5">
+            <h3 class="mt-5 uppercase">
               {{ item[$t('title')] }}
             </h3>
           </nuxt-link>
