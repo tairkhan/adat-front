@@ -4,14 +4,14 @@
       v-for="(item, i) in posts"
       :key="i"
       :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
-      class="mt-8"
+      class="news-block"
     >
       <div
         v-if="i === 0"
         class="h-64"
         :style="style(item)"
       >
-        <div class="flex flex-col justify-end h-full p-4">
+        <div class="news-block__info">
           <div class="w-full text-white font-bold w-full uppercase">
             {{ item[$t('title')] }}
           </div>
@@ -62,5 +62,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.news-block {
+  @apply mt-8;
 
+  &:hover &__info {
+    background-color: rgba(0, 0, 0, .3);
+  }
+
+  &__info {
+    @apply flex flex-col justify-end h-full p-4;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+    transition: all .25s;
+  }
+}
 </style>
