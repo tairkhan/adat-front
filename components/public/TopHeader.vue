@@ -16,17 +16,17 @@
     </div>
 
     <div class="flex justify-between w-full lg:w-auto">
-      <div class="flex lg:mr-12">
-        <nuxt-link class="mr-4" :to="switchLocalePath('ru')">
+      <div class="flex lg:mr-12 text-gray-500">
+        <nuxt-link class="mr-4 hover:text-white" :to="switchLocalePath('ru')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag1.png">
-            РУ
+            <span :class="{ 'text-white': $i18n.locale === 'ru' }">РУ</span>
           </div>
         </nuxt-link>
-        <nuxt-link :to="switchLocalePath('kg')">
+        <nuxt-link class="hover:text-white" :to="switchLocalePath('kg')">
           <div class="flex items-center">
             <img class="mr-2" src="/flag2.png">
-            КГ
+            <span :class="{ 'text-white': $i18n.locale === 'kg' }">КГ</span>
           </div>
         </nuxt-link>
       </div>
