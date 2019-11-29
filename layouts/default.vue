@@ -1,11 +1,15 @@
 <template>
-  <div class="default-layout">
-    <top-header class="px-2 md:px-20 lg:px-32" />
-    <logo-bar class="px-2 md:px-20 lg:px-32" />
-    <navbar class="px-2 md:px-20 lg:px-32 shadow-md" />
-    <div class="px-2 md:px-20 lg:px-32 flex-1 my-5">
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <top-header class="px-2 md:px-20 lg:px-32" />
+      <logo-bar class="px-2 md:px-20 lg:px-32" />
+      <navbar class="px-2 md:px-20 lg:px-32 shadow-lg" />
+    </div>
+
+    <div class="px-2 md:px-20 lg:px-32 flex-1 mt-5 mb-16">
       <nuxt />
     </div>
+
     <Footer class="px-2 md:px-20 lg:px-32" />
   </div>
 </template>
@@ -35,7 +39,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.default-layout {
-  @apply min-h-screen flex flex-col;
-}
+
 </style>
