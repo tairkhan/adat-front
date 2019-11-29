@@ -6,7 +6,7 @@
       <navbar class="px-2 md:px-20 lg:px-32 shadow-lg" />
     </div>
 
-    <div class="px-2 md:px-20 lg:px-32 flex-1 mt-5 mb-16">
+    <div class="px-2 md:px-20 lg:px-32 flex-1 mt-6 mb-16">
       <nuxt />
     </div>
 

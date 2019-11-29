@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slider class="mb-5" />
+    <slider class="mb-6" />
 
     <main-block />
 

@@ -1,5 +1,9 @@
 <template>
   <div>
+    <h1 class="mb-6">
+      {{ title }}
+    </h1>
+
     <div class="flex flex-wrap">
       <nuxt-link
         v-for="(item, i) in posts"
@@ -7,16 +11,16 @@
         :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })"
         class="mb-4 md:mr-4 lg:mr-4 w-full md:w-5/12 lg:w-3/12"
       >
-        <div class="h-56 w-full border" :style="style(item)"></div>
+        <div class="h-64 w-full" :style="style(item)"></div>
 
-        <div class="border-t pt-1 pb-4 px-2">
+        <div class="pt-1 pb-4 px-2">
           <h3>
             {{ item[$t('title')] }}
           </h3>
 
-          <div class="my-2 text-gray-800 text-sm">
+          <p class="my-3 text-gray-800">
             <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('ll') }}
-          </div>
+          </p>
         </div>
       </nuxt-link>
     </div>
@@ -41,6 +45,11 @@ export default {
     BasePagination
   },
   mixins: [Mixin, PostMixin],
+  computed: {
+    title () {
+      return this.rubric ? this.rubric[this.$t('title')] : this.$t('rubrics.all')
+    }
+  },
   async asyncData ({ $axios, params }) {
     let rubric = null
     if (params.slug) {
@@ -53,7 +62,7 @@ export default {
   },
   head () {
     return {
-      title: this.rubric ? this.rubric[this.$t('title')] : this.$t('rubrics.all')
+      title: this.title
     }
   },
   created () {

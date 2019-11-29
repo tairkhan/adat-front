@@ -16,7 +16,7 @@ export default {
       const cover = this.extractCover(item)
 
       return {
-        background: `gray url('${cover}') no-repeat center`,
+        background: `url('${cover}') no-repeat center`,
         'background-size': 'cover'
       }
     },

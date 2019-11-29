@@ -1,6 +1,6 @@
 <template>
   <div v-if="posts.length >= 4" class="main-block flex-col lg:flex-row">
-    <div class="news-block lg:border-r-4 lg:w-1/2" :style="style(posts[0])">
+    <div class="news-block lg:border-r-8 lg:w-1/2" :style="style(posts[0])">
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[0][$t('slug')] } })">
         <div class="news-block__info">
           <span class="tag">
@@ -31,7 +31,7 @@
       </div>
 
       <div class="flex flex-col h-full md:flex-row">
-        <div class="news-block w-full md:border-r-4 lg:text-xs lg:w-1/2" :style="style(posts[2])">
+        <div class="news-block w-full md:border-r-8 lg:text-xs lg:w-1/2" :style="style(posts[2])">
           <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: posts[2][$t('slug')] } })">
             <div class="news-block__info">
               <span class="tag">
@@ -82,7 +82,7 @@ export default {
 }
 
 .news-block {
-  @apply border-white border-b-4;
+  @apply border-white border-b-8;
 
   &:hover &__info {
     background-color: rgba(0, 0, 0, .3);
