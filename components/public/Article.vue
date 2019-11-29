@@ -1,8 +1,8 @@
 <template>
   <div class="article">
-    <span class="text-gray-800 text-xs uppercase">
+    <p class="text-gray-800">
       {{ $dayjs(data.created_at).format('lll') }}
-    </span>
+    </p>
     <h1>
       {{ data[$t('title')] }}
     </h1>
