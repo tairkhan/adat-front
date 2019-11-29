@@ -35,6 +35,10 @@ h6 {
   @apply text-xs;
 }
 
+p {
+  @apply leading-snug;
+}
+
 a, button:focus {
   @apply outline-none;
 }
@@ -66,6 +70,14 @@ ul {
   @apply py-1 px-2 bg-yellow-500 text-black uppercase text-xs font-bold rounded;
 }
 
+a:hover .news-block__info {
+  background-color: rgba(0, 0, 0, .2)
+}
+
+.news-block__info {
+  transition: all .25s;
+}
+
 .article h1,
 .article h2,
 .article h3,
@@ -78,6 +90,10 @@ ul {
 .article blockquote,
 .article em {
   @apply block mb-2;
+}
+
+.article p {
+  @apply leading-relaxed;
 }
 
 .article a {

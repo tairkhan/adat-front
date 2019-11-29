@@ -65,14 +65,9 @@ export default {
 .news-block {
   @apply mt-8;
 
-  &:hover &__info {
-    background-color: rgba(0, 0, 0, .3);
-  }
-
   &__info {
     @apply flex flex-col justify-end h-full p-4;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-    transition: all .25s;
   }
 }
 </style>

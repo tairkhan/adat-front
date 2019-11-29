@@ -3,7 +3,7 @@
     <span class="text-gray-800 text-xs uppercase">
       {{ $dayjs(data.created_at).format('lll') }}
     </span>
-    <h1 class="leading-tight">
+    <h1>
       {{ data[$t('title')] }}
     </h1>
     <div class="mb-4">

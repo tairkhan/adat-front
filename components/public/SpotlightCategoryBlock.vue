@@ -47,14 +47,9 @@ export default {
 
 <style lang="scss" scoped>
 .news-block {
-  &:hover &__info {
-    background-color: rgba(0, 0, 0, .3);
-  }
-
   &__info {
     @apply flex flex-col justify-center h-full p-4 text-center;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
-    transition: all .25s;
   }
 
   .tag {

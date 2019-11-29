@@ -12,19 +12,17 @@
                 <span class="tag">{{ item.rubrics[0][$t('title')] }}</span>
               </div>
             </div>
-          </nuxt-link>
 
-          <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
             <h3 class="mt-5 uppercase">
               {{ item[$t('title')] }}
             </h3>
+
+            <div class="my-2 text-gray-800 text-sm">
+              <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('ll') }}
+            </div>
+
+            <p v-html="excerpt(item[$t('content')])"></p>
           </nuxt-link>
-
-          <div class="my-2 text-gray-800 text-sm">
-            <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('ll') }}
-          </div>
-
-          <p v-html="excerpt(item[$t('content')])"></p>
         </div>
       </div>
     </div>
