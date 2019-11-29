@@ -2,17 +2,6 @@ body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-.page-enter-active, .page-leave-active {
-  transition: opacity .3s;
-}
-.page-enter, .page-leave-active {
-  opacity: 0;
-}
-
-a, button:focus {
-  @apply outline-none;
-}
-
 h1,
 h2,
 h3,
@@ -23,7 +12,31 @@ h6 {
 }
 
 h1 {
-  font-size: 2rem;
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h4 {
+  @apply text-base;
+}
+
+h5 {
+  @apply text-sm;
+}
+
+h6 {
+  @apply text-xs;
+}
+
+a, button:focus {
+  @apply outline-none;
 }
 
 a:hover h3 {
@@ -36,6 +49,21 @@ p, em, blockquote, figcaption {
 
 ul {
   padding: revert;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .3s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+.category-title {
+  @apply inline-block py-0 px-2 bg-red-600 text-white uppercase;
+}
+
+.tag {
+  @apply py-1 px-2 bg-yellow-500 text-black uppercase text-xs font-bold rounded;
 }
 
 .article h1,
@@ -58,12 +86,4 @@ ul {
 
 .article blockquote {
   @apply border-l-8 border-gray-500 py-1 pl-4 pr-1;
-}
-
-.tag {
-  @apply py-1 px-2 bg-yellow-500 text-black uppercase text-xs font-bold rounded;
-}
-
-.category-title {
-  @apply inline-block py-0 px-2 bg-red-600 text-white uppercase;
 }
