@@ -57,7 +57,7 @@
       <span class="font-bold">Настройки</span>
     </el-menu-item>
 
-    <el-menu-item index="" @click="$auth.logout()">
+    <el-menu-item index="" @click="onLogout">
       <fa-icon icon="sign-out-alt" class="fa-fw" size="lg" />
       <span class="font-bold">Выйти</span>
     </el-menu-item>
@@ -66,7 +66,11 @@
 
 <script>
 export default {
-
+  methods: {
+    async onLogout () {
+      await this.$auth.logout()
+    }
+  }
 }
 </script>
 
