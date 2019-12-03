@@ -61,7 +61,6 @@ export default {
     }
 
     const category = params.slug
-    const status = 'published'
     return { rubric, category, status }
   },
   head () {

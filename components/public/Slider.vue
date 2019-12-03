@@ -29,7 +29,6 @@ export default {
   },
   async created () {
     this.postPageSize = 3
-    this.status = 'published'
 
     await this.fetchPosts()
     return this.timer
