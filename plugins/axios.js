@@ -1,7 +1,7 @@
 export default function ({ $axios, $auth, redirect }) {
   $axios.onResponse((response) => {
     const freshToken = response.headers.fresh_token
-    if (freshToken) {
+    if ($auth.loggedIn && freshToken) {
       $auth.setToken('local', freshToken)
       $axios.setHeader('authorization', freshToken)
     }
@@ -14,6 +14,10 @@ export default function ({ $axios, $auth, redirect }) {
     switch (status) {
       case 404:
         redirect('/error')
+        break
+
+      case 401:
+        $auth.logout()
         break
 
       default:
