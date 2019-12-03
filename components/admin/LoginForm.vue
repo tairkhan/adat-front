@@ -26,9 +26,18 @@
       </el-input>
     </el-form-item>
 
-    <el-button class="w-full" type="primary" @click="onSubmit">
-      Войти
-    </el-button>
+    <el-form-item>
+      <el-button class="w-full" type="primary" @click="onSubmit">
+        Войти
+      </el-button>
+    </el-form-item>
+
+    <el-form-item>
+      <el-button plain size="mini" @click="$router.push('/')">
+        <fa-icon icon="arrow-left" class="fa-fw" />
+        Вернуться на сайт
+      </el-button>
+    </el-form-item>
   </el-form>
 </template>
 
