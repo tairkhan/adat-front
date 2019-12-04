@@ -62,7 +62,7 @@ export default {
     }
 
     const category = params.slug
-    return { isPublic, rubric, category, status }
+    return { isPublic, rubric, category }
   },
   head () {
     return {
