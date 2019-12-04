@@ -39,6 +39,7 @@ export default {
     }
   },
   async created () {
+    this.isPublic = true
     this.promoPageSize = 2
     await this.fetchPromos()
     this.promos.map((result) => {
