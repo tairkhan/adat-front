@@ -17,7 +17,9 @@ export default function ({ $axios, $auth, redirect }) {
         break
 
       case 401:
-        $auth.logout()
+        if ($auth.loggedIn) {
+          $auth.logout()
+        }
         break
 
       default:
