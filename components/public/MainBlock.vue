@@ -68,6 +68,7 @@ import PostMixin from '@/mixins/PostMixin'
 export default {
   mixins: [Mixin, PostMixin],
   created () {
+    this.isPublic = true
     this.postPageSize = 4
     this.on_main_page = true
     this.fetchPosts()

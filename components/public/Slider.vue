@@ -28,6 +28,7 @@ export default {
     }
   },
   async created () {
+    this.isPublic = true
     this.postPageSize = 3
 
     await this.fetchPosts()

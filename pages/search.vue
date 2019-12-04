@@ -71,6 +71,9 @@ export default {
       }
     }
   },
+  created () {
+    this.isPublic = true
+  },
   methods: {
     downloadMore () {
       this.postPage += 1

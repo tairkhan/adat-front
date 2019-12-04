@@ -65,7 +65,7 @@ export default {
           rubrics: [
             {
               index: 0,
-              class: 'mt-8 pr-8 w-full lg:w-2/3',
+              class: 'mt-6 pr-8 w-full lg:w-2/3',
               component: 'extended-category-block'
             },
             {

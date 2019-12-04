@@ -1,6 +1,7 @@
 export default {
   data () {
     return {
+      isPublic: false,
       postPage: 1,
       postPageSize: 10,
       category: null,
@@ -13,6 +14,7 @@ export default {
   },
   methods: {
     async fetchPosts () {
+      const prefix = this.isPublic ? '/public' : ''
       const params = { page: this.postPage, page_size: this.postPageSize }
 
       if (this.category) {
@@ -31,7 +33,7 @@ export default {
         params.on_main_page = this.on_main_page
       }
 
-      const data = await this.$axios.$get('posts', { params })
+      const data = await this.$axios.$get(`posts${prefix}`, { params })
       this.posts = data.results
       this.totalPosts = data.total
     },

@@ -30,6 +30,7 @@ export default {
     }
   },
   created () {
+    this.isPublic = true
     this.postPageSize = 4
     if (this.rubric) {
       this.category = this.rubric[this.$t('slug')]

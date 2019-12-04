@@ -55,13 +55,14 @@ export default {
     }
   },
   async asyncData ({ $axios, params }) {
+    const isPublic = true
     let rubric = null
     if (params.slug) {
-      rubric = await $axios.$get(`rubrics/${params.slug}`)
+      rubric = await $axios.$get(`rubrics/public/${params.slug}`)
     }
 
     const category = params.slug
-    return { rubric, category, status }
+    return { isPublic, rubric, category, status }
   },
   head () {
     return {

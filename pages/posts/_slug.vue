@@ -14,7 +14,7 @@ export default {
   },
   mixins: [Mixin],
   async asyncData ({ $axios, params }) {
-    const data = await $axios.$get(`posts/${params.slug}`)
+    const data = await $axios.$get(`posts/public/${params.slug}`)
     return { data }
   },
   head () {

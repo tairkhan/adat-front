@@ -14,7 +14,7 @@ export const actions = {
       throw new TypeError('[index/fetch]: params should be an object')
     }
 
-    const data = await this.$axios.$get('rubrics', { params })
+    const data = await this.$axios.$get('rubrics/public', { params })
     commit('SET_DATA', { data })
   }
 }
