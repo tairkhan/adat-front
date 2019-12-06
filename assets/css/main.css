@@ -63,7 +63,7 @@ ul {
 }
 
 .category-title {
-  @apply inline-block py-0 px-2 bg-red-600 text-white uppercase;
+  @apply inline-block py-0 px-2 bg-red-600 text-white uppercase leading-normal;
 }
 
 .tag {

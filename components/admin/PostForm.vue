@@ -59,7 +59,17 @@
           </el-form-item>
 
           <el-form-item v-if="model.cover_image_url">
-            <img class="inline-block h-32 border rounded" :src="model.cover_image_url">
+            <div class="relative inline-block">
+              <img class="inline-block h-32 border rounded" :src="model.cover_image_url">
+
+              <div
+                class="absolute top-0 w-full h-full flex justify-center items-center text-white cursor-pointer opacity-0 hover:bg-black hover:opacity-75 rounded"
+                style="transition: all .25s;"
+                @click="model.cover_image_url = ''"
+              >
+                <fa-icon icon="window-close" class="fa-fw" size="3x" />
+              </div>
+            </div>
           </el-form-item>
 
           <el-form-item label="Статус" prop="status">
