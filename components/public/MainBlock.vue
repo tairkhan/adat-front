@@ -10,7 +10,7 @@
             {{ posts[0][$t('title')] }}
           </div>
           <span class="news-block__date">
-            <span class="font-bold">АДАТ</span> {{ $dayjs(posts[0].created_at).format('ll') }}
+            <span class="font-bold">Адат</span> {{ $dayjs(posts[0].created_at).format('ll') }}
           </span>
         </div>
       </nuxt-link>

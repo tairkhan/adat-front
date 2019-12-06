@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <div class="mb-2 text-gray-800 text-sm">
-        <span class="font-bold">АДАТ</span> - {{ $dayjs(item.created_at).format('ll') }}
+        <span class="font-bold">Адат</span> - {{ $dayjs(item.created_at).format('ll') }}
       </div>
 
       <p v-html="excerpt(item[$t('content')])"></p>

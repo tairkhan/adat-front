@@ -22,7 +22,7 @@
         </h3>
 
         <p class="my-2 text-gray-800">
-          <span class="font-bold">АДАТ</span> {{ $dayjs(item.created_at).format('ll') }}
+          <span class="font-bold">Адат</span> {{ $dayjs(item.created_at).format('ll') }}
         </p>
 
         <p v-html="excerpt(item[$t('content')])"></p>
