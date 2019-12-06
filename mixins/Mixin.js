@@ -34,8 +34,8 @@ export default {
         return item.cover_image_url
       }
 
-      const source = embed.data.source.split('=')
-      const result = source[source.length - 1]
+      const pattern = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*?[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig
+      const result = embed.data.source.replace(pattern, '$1')
 
       return `https://i.ytimg.com/vi/${result}/mqdefault.jpg`
     },
