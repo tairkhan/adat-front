@@ -3,7 +3,7 @@
     <div
       v-for="(item, i) in posts"
       :key="i"
-      class="border mt-8 lg:pr-8 w-full lg:w-1/3"
+      class="mt-8 lg:pr-8 w-full lg:w-1/3"
     >
       <nuxt-link :to="localePath({ name: 'posts-slug', params: { slug: item[$t('slug')] } })">
         <h3 class="mb-2 uppercase">
