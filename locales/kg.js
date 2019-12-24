@@ -11,6 +11,7 @@ export default {
     all: 'Бардык жаңылыктар'
   },
   footer: {
+    siteEditor: 'Сайт редактору',
     advertising: 'Реклама',
     contacts: 'Байланышуу жана кызматташтык',
     rules: 'Колдонуу эрежелери',

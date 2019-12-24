@@ -11,6 +11,7 @@ export default {
     all: 'Все статьи'
   },
   footer: {
+    siteEditor: 'Редактор сайта',
     advertising: 'Реклама',
     contacts: 'Контакты и сотрудничество',
     rules: 'Правила использования',

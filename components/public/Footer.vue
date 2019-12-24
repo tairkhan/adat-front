@@ -70,8 +70,13 @@
     </div>
 
     <div class="flex flex-wrap justify-between text-gray-500">
-      <div>
-        © {{ $t('footer.rights') }} {{ new Date().getFullYear() }}
+      <div class="flex flex-col w-full lg:flex-row lg:w-auto">
+        <div class="mr-8">
+          © {{ $t('footer.rights') }} {{ new Date().getFullYear() }}
+        </div>
+        <div>
+          {{ $t('footer.siteEditor') }} - Марс Сариев
+        </div>
       </div>
 
       <div class="flex flex-col w-full lg:flex-row lg:w-auto">
