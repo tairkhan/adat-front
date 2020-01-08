@@ -6,11 +6,11 @@
     <h1>
       {{ data[$t('title')] }}
     </h1>
-    <div class="mb-4">
+    <div v-if="!isVideo">
       <img class="w-full" :src="data.cover_image_url">
     </div>
 
-    <div v-html="html"></div>
+    <div class="mt-4" v-html="html"></div>
   </div>
 </template>
 
@@ -26,6 +26,9 @@ export default {
     }
   },
   computed: {
+    isVideo () {
+      return this.data.rubrics.filter(rubric => (rubric.slug === 'video')).length > 0
+    },
     html () {
       return this.parseHtml(this.data[this.$t('content')])
     }
