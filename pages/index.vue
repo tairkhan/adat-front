@@ -4,7 +4,7 @@
 
     <main-block />
 
-    <div v-if="results.length >= 7">
+    <div v-if="results.length >= 8">
       <div
         v-for="(row, i) in layout"
         :key="i"
@@ -100,6 +100,16 @@ export default {
           rubrics: [
             {
               index: 4,
+              class: '',
+              component: 'spotlight-category-block'
+            }
+          ]
+        },
+        {
+          class: 'mt-8 w-full',
+          rubrics: [
+            {
+              index: 8,
               class: '',
               component: 'spotlight-category-block'
             }

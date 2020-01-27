@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     isVideo () {
-      return this.data.rubrics.filter(rubric => (rubric.slug === 'video')).length > 0
+      return this.data.rubrics.filter(rubric => (rubric.slug === 'video' || rubric.slug === 'skrytaya-kamera')).length > 0
     },
     html () {
       return this.parseHtml(this.data[this.$t('content')])

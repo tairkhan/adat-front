@@ -2,7 +2,7 @@ export default {
   data () {
     return {
       page: 1,
-      pageSize: 8,
+      pageSize: 9,
       sortDirection: 'asc'
     }
   },
