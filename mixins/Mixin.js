@@ -21,7 +21,7 @@ export default {
       }
     },
     extractCover (item) {
-      const isVideo = item.rubrics.find(rubric => rubric.slug === 'video')
+      const isVideo = item.rubrics.find(rubric => rubric.slug === 'video' || rubric.slug === 'skrytaya-kamera')
       const content = JSON.parse(item[this.$t('content')])
       const blocks = content.blocks
 
